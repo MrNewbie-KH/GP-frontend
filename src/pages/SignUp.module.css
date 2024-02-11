@@ -1,6 +1,9 @@
 .signupPageBox {
-  margin: 0 auto;
+  margin: 100px auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  width: 60%;
+  background-color: white;
+  border-radius: 12px;
 }

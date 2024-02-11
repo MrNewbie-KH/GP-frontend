@@ -12,4 +12,3 @@ function SignUp() {
   );
 }
 export default SignUp;
-// 1- provide field email, f-name, l-name ,password, phone! , birthday! , photo!

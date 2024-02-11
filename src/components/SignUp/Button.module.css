@@ -1,0 +1,34 @@
+.btn {
+  display: block;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: var(--main-light);
+  background-color: var(--secondary-dark);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.btn:hover {
+  background-color: #7923dc;
+}
+.google:hover {
+  background-color: red;
+  color: var(--main-light);
+}
+.facebook:hover {
+  background-color: blue;
+  color: var(--main-light);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
