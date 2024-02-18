@@ -9,7 +9,6 @@
   background-color: var(--secondary-dark);
   border-radius: 100px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
   margin-top: 10px;
   width: 100%;
   display: flex;
@@ -20,6 +19,7 @@
 }
 .btn:hover {
   background-color: #7923dc;
+  transition: background-color 0.3s ease;
 }
 .google:hover {
   background-color: red;

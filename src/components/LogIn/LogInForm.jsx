@@ -29,6 +29,7 @@ function LogInForm() {
         <input
           type="email"
           name="email"
+          className={style.test}
           placeholder="test@test.com"
           value={formData.email}
           onChange={handleChange}
@@ -40,6 +41,7 @@ function LogInForm() {
         <input
           type="password"
           name="password"
+          className={style.test}
           placeholder="password"
           value={formData.password}
           onChange={handleChange}
@@ -52,5 +54,3 @@ function LogInForm() {
 }
 
 export default LogInForm;
-
-// 1- provide field email, f-name, l-name ,password, phone! , birthday! , photo!

@@ -8,7 +8,9 @@ function LogInCard() {
   return (
     <div className={style.card}>
       <h1>Log In</h1>
-      <p>Don't have an account? Sign Up</p>
+      <p>
+        Don't have an account? <a href="">Sign Up</a>
+      </p>
       <LogInForm />
       <h1 className={style.separator}>OR</h1>
       <Button variant="facebook">
