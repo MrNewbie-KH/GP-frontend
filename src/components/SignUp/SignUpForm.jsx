@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import style from "./SignUpForm.module.css";
 import Button from "./Button.jsx";
+import axios from "axios";
+// -----------------------
+const initialState = {
+  email: "",
+  firstName: "",
+  lastName: "",
+  password: "",
+  phone: "",
+  birthday: "",
+  // photo: null,
+};
 function SignupForm() {
-  const [formData, setFormData] = useState({
-    email: "",
-    firstName: "",
-    lastName: "",
-    password: "",
-    phone: "",
-    birthday: "",
-    photo: null,
-  });
+  // state part
+  const [formData, setFormData] = useState(initialState);
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -21,14 +25,22 @@ function SignupForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission with formData
-    console.log(formData);
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/register",
+        formData
+      );
+      console.log("Registered successfully with data:", formData);
+      setFormData(initialState);
+    } catch (error) {
+      console.error("Error  :", error.message);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} encType="">
+    <form onSubmit={handleSubmit} encType="multipart/form-data">
       <div className={style.formRow}>
         <label>Email:</label>
         <input
@@ -108,5 +120,3 @@ function SignupForm() {
 }
 
 export default SignupForm;
-
-// 1- provide field email, f-name, l-name ,password, phone! , birthday! , photo!

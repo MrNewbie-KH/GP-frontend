@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import SignUpForm from "./SignUpForm";
 import style from "./SignUpCard.module.css";
 import Button from "./Button";
