@@ -1,0 +1,19 @@
+.hero {
+  margin: auto;
+  font-size: 18px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.spanPart {
+  font-size: 64px;
+  color: var(--dark-2);
+}
+.studyParagraph {
+  color: black;
+  font-weight: 700;
+  font-size: 48px;
+}
