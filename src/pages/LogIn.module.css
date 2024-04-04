@@ -1,9 +1,0 @@
-.LogInPageBox {
-  margin: 1% auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
-  background-color: white;
-  border-radius: 12px;
-}

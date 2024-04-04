@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import style from "./SignUpForm.module.css";
 import Button from "./Button.jsx";
 import axios from "axios";
 // -----------------------
@@ -47,7 +46,7 @@ function SignupForm() {
 
   return (
     <form onSubmit={handleSubmit} encType="multipart/form-data">
-      <div className={style.formRow}>
+      <div className="formRow">
         <label>Email:</label>
         <input
           type="email"
@@ -57,8 +56,8 @@ function SignupForm() {
           required
         />
       </div>
-      <div className={style.formRow}>
-        <div className={style.names}>
+      <div className="formRow">
+        <div className="names">
           <div>
             <label>First Name:</label>
             <input
@@ -81,7 +80,7 @@ function SignupForm() {
           </div>
         </div>
       </div>
-      <div className={style.formRow}>
+      <div className="formRow">
         <label>Password:</label>
         <input
           type="password"
@@ -91,7 +90,7 @@ function SignupForm() {
           required
         />
       </div>
-      <div className={style.formRow}>
+      <div className="formRow">
         <label>Phone Number:</label>
         <input
           type="tel"
@@ -101,7 +100,7 @@ function SignupForm() {
           required
         />
       </div>
-      <div className={style.formRow}>
+      <div className="formRow">
         <label>Birthday:</label>
         <input
           type="date"
@@ -111,7 +110,7 @@ function SignupForm() {
           required
         />
       </div>
-      <div className={style.formRow}>
+      <div className="formRow">
         <label>Photo:</label>
         <input
           type="file"

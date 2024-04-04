@@ -1,9 +1,8 @@
 import SignUpCard from "../components/SignUp/SignUpCard";
 import SignUpImage from "../components/SignUp/SignUpImage";
-import style from "./SignUp.module.css";
 function SignUp() {
   return (
-    <div className={style.signupPageBox}>
+    <div className="signupPageBox">
       {/* left hand side the main component */}
       <SignUpCard />
       {/* right hand side the image component */}

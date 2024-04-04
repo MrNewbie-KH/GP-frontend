@@ -1,11 +1,12 @@
 import NavBar from "../components/HomePage/NavBar";
 import Hero from "../components/HomePage/Hero";
-import style from "./HomePage.module.css";
+import CategoriesPanel from "../components/HomePage/CategoriesPanel.jsx";
 function HomePage() {
   return (
-    <div className={style.homePage}>
+    <div >
       <NavBar />
       <Hero />
+      <CategoriesPanel />
     </div>
   );
 }

@@ -1,13 +1,12 @@
 import Logo from "../Logo";
-import style from "./NavBar.module.css";
 function NavBar() {
   return (
-    <div className={style.navbar}>
+    <div className="navbar">
       <Logo />
       <h3>Home</h3>
       <h3>Courses</h3>
       <h3>Categories</h3>
-      <div className={style.logged}>
+      <div className="logged">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

@@ -1,7 +1,4 @@
 :root {
-  /* --main-dark: #00334e;
-  --main-light: #e8e8e8;
-  --secondary-dark: #0359e0; */
   --secondary-light: #5588a3;
   --main-light: #e0f7fa;
   --light-2: #b2ebf2;
@@ -13,10 +10,305 @@
   --dark-3: #00acc1;
   --dark-4: #00bcd4;
 }
+* {
+  padding: 0;
+  margin: 0;
+}
 body {
   background-color: var(--main-light);
 }
 
 h1 {
   color: var(--main-dark);
+}
+.logo {
+  color: var(--main-dark);
+  font-size: 48px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.searchBar {
+  width: 35%;
+  background-color: rgba(255, 255, 255, 0.744);
+  padding: 16px;
+  border: 1px solid var(--dark-3);
+}
+/* -------------------------------------- */
+/* BUTTON */
+.btn {
+  display: block;
+  padding: 15px;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: var(--main-light);
+  background-color: var(--secondary-dark);
+  border-radius: 100px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: none;
+}
+.btn:hover {
+  background-color: #7923dc;
+  transition: background-color 0.3s ease;
+}
+.google:hover {
+  background-color: red;
+  color: var(--main-light);
+}
+.facebook:hover {
+  background-color: blue;
+  color: var(--main-light);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+/* ------------------------------ */
+/* sign up card */
+.card {
+  /* background-color: var(--main-dark); */
+  margin: 0 auto;
+  padding: 50px;
+  width: 50%;
+  border-radius: 50px;
+  color: var(--main-dark);
+  font-family: sans-serif;
+}
+.separator {
+  position: relative;
+  text-align: center;
+  margin: 20px 0;
+}
+/* ------------------------------------- */
+/* signup form */
+.formRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+}
+
+input {
+  border-radius: 100px;
+  padding: 10px 0 10px 10px;
+  width: 100%;
+  background-color: #f1f1f1;
+}
+input:hover {
+  border: 1px solid var(--main-dark);
+}
+label {
+  font-size: 18px;
+}
+.names {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  gap: 24px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+/* ----------sign up image ---------- */
+.signup-image {
+  width: 60%;
+}
+
+/* ------------------ */
+.formRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+input {
+  padding: 15px;
+  border-radius: 100px; /* Adjust the value to control the roundness of the ellipse */
+  border: 1px solid #ccc;
+  width: 100%;
+  background-color: #f1f1f1;
+}
+label {
+  font-size: 18px;
+  margin: 25px 0px 10px 0px;
+}
+
+/* ---------login image */
+.login-image {
+  width: 55%;
+}
+/* ========================================== */
+/* HOMEPAGE */
+/* ------------------------------- */
+/* categories panel */
+.categoriesPanel {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.categoryCard {
+  font-size: 12px;
+  background-color: var(--secondary-light);
+  /* .card { */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* } */
+}
+.arrowButton {
+  background-color: var(--main-dark);
+  border: none;
+  color: #000;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.arrow-button:hover {
+  background-color: #ddd;
+}
+
+.arrow-button:focus {
+  outline: none;
+}
+/* ---------------------------- */
+/* hero section */
+.hero {
+  margin: auto;
+  font-size: 18px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.spanPart {
+  font-size: 64px;
+  color: var(--dark-2);
+}
+.studyParagraph {
+  color: black;
+  font-weight: 700;
+  font-size: 48px;
+}
+/* ------------------------------------- */
+/* navbar */
+.navbar {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  border-bottom: 2px solid var(--main-dark);
+  flex-grow: 1;
+}
+.logged {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.mainRoutes {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 12px;
+  width: 30%;
+}
+svg {
+  stroke: var(--main-dark);
+}
+/* ====================================== */
+/* Login page box */
+.LogInPageBox {
+  margin: 1% auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  background-color: white;
+  border-radius: 12px;
+}
+/* ===================================== */
+/* signup page box */
+.signupPageBox {
+  margin: 100px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  background-color: white;
+  border-radius: 12px;
+}
+
+/* ====================================== */
+/* video player */
+.video-container {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+}
+video {
+  width: 100%;
+}
+.video-controls-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: red;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+.video-controls-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+  width: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+.video-container:hover .video-controls-container,
+.video-container.paused .video-controls-container {
+  opacity: 1;
+}
+.video-controls-container .controls {
+  display: flex;
+  gap: 0.5rem;
+  padding: 2.5rem;
+  align-items: center;
+}
+.video-controls-container .controls button {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  padding: 0;
+  height: 30px;
+  width: 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
 }

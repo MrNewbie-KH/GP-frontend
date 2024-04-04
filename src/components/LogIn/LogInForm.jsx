@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import style from "./LogInForm.module.css";
 import Button from "./Button.jsx";
 function LogInForm() {
   const [formData, setFormData] = useState({
@@ -24,24 +23,24 @@ function LogInForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className={style.formRow}>
+      <div className="formRow">
         <label>Email:</label>
         <input
           type="email"
           name="email"
-          className={style.test}
+          className="test"
           placeholder="test@test.com"
           value={formData.email}
           onChange={handleChange}
           required
         />
       </div>
-      <div className={style.formRow}>
+      <div className="formRow">
         <label>Password:</label>
         <input
           type="password"
           name="password"
-          className={style.test}
+          className="test"
           placeholder="password"
           value={formData.password}
           onChange={handleChange}

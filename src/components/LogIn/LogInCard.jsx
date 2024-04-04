@@ -1,18 +1,17 @@
 // import { Link } from "react-router-dom";
 import LogInForm from "./LogInForm";
-import style from "./LogInCard.module.css";
 import Button from "./Button";
 import facebookImage from "../../images/facebook.png";
 import googleImage from "../../images/google.png";
 function LogInCard() {
   return (
-    <div className={style.card}>
+    <div className="card">
       <h1>Log In</h1>
       <p>
         Don't have an account? <a href="">Sign Up</a>
       </p>
       <LogInForm />
-      <h1 className={style.separator}>OR</h1>
+      <h1 className="separator">OR</h1>
       <Button variant="facebook">
         <img
           src={facebookImage}
