@@ -266,6 +266,7 @@ svg {
   display: flex;
   justify-content: center;
   margin-inline: auto;
+  background-color: #000; /*to appear when on theter mode*/
 }
 video {
   width: 100%;
@@ -311,4 +312,18 @@ video {
   width: 30px;
   font-size: 1.1rem;
   cursor: pointer;
+}
+/* based on theater mode */
+.video-container.theater{
+  max-width: initial;
+  width: 100%;
+  max-height: 85vh;
+  
+}
+/* based on full screen mode */
+.video-container.full-screen{
+  max-width: initial;
+  width: 100%;
+  max-height: 100vh;
+
 }
