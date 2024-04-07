@@ -6,10 +6,10 @@ import VideoPage from "./pages/VideoPage"
 function App() {
   return (
     <>
-      {/* <SignUp />
       <HomePage />
-      <LogIn /> */}
       <VideoPage/>
+      <SignUp />
+      <LogIn />
     </>
   );
 }

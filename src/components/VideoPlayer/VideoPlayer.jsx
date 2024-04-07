@@ -1,6 +1,30 @@
 import lol from "../VideoPlayer/lol.webm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function VideoPlayer() {
+  const [isPaused, setIsPaused] = useState(true);
+  const [volume, setVolume] = useState(0.6);
+  const [time, setTime] = useState(0);
+  const [mode, setMode] = useState("normal");
+  const [speed, setSpeed] = useState(1);
+  const [duration, setDuration] = useState(0);
+
+  useEffect(() => {
+    const video = document.querySelector("video");
+    video.addEventListener("loadeddata", () => {
+      setDuration(video.duration);
+    });
+
+    const intervalId = setInterval(() => {
+      setTime(video.currentTime);
+    }, 1000); // Update every second
+video.playbackRate=speed
+    return () => {
+      video.removeEventListener("loadeddata", () => {
+        setDuration(video.duration);
+      });
+      clearInterval(intervalId);
+    };
+  }, [speed]);
   function togglePlayPause() {
     const video = document.querySelector("video"); // Get the video element
     if (video) {
@@ -15,8 +39,7 @@ function VideoPlayer() {
   function handleKeyDown(event) {
     if (event.key === " " || event.key === "Spacebar") {
       togglePlayPause();
-    }
-    else if(event.key==="f"||event.key==="F"){
+    } else if (event.key === "f" || event.key === "F") {
       toggleFullScreen();
     }
   }
@@ -25,12 +48,48 @@ function VideoPlayer() {
     if (!document.fullscreenElement) {
       const container = document.querySelector(".video-container");
       container.requestFullscreen();
+      setMode("full-screen");
     } else {
       document.exitFullscreen();
+      setMode("normal");
     }
   }
-  const [isPaused, setIsPaused] = useState(true);
-  const [mode, setMode] = useState("normal");
+  function changeVolume(value) {
+    console.log(value);
+    const video = document.querySelector("video"); // Get the video element
+    setVolume(value);
+    video.volume = value;
+    if (volume === 0) {
+      video.muted = true;
+    }
+  }
+  function toggleMute() {
+    const video = document.querySelector("video"); // Get the video element
+
+    volume === 0 ? setVolume(0.5) : setVolume(0);
+    video.volume = volume;
+  }
+  function toggleTheater() {
+    mode === "theater" ? setMode("normal") : setMode("theater");
+  }
+  // function format duration
+
+  function formatDuration(t) {
+    const seconds = Math.floor(t % 60);
+    const minutes = Math.floor(t / 60) % 60;
+    const hours = Math.floor(minutes / 60);
+    if (hours === 0) {
+      return `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+    } else {
+      return `${hours}:${minutes < 10 ? "0" + minutes : minutes}:${
+        seconds < 10 ? "0" + seconds : seconds
+      }`;
+    }
+  }
+  function changeSpeed() {
+    if (speed === 2) setSpeed(0.5);
+    else setSpeed(speed + 0.25);
+  }
   return (
     <div
       className={
@@ -44,78 +103,88 @@ function VideoPlayer() {
           <div className="controls">
             <button className="play-pause-btn" onClick={togglePlayPause}>
               {isPaused ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
-                  />
+                <svg class="play-icon" viewBox="0 0 24 24">
+                  <path fill="#80deea" d="M8,5.14V19.14L19,12.14L8,5.14Z" />
                 </svg>
               ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 5.25v13.5m-7.5-13.5v13.5"
-                  />
+                <svg class="pause-icon" viewBox="0 0 24 24">
+                  <path fill="#80deea" d="M14,19H18V5H14M6,19H10V5H6V19Z" />
                 </svg>
               )}
             </button>
-            <button
-              className="normal"
-              onClick={() => {
-                setMode("normal");
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
+            <div className="volume-container">
+              <button
+                className="volume-mute-btn"
+                onClick={() => {
+                  toggleMute();
+                }}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3 8.25V18a2.25 2.25 0 0 0 2.25 2.25h13.5A2.25 2.25 0 0 0 21 18V8.25m-18 0V6a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 6v2.25m-18 0h18M5.25 6h.008v.008H5.25V6ZM7.5 6h.008v.008H7.5V6Zm2.25 0h.008v.008H9.75V6Z"
-                />
-              </svg>
+                {volume === 0 ? (
+                  <svg class="volume-muted-icon" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M12,4L9.91,6.09L12,8.18M4.27,3L3,4.27L7.73,9H3V15H7L12,20V13.27L16.25,17.53C15.58,18.04 14.83,18.46 14,18.7V20.77C15.38,20.45 16.63,19.82 17.68,18.96L19.73,21L21,19.73L12,10.73M19,12C19,12.94 18.8,13.82 18.46,14.64L19.97,16.15C20.62,14.91 21,13.5 21,12C21,7.72 18,4.14 14,3.23V5.29C16.89,6.15 19,8.83 19,12M16.5,12C16.5,10.23 15.5,8.71 14,7.97V10.18L16.45,12.63C16.5,12.43 16.5,12.21 16.5,12Z"
+                    />
+                  </svg>
+                ) : volume <= 0.5 ? (
+                  <svg class="volume-low-icon" viewBox="0 0 24 24">
+                    <path
+                      fill="#b2ebf2"
+                      d="M5,9V15H9L14,20V4L9,9M18.5,12C18.5,10.23 17.5,8.71 16,7.97V16C17.5,15.29 18.5,13.76 18.5,12Z"
+                    />
+                  </svg>
+                ) : (
+                  <svg class="volume-high-icon" viewBox="0 0 24 24">
+                    <path
+                      fill="#b2ebf2"
+                      d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z"
+                    />
+                  </svg>
+                )}
+              </button>
+              <input
+                type="range"
+                min={0}
+                max={1}
+                id="volume-range"
+                defaultValue={0.6}
+                step={"any"}
+                className="volume-slider"
+                onChange={(e) => {
+                  changeVolume(e.target.value);
+                }}
+              />
+            </div>
+            <div className="duration-container">
+              <div className="current-time">{formatDuration(time)}</div>/
+              <div className="full-time">{formatDuration(duration)}</div>
+            </div>
+            {/* <button className="closed-caption-btn"></button> */}
+
+            <button className="speed-btn wide-btn" onClick={changeSpeed}>
+              {speed}x
             </button>
             <button
               className="theater-btn"
               onClick={() => {
-                setMode("theater");
+                toggleTheater();
               }}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h1.5C5.496 19.5 6 18.996 6 18.375m-3.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-1.5A1.125 1.125 0 0 1 18 18.375M20.625 4.5H3.375m17.25 0c.621 0 1.125.504 1.125 1.125M20.625 4.5h-1.5C18.504 4.5 18 5.004 18 5.625m3.75 0v1.5c0 .621-.504 1.125-1.125 1.125M3.375 4.5c-.621 0-1.125.504-1.125 1.125M3.375 4.5h1.5C5.496 4.5 6 5.004 6 5.625m-3.75 0v1.5c0 .621.504 1.125 1.125 1.125m0 0h1.5m-1.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m1.5-3.75C5.496 8.25 6 7.746 6 7.125v-1.5M4.875 8.25C5.496 8.25 6 8.754 6 9.375v1.5m0-5.25v5.25m0-5.25C6 5.004 6.504 4.5 7.125 4.5h9.75c.621 0 1.125.504 1.125 1.125m1.125 2.625h1.5m-1.5 0A1.125 1.125 0 0 1 18 7.125v-1.5m1.125 2.625c-.621 0-1.125.504-1.125 1.125v1.5m2.625-2.625c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125M18 5.625v5.25M7.125 12h9.75m-9.75 0A1.125 1.125 0 0 1 6 10.875M7.125 12C6.504 12 6 12.504 6 13.125m0-2.25C6 11.496 5.496 12 4.875 12M18 10.875c0 .621-.504 1.125-1.125 1.125M18 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m-12 5.25v-5.25m0 5.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125m-12 0v-1.5c0-.621-.504-1.125-1.125-1.125M18 18.375v-5.25m0 5.25v-1.5c0-.621.504-1.125 1.125-1.125M18 13.125v1.5c0 .621.504 1.125 1.125 1.125M18 13.125c0-.621.504-1.125 1.125-1.125M6 13.125v1.5c0 .621-.504 1.125-1.125 1.125M6 13.125C6 12.504 5.496 12 4.875 12m-1.5 0h1.5m-1.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M19.125 12h1.5m0 0c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h1.5m14.25 0h1.5"
-                />
-              </svg>
+              {mode === "theater" ? (
+                <svg class="wide" viewBox="0 0 24 24">
+                  <path
+                    fill="#80deea"
+                    d="M19 7H5c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm0 8H5V9h14v6z"
+                  />
+                </svg>
+              ) : (
+                <svg class="tall" viewBox="0 0 24 24">
+                  <path
+                    fill="#80deea"
+                    d="M19 6H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H5V8h14v8z"
+                  />
+                </svg>
+              )}
             </button>
             <button
               className="full-screen-btn"
@@ -124,20 +193,21 @@ function VideoPlayer() {
                 toggleFullScreen();
               }}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25"
-                />
-              </svg>
+              {mode === "full-screen" ? (
+                <svg class="close" viewBox="0 0 24 24">
+                  <path
+                    fill="#80deea"
+                    d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"
+                  />
+                </svg>
+              ) : (
+                <svg class="open" viewBox="0 0 24 24">
+                  <path
+                    fill="#80deea"
+                    d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"
+                  />
+                </svg>
+              )}
             </button>
           </div>
         </div>
