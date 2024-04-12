@@ -1,0 +1,58 @@
+{
+  "register": [
+    {
+      "firstName": "mohamed",
+      "lastName": "zahw",
+      "email": "mo@gmail.com",
+      "password": "123456789",
+      "phone": "01061336120",
+      "birthday": "02-02-2001"
+    },
+    {
+      "id": "1f64",
+      "email": "mkhattab369@gmail.com",
+      "firstName": "Mohamed",
+      "lastName": "Khattab",
+      "password": "13456",
+      "phone": "01061336120",
+      "birthday": "2001-06-02"
+    },
+    {
+      "id": "059f",
+      "email": "hello@google.com",
+      "firstName": "Mohamed",
+      "lastName": "Khattab",
+      "password": "123546",
+      "phone": "01061336120",
+      "birthday": "2001-02-06"
+    }
+  ],
+  "login": [
+    {
+      "firstName": "mohamed",
+      "lastName": "zahw",
+      "email": "mo@gmail.com",
+      "password": "123456789",
+      "phone": "01061336120",
+      "birthday": "02-02-2001"
+    },
+    {
+      "id": "1f64",
+      "email": "mkhattab369@gmail.com",
+      "firstName": "Mohamed",
+      "lastName": "Khattab",
+      "password": "13456",
+      "phone": "01061336120",
+      "birthday": "2001-06-02"
+    },
+    {
+      "id": "059f",
+      "email": "hello@google.com",
+      "firstName": "Mohamed",
+      "lastName": "Khattab",
+      "password": "123546",
+      "phone": "01061336120",
+      "birthday": "2001-02-06"
+    }
+  ]
+}
