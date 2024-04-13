@@ -1,12 +1,20 @@
 :root {
-  --main-dark: #00334e;
-  --main-light: #e8e8e8;
-  --secondary-dark: #0359e0;
+  /* --main-dark: #00334e;
+  --main-light: #e8e8e8; */
+  /* --secondary-dark: #0359e0; */
   --secondary-light: #5588a3;
+  --main-light: #e0f7fa;
+  --light-2: #b2ebf2;
+  --light-3: #80deea;
+  --light-4: #4dd0e1;
+  --secondary-dark: #00838f;
+  --main-dark: #006064;
+  --dark-2: #0097a7;
+  --dark-3: #00acc1;
+  --dark-4: #00bcd4;
 }
-
 body {
-  /* background-color: var(--main-light); */
+  background-color: var(--main-light);
 }
 
 h1 {

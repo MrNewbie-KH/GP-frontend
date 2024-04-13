@@ -15,6 +15,7 @@ const initialState = {
 function SignupForm() {
   // state part
   const [formData, setFormData] = useState(initialState);
+  const [messageState, setMessageState] = useState("");
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -33,7 +34,12 @@ function SignupForm() {
         formData
       );
       console.log("Registered successfully with data:", formData);
-      setFormData(initialState);
+      if (response.status === "BAD_REQUEST") {
+        setMessageState(response.message);
+      } else {
+        setFormData(initialState);
+        setMessageState(response.message);
+      }
     } catch (error) {
       console.error("Error  :", error.message);
     }
