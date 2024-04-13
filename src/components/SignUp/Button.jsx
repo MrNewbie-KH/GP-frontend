@@ -1,5 +1,5 @@
 function Button({ children, variant, image }) {
-  let className = "btn"; // Default button class
+  let className = "signup-btn"; // Default button class
   if (variant === "facebook") {
     className += ` facebook`; // Append facebook variant class
   } else if (variant === "google") {

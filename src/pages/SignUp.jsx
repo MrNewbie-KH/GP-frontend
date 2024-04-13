@@ -1,5 +1,6 @@
 import SignUpCard from "../components/SignUp/SignUpCard";
 import SignUpImage from "../components/SignUp/SignUpImage";
+import "./SignUp.css";
 function SignUp() {
   return (
     <div className="signupPageBox">

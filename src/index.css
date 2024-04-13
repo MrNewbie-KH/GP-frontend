@@ -21,128 +21,15 @@ body {
 h1 {
   color: var(--main-dark);
 }
-.logo {
+/* .logo {
   color: var(--main-dark);
   font-size: 48px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-.searchBar {
+} */
+/* .searchBar {
   width: 35%;
   background-color: rgba(255, 255, 255, 0.744);
   padding: 16px;
   border: 1px solid var(--dark-3);
-}
+} */
 /* -------------------------------------- */
-/* BUTTON */
-.btn {
-  display: block;
-  padding: 15px;
-  font-size: 15px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  color: var(--main-light);
-  background-color: var(--secondary-dark);
-  border-radius: 100px;
-  cursor: pointer;
-  margin-top: 10px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  border: none;
-}
-.btn:hover {
-  background-color: #7923dc;
-  transition: background-color 0.3s ease;
-}
-.google:hover {
-  background-color: red;
-  color: var(--main-light);
-}
-.facebook:hover {
-  background-color: blue;
-  color: var(--main-light);
-}
-
-.btn:active {
-  transform: translateY(1px);
-}
-/* ------------------------------ */
-/* sign up card */
-.card {
-  /* background-color: var(--main-dark); */
-  margin: 0 auto;
-  padding: 50px;
-  width: 50%;
-  border-radius: 50px;
-  color: var(--main-dark);
-  font-family: sans-serif;
-}
-.separator {
-  position: relative;
-  text-align: center;
-  margin: 20px 0;
-}
-/* ------------------------------------- */
-/* signup form */
-.formRow {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 5px;
-}
-
-input {
-  border-radius: 100px;
-  padding: 10px 0 10px 10px;
-  width: 100%;
-  background-color: #f1f1f1;
-}
-input:hover {
-  border: 1px solid var(--main-dark);
-}
-label {
-  font-size: 18px;
-}
-.names {
-  display: flex;
-  width: 100%;
-  justify-content: end;
-  gap: 24px;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-/* ----------sign up image ---------- */
-.signup-image {
-  width: 60%;
-}
-
-/* ------------------ */
-.formRow {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
-input {
-  padding: 15px;
-  border-radius: 100px; /* Adjust the value to control the roundness of the ellipse */
-  border: 1px solid #ccc;
-  width: 100%;
-  background-color: #f1f1f1;
-}
-label {
-  font-size: 18px;
-  margin: 25px 0px 10px 0px;
-}
-
-/* ---------login image */
-.login-image {
-  width: 55%;
-}
