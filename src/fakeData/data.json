@@ -1,0 +1,33 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Programming",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 2,
+      "name": "Photography",
+      "image": "https://via.placeholder.com/150"
+    },
+    { "id": 3, "name": "Business", "image": "https://via.placeholder.com/150" }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "title": "Course 1",
+      "instructor": "Instructor 1",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.5,
+      "students": 25000
+    },
+    {
+      "id": 2,
+      "title": "Course 2",
+      "instructor": "Instructor 2",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.0,
+      "students": 20000
+    }
+  ]
+}

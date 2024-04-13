@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import style from "./LogInForm.module.css";
 import Button from "./Button.jsx";
+import axios from "axios";
+
+const initialState = {
+  email: "",
+  password: "",
+};
+
 function LogInForm() {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  // state part
+  const [formData, setFormData] = useState(initialState);
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -16,10 +21,24 @@ function LogInForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission with formData
-    console.log(formData);
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/login",
+        formData
+      );
+      console.log("Registered successfully with data:", response);
+      if (response.message == "Wrong Password!") {
+        console.log("Wrong Password!");
+      } else if (response.status == "User not found!") {
+        console.log("User not found!");
+      }
+
+      setFormData(initialState);
+    } catch (error) {
+      console.error("Error  :", error.message);
+    }
   };
 
   return (

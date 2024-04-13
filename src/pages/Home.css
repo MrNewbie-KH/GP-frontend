@@ -1,0 +1,142 @@
+.header {
+  background-color: #2a60e4;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav a {
+  color: white;
+  margin-left: 1rem;
+  text-decoration: none;
+}
+
+.nav a.btn {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav a.btn:hover {
+  background-color: white;
+  color: #2a60e4;
+}
+
+.hero {
+  background-color: #f8f9fa;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.search-bar {
+  margin-top: 2rem;
+}
+
+.search-bar input {
+  width: 60%;
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.search-bar button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #2a60e4;
+  color: white;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #1d3c7b;
+}
+
+.categories {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.category-cards {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.category-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 30%;
+}
+
+.category-card img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.featured-courses {
+  background-color: #f8f9fa;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.course-cards {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.course-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 30%;
+}
+
+.course-card img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.course-info h3 {
+  margin-top: 0.5rem;
+}
+
+.footer {
+  background-color: #2a60e4;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.social-icons a {
+  color: white;
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.social-icons a:hover {
+  color: #f8f9fa;
+}
