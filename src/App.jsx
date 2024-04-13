@@ -1,15 +1,16 @@
 import "./App.css";
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
-import HomePage from "./pages/HomePage";
-import VideoPage from "./pages/VideoPage"
+import VideoPage from "./pages/VideoPage";
+import Home from "./pages/Home";
 function App() {
   return (
     <>
-      <HomePage />
+      {/* <HomePage />
       <VideoPage/>
       <SignUp />
-      <LogIn />
+      <LogIn /> */}
+      <Home />
     </>
   );
 }
