@@ -61,35 +61,7 @@
   background-color: #1d3c7b;
 }
 
-.featured-courses {
-  background-color: #f8f9fa;
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.course-cards {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 2rem;
-}
-
-.course-card {
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  width: 30%;
-}
-
-.course-card img {
-  width: 100%;
-  border-radius: 0.5rem;
-}
-
-.course-info h3 {
-  margin-top: 0.5rem;
-}
-
+/* ---------------------------------------- */
 .footer {
   background-color: #2a60e4;
   color: white;
@@ -166,4 +138,89 @@
 .arrowButton:focus {
   outline: none;
 }
+/* -------courses------- */
+/*
+.featured-courses {
+  background-color: #f8f9fa;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.course-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  Four columns with equal width 
+  grid-gap: 20px;  Adjust the gap between grid items 
+  margin-top: 2rem;
+}
+
+.course-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 30%;
+}
+
+.course-card img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.course-info h3 {
+  margin-top: 0.5rem;
+}
+
+
+*/
 /* ----------------courses----------------- */
+.featured-courses {
+  background-color: #f8f9fa;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.course-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.course-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.course-card img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.course-info h3 {
+  margin-top: 0.5rem;
+}
+
+.pagination {
+  margin-top: 2rem;
+}
+
+.pagination button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.pagination button:hover {
+  background-color: #658eba;
+}
+
+.pagination button.active {
+  background-color: #021a34;
+}

@@ -136,6 +136,86 @@
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.5,
       "students": 26000
+    },
+    {
+      "id": 11,
+      "title": "Financial Planning and Investment",
+      "instructor": "John Anderson",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.2,
+      "students": 24000
+    },
+    {
+      "id": 12,
+      "title": "Artificial Intelligence Fundamentals",
+      "instructor": "Dr. Kim",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.6,
+      "students": 29000
+    },
+    {
+      "id": 13,
+      "title": "Mobile App Development",
+      "instructor": "David Carter",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.3,
+      "students": 25000
+    },
+    {
+      "id": 14,
+      "title": "Music Production Essentials",
+      "instructor": "Sarah Johnson",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.4,
+      "students": 27000
+    },
+    {
+      "id": 15,
+      "title": "Environmental Science Basics",
+      "instructor": "Dr. Thompson",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.1,
+      "students": 23000
+    },
+    {
+      "id": 16,
+      "title": "Introduction to Cryptocurrency",
+      "instructor": "Michael Baker",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.5,
+      "students": 26000
+    },
+    {
+      "id": 17,
+      "title": "Public Speaking Mastery",
+      "instructor": "Emily White",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.7,
+      "students": 28000
+    },
+    {
+      "id": 18,
+      "title": "User Experience Design",
+      "instructor": "Alexandra Green",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.3,
+      "students": 24000
+    },
+    {
+      "id": 19,
+      "title": "Introduction to Quantum Physics",
+      "instructor": "Dr. Rodriguez",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.8,
+      "students": 30000
+    },
+    {
+      "id": 20,
+      "title": "Cooking Essentials",
+      "instructor": "Chef Martin",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.2,
+      "students": 22000
     }
   ]
 }
