@@ -10,7 +10,51 @@
       "name": "Photography",
       "image": "https://via.placeholder.com/150"
     },
-    { "id": 3, "name": "Business", "image": "https://via.placeholder.com/150" }
+    {
+      "id": 3,
+      "name": "Business",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 4,
+      "name": "Cooking",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 5,
+      "name": "Fitness",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 6,
+      "name": "Travel",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 7,
+      "name": "Art",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 8,
+      "name": "Music",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 9,
+      "name": "Gaming",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 10,
+      "name": "Science",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 11,
+      "name": "Writing",
+      "image": "https://via.placeholder.com/150"
+    }
   ],
   "courses": [
     {
