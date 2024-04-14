@@ -1,0 +1,13 @@
+{
+    "courseInfo": [
+      {
+        "lessons": 100,
+        "quizzes": 15,
+        "duration": "12 hours",
+        "skill level": "advanced",
+        "language": "Arabic",
+        "certificate":"yes"
+      }
+    ]
+  }
+  
