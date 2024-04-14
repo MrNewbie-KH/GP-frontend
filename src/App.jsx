@@ -7,9 +7,9 @@ import Home from "./pages/Home";
 function App() {
   return (
     <>
-      {/* <VideoPage/> */}
+      <VideoPage />
       {/* <SignUp /> */}
-      <LogIn />
+      {/* <LogIn /> */}
       {/* <Home /> */}
     </>
   );

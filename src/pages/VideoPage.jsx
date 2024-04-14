@@ -1,9 +1,8 @@
-import NavBar from "../components/HomePage/NavBar";
-import VideoPlayer from "../components/VideoPlayer/VideoPlayer"
+import VideoPlayer from "../components/VideoPlayer/VideoPlayer";
+import "./VideoPage.css";
 function VideoPage() {
   return (
-    <div >
-      <NavBar />
+    <div>
       <VideoPlayer />
     </div>
   );

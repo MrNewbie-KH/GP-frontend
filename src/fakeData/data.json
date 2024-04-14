@@ -15,19 +15,83 @@
   "courses": [
     {
       "id": 1,
-      "title": "Course 1",
-      "instructor": "Instructor 1",
+      "title": "Introduction to Programming",
+      "instructor": "Professor Smith",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.5,
       "students": 25000
     },
     {
       "id": 2,
-      "title": "Course 2",
-      "instructor": "Instructor 2",
+      "title": "Data Science Fundamentals",
+      "instructor": "Dr. Patel",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.2,
+      "students": 22000
+    },
+    {
+      "id": 3,
+      "title": "Web Development Bootcamp",
+      "instructor": "Sarah Johnson",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.7,
+      "students": 30000
+    },
+    {
+      "id": 4,
+      "title": "Machine Learning Essentials",
+      "instructor": "Professor Lee",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.4,
+      "students": 28000
+    },
+    {
+      "id": 5,
+      "title": "Graphic Design Mastery",
+      "instructor": "Emily White",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.3,
+      "students": 23000
+    },
+    {
+      "id": 6,
+      "title": "Introduction to Psychology",
+      "instructor": "Dr. Ramirez",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.6,
+      "students": 27000
+    },
+    {
+      "id": 7,
+      "title": "Business Management Strategies",
+      "instructor": "Mark Thompson",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.0,
       "students": 20000
+    },
+    {
+      "id": 8,
+      "title": "Photography Basics",
+      "instructor": "Alexandra Green",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.1,
+      "students": 21000
+    },
+    {
+      "id": 9,
+      "title": "Fitness and Nutrition Fundamentals",
+      "instructor": "Coach Davis",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.8,
+      "students": 32000
+    },
+    {
+      "id": 10,
+      "title": "Creative Writing Workshop",
+      "instructor": "Melissa Carter",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.5,
+      "students": 26000
     }
   ]
 }
