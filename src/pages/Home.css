@@ -61,59 +61,7 @@
   background-color: #1d3c7b;
 }
 
-.categories {
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.category-cards {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 2rem;
-}
-
-.category-card {
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  width: 30%;
-}
-
-.category-card img {
-  width: 100%;
-  border-radius: 0.5rem;
-}
-
-.featured-courses {
-  background-color: #f8f9fa;
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.course-cards {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 2rem;
-}
-
-.course-card {
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  width: 30%;
-}
-
-.course-card img {
-  width: 100%;
-  border-radius: 0.5rem;
-}
-
-.course-info h3 {
-  margin-top: 0.5rem;
-}
-
+/* ---------------------------------------- */
 .footer {
   background-color: #2a60e4;
   color: white;
@@ -139,4 +87,140 @@
 
 .social-icons a:hover {
   color: #f8f9fa;
+}
+
+/*--------------category-------------------*/
+.categories-Section {
+  padding-bottom: 20px;
+}
+.categoriesPanel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.categoryCard {
+  flex: 0 0 18%;
+  max-width: 12%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.categoryCard h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.categoryCard p {
+  color: #666;
+}
+
+.arrowButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 40px;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.arrowButton:hover {
+  color: #337dc7;
+}
+
+.arrowButton:focus {
+  outline: none;
+}
+/* -------courses------- */
+/*
+.featured-courses {
+  background-color: #f8f9fa;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.course-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  Four columns with equal width 
+  grid-gap: 20px;  Adjust the gap between grid items 
+  margin-top: 2rem;
+}
+
+.course-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 30%;
+}
+
+.course-card img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.course-info h3 {
+  margin-top: 0.5rem;
+}
+
+
+*/
+/* ----------------courses----------------- */
+.featured-courses {
+  background-color: #f8f9fa;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.course-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.course-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.course-card img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.course-info h3 {
+  margin-top: 0.5rem;
+}
+
+.pagination {
+  margin-top: 2rem;
+}
+
+.pagination button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.pagination button:hover {
+  background-color: #658eba;
+}
+
+.pagination button.active {
+  background-color: #021a34;
 }

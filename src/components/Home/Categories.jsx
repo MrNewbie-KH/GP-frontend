@@ -1,8 +1,8 @@
-// Categories.js
 import React, { useState, useEffect } from "react";
 
-const Categories = () => {
+const CategoriesPanel = () => {
   const [categories, setCategories] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     fetch("http://localhost:3000/categories")
@@ -13,20 +13,41 @@ const Categories = () => {
       .catch((error) => console.error("Error fetching categories:", error));
   }, []);
 
+  const showNextCategory = () => {
+    if (currentIndex < categories.length - 5) {
+      setCurrentIndex((prevIndex) => prevIndex + 5);
+    }
+  };
+
+  const showPreviousCategory = () => {
+    if (currentIndex >= 5) {
+      setCurrentIndex((prevIndex) => prevIndex - 5);
+    } else if (currentIndex > 0) {
+      setCurrentIndex(0);
+    }
+  };
+
   return (
-    <section className="categories">
+    <div className="categories-Section">
       <h2>Popular Categories</h2>
-      <div className="category-cards">
-        {categories.length &&
-          categories.map((category) => (
-            <div className="category-card" key={category.id}>
-              <img src={category.image} alt={category.name} />
-              <h3>{category.name}</h3>
-            </div>
-          ))}
+      <div className="categoriesPanel">
+        <button className="arrowButton" onClick={showPreviousCategory}>
+          {" "}
+          &lt;
+        </button>
+        {categories.slice(currentIndex, currentIndex + 5).map((category) => (
+          <div key={category.id} className="categoryCard">
+            <h3>{category.name}</h3>
+            <p>{category.description}</p>
+          </div>
+        ))}
+        <button className="arrowButton" onClick={showNextCategory}>
+          {" "}
+          &gt;
+        </button>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default Categories;
+export default CategoriesPanel;
