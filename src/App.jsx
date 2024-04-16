@@ -9,11 +9,11 @@ function App() {
   return (
     <>
 
-      {/* <VideoPage/> */}
+      <VideoPage/>
       {/* <SignUp /> */}
       {/* <LogIn /> */}
       {/* <Home /> */}
-      <CoursePage/>
+      {/* <CoursePage/> */}
 
     </>
   );

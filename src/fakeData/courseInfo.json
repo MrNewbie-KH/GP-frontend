@@ -1,13 +1,134 @@
 {
-    "courseInfo": [
-      {
-        "lessons": 100,
-        "quizzes": 15,
-        "duration": "12 hours",
-        "skill level": "advanced",
-        "language": "Arabic",
-        "certificate":"yes"
-      }
-    ]
-  }
-  
+  "courseBasicInfo": [
+    {
+      "lessons": 100,
+      "quizzes": 15,
+      "duration": "12 hours",
+      "skillLevel": "advanced",
+      "language": "Arabic",
+      "certificate": "yes"
+    }
+  ],
+  "courseAllInfo": [
+    {
+      "section": "section 1",
+      "lessons": [
+        { "type": "video", "name": "hello world", "duration": 12 },
+        { "type": "doc", "name": "Not hello world", "duration": 5 },
+        { "type": "video", "name": " world", "duration": 55 }
+      ]
+    },
+    {
+      "section": "section 3",
+      "lessons": [
+        { "type": "doc", "name": "hello world", "duration": 12 },
+        { "type": "video", "name": "Not hello world", "duration": 5 },
+        { "type": "video", "name": " world", "duration": 55 }
+      ]
+    },
+    {
+      "section": "section 4",
+      "lessons": [
+        { "type": "video", "name": "hello world", "duration": 12 },
+        { "type": "video", "name": "Not hello world", "duration": 5 },
+        { "type": "video", "name": " world", "duration": 55 }
+      ]
+    },
+    {
+      "section": "section 5",
+      "lessons": [
+        { "type": "video", "name": "hello world", "duration": 12 },
+        { "type": "video", "name": "Not hello world", "duration": 5 },
+        { "type": "video", "name": " world", "duration": 55 }
+      ]
+    },
+    {
+      "section": "section 6 ",
+      "lessons": [
+        { "type": "video", "name": "hello world", "duration": 12 },
+        { "type": "video", "name": "Not hello world", "duration": 5 },
+        { "type": "video", "name": " world", "duration": 55 }
+      ]
+    },
+    {
+      "section": "section 7",
+      "lessons": [
+        { "type": "video", "name": "hello world", "duration": 12 },
+        { "type": "video", "name": "Not hello world", "duration": 5 },
+        { "type": "video", "name": " world", "duration": 55 }
+      ]
+    },
+    {
+      "section": "section 8 ",
+      "lessons": [
+        { "type": "video", "name": "hello world", "duration": 12 },
+        { "type": "video", "name": "Not hello world", "duration": 5 },
+        { "type": "video", "name": " world", "duration": 55 }
+      ]
+    },
+    {
+      "section": "section 9",
+      "lessons": [
+        { "type": "video", "name": "hello world", "duration": 12 },
+        { "type": "video", "name": "Not hello world", "duration": 5 },
+        { "type": "video", "name": " world", "duration": 55 }
+      ]
+    },
+    {
+      "section": "section 10",
+      "lessons": [
+        { "type": "video", "name": "hello world", "duration": 12 },
+        { "type": "video", "name": "Not hello world", "duration": 5 },
+        { "type": "video", "name": " world", "duration": 55 }
+      ]
+    }
+  ],
+
+  "overview": [
+    {
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed reprehenderit a, earum ipsa est ipsam repudiandae quos eius cumque quidem quasi error voluptas illum fuga, voluptates rem saepe. Autem, accusantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis deserunt suscipit dolores provident. Quam placeat, molestiae nesciunt aperiam nobis totam, quod accusamus esse animi voluptate, aut corporis quae nemo aliquam.",
+      "learn": [
+        "hello",
+        "hello",
+        "hello",
+        "hello",
+        "hello",
+        "hello",
+        "hello",
+        "hello",
+        "hello",
+        "hello"
+      ],
+      "prerequisites": [
+        "hello",
+        "hello",
+        "hello",
+        "hello",
+        "hello",
+        "hello",
+        "hello",
+        "hello",
+        "hello",
+        "hello"
+      ]
+    }
+  ],
+  "instructors": [
+    {
+      "id": 1,
+      "name": "Mohamed",
+      "image": "https://via.placeholder.com/300x150",
+      "courses": 5,
+      "students": 25000,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea ipsum animi unde nostrum distinctio, eius neque eveniet quia reprehenderit placeat fugit fugiat veritatis eligendi tempora rerum inventore error quibusdam porro. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea ipsum animi unde nostrum distinctio, eius neque eveniet quia reprehenderit placeat fugit fugiat veritatis eligendi tempora rerum inventore error quibusdam porro."
+    },
+    {
+      "id": 2,
+      "name": "nagy",
+      "image": "https://via.placeholder.com/300x150",
+      "courses": 12,
+      "students": 23000,
+      "about": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea ipsum animi unde nostrum distinctio, eius neque eveniet quia reprehenderit placeat fugit fugiat veritatis eligendi tempora rerum inventore error quibusdam porro. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea ipsum animi unde nostrum distinctio, eius neque eveniet quia reprehenderit placeat fugit fugiat veritatis eligendi tempora rerum inventore error quibusdam porro."
+    }
+  ]
+}

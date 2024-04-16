@@ -1,9 +1,14 @@
-function InfoItem({data}){
-    return(
-        <div className="info-item-course-card">
-            <p>{data.name}</p>
-            <p>{data.value}</p>
-        </div>
-    )
-}
+function InfoItem({ data }) {
+
+    return (
+      <ul className="info-List-course-card">
+        {data && Object.entries(data).map(([key, value]) => (
+          <li key={key}>
+            <span>{key}</span>
+            <span>{value}</span>
+          </li>
+        ))}
+      </ul>
+    );
+  }
 export default InfoItem

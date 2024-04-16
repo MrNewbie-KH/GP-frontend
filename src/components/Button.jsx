@@ -1,4 +1,4 @@
 function Button({children}) {
-  return <button className="btn">{children}</button>;
+  return <button>{children}</button>;
 }
 export default Button;

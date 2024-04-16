@@ -1,0 +1,283 @@
+/* main course info */
+body{
+  background-color: #66666611;
+}
+.main-course-info {
+  width: 80%;
+  height: 30vh;
+  margin: 100px auto 200px;
+  /* margin-top:100px ; */
+  border-radius:10px ;
+  display: flex;
+  flex-direction: column;
+
+  text-align: left;
+  padding: 10px;
+  background-color: #2284ec70;
+}
+.course-info-title,.course-info-description{
+  width: 60%;
+}
+/* -------------------------- */
+/* card that is used to buy course */
+.course-card-viewer {
+  position: absolute;
+  top: 25%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+  width: 12%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  margin: 100px;
+  align-items: center;
+  font-size: 14px;
+  background-color: white;
+  
+}
+.course-card-viewer Button {
+  margin-bottom: 10px;
+  width: 90%;
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.course-card-viewer Button:hover {
+  background-color: #6d9aca;
+}
+
+.info-List-course-card {
+  list-style-type: none;
+  color: rgb(72, 72, 74);
+  font-size: 14px;
+  padding: 0;
+  width: 100%;
+}
+.info-List-course-card li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.046);
+}
+.course-card-viewer img {
+  width: 100%;
+}
+/* ========================================= */
+/* course content part */
+/* ========================================= */
+.course-content-section {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  border: 1px solid rgb(216, 216, 249);
+  padding: 5px;
+  border-radius: 20px;
+}
+.section-name {
+  display: flex;
+  gap: 1rem;
+  font-size: 18px;
+}
+/* section card info  */
+
+.section-card {
+  width: 100%;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+.section-card-header svg {
+  height: 20px;
+  width: 20px;
+}
+.lesson-card-viewer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+.lesson-card-viewer svg {
+  height: 24px;
+  width: 24px;
+}
+.lesson-card-viewer .lesson-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.section-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-width: 80%;
+  border-bottom: 1px solid rgba(175, 188, 234, 0.984);
+  width: 100%;
+}
+
+.section-card-header p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* ========================================= */
+/* panel */
+/* ========================================= */
+.panel-btn {
+  border: none;
+  background: none;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.panel-btn::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #007bff;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.panel-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.panel-btn:hover {
+  color: #007bff;
+}
+/* ========================================== */
+/* overview */
+/* ========================================== */
+.overview-content {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: auto;
+  padding: 10px;
+  border: 0.5px solid rgba(0, 149, 255, 0.346);
+  border-radius: 50px;
+}
+.overview-content h2 {
+  color: #0056b3;
+}
+.overview-content-requirements ul,
+.overview-content-learn ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+}
+.learn-outcome {
+  display: flex;
+  align-items: center;
+}
+.learn-outcome svg {
+  width: 25px;
+  height: 15px;
+}
+/* ==================================== */
+/* instructor card */
+/* ==================================== */
+.instructors-content {
+  border-top: 1px solid #007bff;
+  border-bottom: 1px solid #007bff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10%;
+}
+.instructor-card {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.instructor-image {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 5000px;
+}
+
+.instructor-name {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.instructor-card .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-and-name {
+  display: flex;
+  gap: 3rem;
+  color: #0056b3;
+}
+.info-instructor {
+  display: flex;
+  gap: 1rem;
+}
+.instructor-card svg {
+  width: 25px;
+  height: 20px;
+}
+.instructor-card .description {
+  width: 50%;
+
+  text-indent: 0;
+  margin-top: 1rem;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.info-part {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  color: red;
+}
+/* reviews content part */
+.reviews-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 2rem;
+}
+.course-rating-box,
+.different-ratings-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 15rem;
+  height: 15rem;
+  background-color: #9fc3d425;
+  border-radius: 5px;
+}
+.reviews-content-big-box {
+  display: flex;
+  gap: 2rem;
+}
+.rating-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
