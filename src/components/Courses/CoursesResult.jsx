@@ -11,7 +11,7 @@ const CoursesResult = () => {
     language: [],
     rating: ["1.0", "2.0", "3.0", "4.0", "5.0"],
     duration: ["0-5", "5-10"],
-    level: ["All Level", "Beginner", "Intermediate", "Expert"],
+    level: ["Beginner", "Intermediate", "Expert"],
     price: ["Free", "Paid"],
   });
   const [filters, setFilters] = useState({
