@@ -63,7 +63,9 @@
       "instructor": "Professor Smith",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.5,
-      "students": 25000
+      "students": 25000,
+      "category": "Programming and Technology",
+      "language": "English"
     },
     {
       "id": 2,
@@ -71,7 +73,8 @@
       "instructor": "Dr. Patel",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.2,
-      "students": 22000
+      "students": 22000,
+      "category": "Programming and Technology"
     },
     {
       "id": 3,
@@ -79,7 +82,9 @@
       "instructor": "Sarah Johnson",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.7,
-      "students": 30000
+      "students": 30000,
+      "category": "Programming and Technology",
+      "language": "arabic"
     },
     {
       "id": 4,
@@ -87,7 +92,8 @@
       "instructor": "Professor Lee",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.4,
-      "students": 28000
+      "students": 28000,
+      "category": "Programming and Technology"
     },
     {
       "id": 5,
@@ -95,7 +101,8 @@
       "instructor": "Emily White",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.3,
-      "students": 23000
+      "students": 23000,
+      "category": "Creative Arts"
     },
     {
       "id": 6,
@@ -103,7 +110,8 @@
       "instructor": "Dr. Ramirez",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.6,
-      "students": 27000
+      "students": 27000,
+      "category": "Social Sciences and Humanities"
     },
     {
       "id": 7,
@@ -111,7 +119,8 @@
       "instructor": "Mark Thompson",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.0,
-      "students": 20000
+      "students": 20000,
+      "category": "Business and Management"
     },
     {
       "id": 8,
@@ -119,7 +128,8 @@
       "instructor": "Alexandra Green",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.1,
-      "students": 21000
+      "students": 21000,
+      "category": "Creative Arts"
     },
     {
       "id": 9,
@@ -127,7 +137,8 @@
       "instructor": "Coach Davis",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.8,
-      "students": 32000
+      "students": 32000,
+      "category": "Health and Wellness"
     },
     {
       "id": 10,
@@ -135,7 +146,8 @@
       "instructor": "Melissa Carter",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.5,
-      "students": 26000
+      "students": 26000,
+      "category": "Creative Arts"
     },
     {
       "id": 11,
@@ -143,7 +155,8 @@
       "instructor": "John Anderson",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.2,
-      "students": 24000
+      "students": 24000,
+      "category": "Business and Management"
     },
     {
       "id": 12,
@@ -151,7 +164,8 @@
       "instructor": "Dr. Kim",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.6,
-      "students": 29000
+      "students": 29000,
+      "category": "Programming and Technology"
     },
     {
       "id": 13,
@@ -159,7 +173,8 @@
       "instructor": "David Carter",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.3,
-      "students": 25000
+      "students": 25000,
+      "category": "Programming and Technology"
     },
     {
       "id": 14,
@@ -167,7 +182,8 @@
       "instructor": "Sarah Johnson",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.4,
-      "students": 27000
+      "students": 27000,
+      "category": "Creative Arts"
     },
     {
       "id": 15,
@@ -175,7 +191,8 @@
       "instructor": "Dr. Thompson",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.1,
-      "students": 23000
+      "students": 23000,
+      "category": "Science and Environment"
     },
     {
       "id": 16,
@@ -183,7 +200,8 @@
       "instructor": "Michael Baker",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.5,
-      "students": 26000
+      "students": 26000,
+      "category": "Programming and Technology"
     },
     {
       "id": 17,
@@ -191,7 +209,8 @@
       "instructor": "Emily White",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.7,
-      "students": 28000
+      "students": 28000,
+      "category": "Social Sciences and Humanities"
     },
     {
       "id": 18,
@@ -199,7 +218,8 @@
       "instructor": "Alexandra Green",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.3,
-      "students": 24000
+      "students": 24000,
+      "category": "Programming and Technology"
     },
     {
       "id": 19,
@@ -207,7 +227,8 @@
       "instructor": "Dr. Rodriguez",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.8,
-      "students": 30000
+      "students": 30000,
+      "category": "Science and Environment"
     },
     {
       "id": 20,
@@ -215,7 +236,8 @@
       "instructor": "Chef Martin",
       "image": "https://via.placeholder.com/300x150",
       "rating": 4.2,
-      "students": 22000
+      "students": 22000,
+      "category": "Health and Wellness"
     }
   ]
 }
