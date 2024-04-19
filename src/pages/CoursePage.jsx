@@ -60,7 +60,7 @@ function CoursePage() {
   const renderContent = () => {
     switch (selectedPanel) {
       case "overview":
-        return <OverviewContent information={overviewData}/>;
+        return <OverviewContent information={overviewData} />;
       case "courseContent":
         return <CourseContent information={courseAllInfo} />;
       case "instructors":
@@ -75,12 +75,37 @@ function CoursePage() {
   return (
     <>
       <Header />
-      <MainCourseInfo/>
+      <MainCourseInfo />
       <CourseCard information={courseBasicInfo} />
       <CoursePagePanel
         selectedPanel={selectedPanel}
         setSelectedPanel={setSelectedPanel}
-      />
+      >
+        <button
+          className="btn panel-btn"
+          onClick={() => setSelectedPanel("overview")}
+        >
+          Overview
+        </button>
+        <button
+          className="btn panel-btn"
+          onClick={() => setSelectedPanel("courseContent")}
+        >
+          Course content
+        </button>
+        <button
+          className="btn panel-btn"
+          onClick={() => setSelectedPanel("instructors")}
+        >
+          instructors
+        </button>
+        <button
+          className="btn panel-btn"
+          onClick={() => setSelectedPanel("reviews")}
+        >
+          reviews
+        </button>
+      </CoursePagePanel>
       {renderContent()}
     </>
   );

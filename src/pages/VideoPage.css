@@ -203,9 +203,11 @@ video {
 /* ----------------------------- */
 /* css of the page itself  */
 
-/* questions */
-.question-card {
-  background-color: rgba(0, 115, 255, 0.156);
+/* question card */
+/* reply card */
+
+.question-card,
+.reply-card {
   display: flex;
   justify-content: space-between;
   width: 70%;
@@ -214,15 +216,24 @@ video {
   margin-bottom: 2px;
   border-radius: 5px;
 }
-.question-card svg {
+.question-card:hover {
+  background-color: rgba(142, 145, 148, 0.156);
+}
+.question-card svg,
+.reply-card svg {
   width: 25px;
   height: 25px;
+  cursor: pointer;
+}
+.question-card svg:hover {
+  stroke: rgb(0, 81, 255);
 }
 .numbers-reply-votes {
   display: flex;
   flex-direction: column;
 }
-.question-card img {
+.question-card img,
+.reply-card img {
   margin: 1rem;
   width: 15%;
   height: 70%;
@@ -235,4 +246,96 @@ video {
 }
 .question-content {
   display: flex;
+}
+/* ------------- */
+.see-more {
+  /* background-color: red; */
+  width: 60%;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+.see-more:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+/* -------------------------- */
+.replies-component{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 80%;
+  margin: 0 auto;
+}
+/* Back btn */
+.back-btn {
+  padding: 10px;
+  font-size: 18px;
+  color: rgb(64, 91, 224);
+  background-color: #fff;
+  border: 2px solid rgb(64, 91, 224);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.back-btn:hover {
+  background-color: rgb(64, 91, 224);
+  color: #fff;
+}
+
+.back-btn:focus {
+  outline: none;
+}
+
+.reply-card p {
+  text-align: left;
+}
+.reply-card-left{
+  display: flex;
+}
+/* add question button */
+.add-question-btn, .submit-question-btn,.add-reply-btn {
+  padding: 10px 20px;
+  background-color: rgb(64, 91, 224);
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 1rem;
+}
+
+.add-question-btn:hover,.submit-question-btn:hover ,.add-reply-btn:hover  {
+  background-color: rgb(44, 64, 158);
+}
+
+.add-question-btn:focus,.submit-question-btn:focus  {
+  outline: none;
+}
+
+.add-question-card{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 70%;
+  margin:  100px auto;
+  background-color: rgba(224, 226, 226, 0.245);
+  padding: 5rem;
+}
+/* -------------- */
+.add-question-card form {
+  width: 100%;
+  text-align: left;
+}
+
+.add-question-card input {
+  width: 100%; /* Use a percentage or specific width */
+  margin-bottom: 10px; /* Add margin for spacing between inputs */
+  border: 1px solid rgb(98, 100, 98);
+  border-radius: 5px; /* Add border-radius for rounded corners */
+  box-sizing: border-box; /* Include padding and border in the element's total width */
 }
