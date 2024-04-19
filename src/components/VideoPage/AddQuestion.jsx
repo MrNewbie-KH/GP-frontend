@@ -13,7 +13,7 @@ function AddQuestion({ isReply, setAskQuestion }) {
   return (
     <div className="add-question-card">
       <button className="back-btn" onClick={() => setAskQuestion(false)}>
-        Back to all {isReply ? "replies" : "questions"}
+        Back  
       </button>
       <form onSubmit={handleSubmit}>
         {!isReply && (

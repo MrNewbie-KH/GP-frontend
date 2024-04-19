@@ -4,6 +4,7 @@ import "./VideoPage.css";
 import "./Home.css";
 import CourseContent from "../components/CoursePage/CourseContent";
 import QAndAContent from "../components/VideoPage/QAndAContent";
+import NotesContent from "../components/VideoPage/NotesContent";
 import { useEffect, useState } from "react";
 import CoursePagePanel from "../components/CoursePage/CoursePagePanel";
 function VideoPage() {
