@@ -4,7 +4,7 @@ import Pagination from "./Pagination";
 import CourseFilter from "./CoursesFilter";
 import CategoryTitle from "./CategoryTitle";
 
-const CourseList = ({ courses }) => {
+const CoursesList = ({ courses }) => {
   const [totalPages, setTotalPages] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -40,4 +40,4 @@ const CourseList = ({ courses }) => {
   );
 };
 
-export default CourseList;
+export default CoursesList;

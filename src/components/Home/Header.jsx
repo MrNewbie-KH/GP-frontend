@@ -1,10 +1,18 @@
 // Header.js
-import React from "react";
+import React, { useState } from "react";
+import Search from "../Search/Search";
 
-const Header = () => {
+const Header = ({ onSearched }) => {
+  const passdata = (searchValue) => {
+    onSearched(searchValue);
+  };
+
   return (
     <header className="header">
       <div className="logo">Zakker</div>
+      <div className="header-search">
+        <Search onSearch={passdata} />
+      </div>
       <nav className="nav">
         <a href="#">Categories</a>
         <a href="#">My Courses</a>
