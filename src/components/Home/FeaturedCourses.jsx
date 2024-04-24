@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import CourseCard from "../Courses/CourseCard";
 
 const FeaturedCourses = () => {
   const [courses, setCourses] = useState([]);

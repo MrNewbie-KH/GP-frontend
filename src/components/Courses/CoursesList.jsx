@@ -4,7 +4,7 @@ import Pagination from "./Pagination";
 import CourseFilter from "./CoursesFilter";
 import CategoryTitle from "./CategoryTitle";
 
-const CourseList = ({ courses }) => {
+const CoursesList = ({ courses }) => {
   const [totalPages, setTotalPages] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -18,6 +18,7 @@ const CourseList = ({ courses }) => {
   useEffect(() => {
     const totalPagesCount = Math.ceil(courses.length / coursesPerPage);
     setTotalPages(totalPagesCount);
+    setCurrentPage(1);
   }, [courses]);
 
   const handlePageChange = async (page) => {
@@ -40,4 +41,4 @@ const CourseList = ({ courses }) => {
   );
 };
 
-export default CourseList;
+export default CoursesList;

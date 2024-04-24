@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "./Courses.css";
 import Search from "./../components/Search/Search";
 import Header from "./../components/Home/Header";
 import CourseList from "./../components/Courses/CoursesList";
 import CoursesFilter from "../components/Courses/CoursesFilter";
 import CategoryTitle from "../components/Courses/CategoryTitle";
 
-const Courses = () => {
+const SearchPage = () => {
   const [courses, setCourses] = useState([]);
   const [filteredCourses, setFilteredCourses] = useState([]);
   const [searchValue, setSearchValue] = useState("");
@@ -64,4 +63,4 @@ const Courses = () => {
   );
 };
 
-export default Courses;
+export default SearchPage;
