@@ -13,21 +13,23 @@
   font-weight: bold;
 }
 
-.nav a {
-  color: white;
+.header a {
+  color: rgb(255, 255, 255);
   margin-left: 1rem;
   text-decoration: none;
 }
 
-.nav .btn {
+.header .btn {
   background-color: transparent;
   border: 1px solid white;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   transition: background-color 0.3s, color 0.3s;
+  color: #d4cdcd;
+  font-size: large;
 }
 
-.nav .btn:hover {
+.header .btn:hover {
   background-color: white;
   color: #2a60e4;
 }

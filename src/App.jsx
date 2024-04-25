@@ -5,8 +5,15 @@ import VideoPage from "./pages/VideoPage";
 import Home from "./pages/Home";
 import CoursePage from "./pages/CoursePage";
 import NotfoundPage from "./pages/NotfoundPage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Courses from "./pages/Courses";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  createBrowserRouter,
+} from "react-router-dom";
 
+// const routes=createBrowserRouter(cre)
 function App() {
   return (
     <>
@@ -15,7 +22,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/coursePage" element={<CoursePage />}></Route>
+          <Route path="/course/:id" element={<CoursePage />}></Route>
+          <Route path="/courses/:title?" element={<Courses />}></Route>
           <Route path="/videoPage" element={<VideoPage />} />
           <Route path="*" element={<NotfoundPage />} />
         </Routes>

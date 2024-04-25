@@ -8,6 +8,7 @@ import ReviewsContent from "../components/CoursePage/ReviewContent";
 import CoursePagePanel from "../components/CoursePage/CoursePagePanel";
 import Header from "../components/Home/Header";
 import "./CoursePage.css";
+import { useParams } from "react-router-dom";
 function CoursePage() {
   const [courseBasicInfo, setCourseBasicInfo] = useState(null);
   const [courseAllInfo, setCourseAllInfo] = useState(null);
@@ -56,10 +57,10 @@ function CoursePage() {
     getOverviewData();
     getInstructorData();
   }, []);
+  const { id } = useParams();
 
   const renderContent = () => {
     switch (selectedPanel) {
-      
       case "overview":
         return <OverviewContent information={overviewData} />;
       case "courseContent":

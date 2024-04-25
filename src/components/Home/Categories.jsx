@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 const CategoriesPanel = () => {
   const [categories, setCategories] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -36,10 +36,12 @@ const CategoriesPanel = () => {
           &lt;
         </button>
         {categories.slice(currentIndex, currentIndex + 5).map((category) => (
-          <div key={category.id} className="categoryCard">
-            <h3>{category.name}</h3>
-            <p>{category.description}</p>
-          </div>
+          <Link to={`courses/${category.name}`}>
+            <div key={category.id} className="categoryCard">
+              <h3>{category.name}</h3>
+              <p>{category.description}</p>
+            </div>
+          </Link>
         ))}
         <button className="arrowButton" onClick={showNextCategory}>
           {" "}

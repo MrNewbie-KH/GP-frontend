@@ -5,12 +5,14 @@ import Header from "./../components/Home/Header";
 import CourseList from "./../components/Courses/CoursesList";
 import CoursesFilter from "../components/Courses/CoursesFilter";
 import CategoryTitle from "../components/Courses/CategoryTitle";
+import { useParams } from "react-router-dom";
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
   const [filteredCourses, setFilteredCourses] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [searchResult, setSearchResult] = useState([]);
+  const { title } = useParams();
 
   useEffect(() => {
     fetchCourses();

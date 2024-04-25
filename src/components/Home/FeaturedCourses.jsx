@@ -49,15 +49,7 @@ const FeaturedCourses = () => {
       <h2>Featured Courses</h2>
       <div className="course-cards">
         {displayedCourses.map((course) => (
-          <div className="course-card" key={course.id}>
-            <img src={course.image} alt={course.title} />
-            <div className="course-info">
-              <h3>{course.title}</h3>
-              <p>{course.instructor}</p>
-              <span>{course.rating} ★</span>
-              <span>{course.students} students</span>
-            </div>
-          </div>
+          <CourseCard course={course} />
         ))}
       </div>
       <div className="pagination">
