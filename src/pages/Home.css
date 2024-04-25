@@ -33,41 +33,26 @@
 }
 
 .header-search {
-<<<<<<< HEAD
   margin-left: 6rem; /* Pushes the search bar to the right, taking up all remaining space */
   margin-right: 1rem; /* Pushes the search bar to the right, taking up all remaining space */
-
-=======
-  margin-left: 10rem; /* Pushes the search bar to the right, taking up all remaining space */
-  margin-right: 1rem; /* Add some margin to the right */
->>>>>>> f754760f6590e82d63475ac55d63eced46c2a47f
   flex-grow: 1; /* Allows the search bar to grow and take up remaining space */
 }
 .header-search .search-bar input {
   width: 100% !important; /* Make the input take up all available space */
   outline: none;
   padding-left: 2.5rem;
-<<<<<<< HEAD
 }
 .search-bar {
   display: flex;
   justify-content: center; /* Horizontally center */
   align-items: center; /* Vertically center */
   width: 100%; /* Optionally, set width of outer div */
-=======
   font-size: large;
-}
-.search-bar {
-  position: relative;
->>>>>>> f754760f6590e82d63475ac55d63eced46c2a47f
 }
 
 .search-input-container {
   position: relative;
-<<<<<<< HEAD
   width: 80%;
-=======
->>>>>>> f754760f6590e82d63475ac55d63eced46c2a47f
 }
 
 .search-icon {
@@ -82,11 +67,8 @@
 }
 
 .search-input {
-  padding-left: 30px; /* Adjust padding to accommodate icon */
-<<<<<<< HEAD
+  padding-left: 2.5rem;
   font-size: large;
-=======
->>>>>>> f754760f6590e82d63475ac55d63eced46c2a47f
 }
 
 .search-btn {
