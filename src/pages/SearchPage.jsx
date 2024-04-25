@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import Search from "./../components/Search/Search";
 import Header from "./../components/Home/Header";
 import CourseList from "./../components/Courses/CoursesList";
+<<<<<<< HEAD
+=======
+import CoursesResult from "./../components/Courses/CoursesResult";
+>>>>>>> f754760f6590e82d63475ac55d63eced46c2a47f
 import CoursesFilter from "../components/Courses/CoursesFilter";
 import CategoryTitle from "../components/Courses/CategoryTitle";
 
