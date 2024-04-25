@@ -13,9 +13,8 @@ function App() {
       {/* <VideoPage /> */}
       {/* <SignUp /> */}
       {/* <LogIn /> */}
-      <Home />
+      {/* <Home /> */}
       {/* <Courses /> */}
-      {/* <MyCourses /> */}
       {/* <SearchPage /> */}
       {/* <MyCourses /> */}
     </>
