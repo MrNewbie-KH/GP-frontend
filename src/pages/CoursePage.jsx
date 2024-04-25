@@ -59,6 +59,7 @@ function CoursePage() {
 
   const renderContent = () => {
     switch (selectedPanel) {
+      
       case "overview":
         return <OverviewContent information={overviewData} />;
       case "courseContent":

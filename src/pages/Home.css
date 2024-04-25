@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.logo {
+.logo  {
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -18,7 +18,7 @@
   text-decoration: none;
 }
 
-.nav a.btn {
+.nav .btn {
   background-color: transparent;
   border: 1px solid white;
   border-radius: 0.3rem;
@@ -26,7 +26,7 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
-.nav a.btn:hover {
+.nav .btn:hover {
   background-color: white;
   color: #2a60e4;
 }
