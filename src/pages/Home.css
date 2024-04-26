@@ -80,6 +80,30 @@
   bottom: 0;
   margin: auto;
 }
+/* ---------------------------------------------- */
+
+.loggedin {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.loggedin :hover {
+  color: #000000;
+  font-size: large;
+}
+
+.loggedin svg {
+  width: 24px;
+  height: 24px;
+}
+
+.loggedin svg path {
+  transition: fill 0.3s ease;
+}
 
 /* ---------------------------------------------- */
 .hero {
@@ -143,6 +167,9 @@
   margin-bottom: 10px;
   color: #333;
 }
+.categoryCard a {
+  text-decoration: none;
+}
 
 .categoryCard p {
   color: #666;
@@ -164,40 +191,7 @@
 .arrowButton:focus {
   outline: none;
 }
-/* -------courses------- */
-/*
-.featured-courses {
-  background-color: #f8f9fa;
-  padding: 4rem 2rem;
-  text-align: center;
-}
 
-.course-cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);  Four columns with equal width 
-  grid-gap: 20px;  Adjust the gap between grid items 
-  margin-top: 2rem;
-}
-
-.course-card {
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  width: 30%;
-}
-
-.course-card img {
-  width: 100%;
-  border-radius: 0.5rem;
-}
-
-.course-info h3 {
-  margin-top: 0.5rem;
-}
-
-
-*/
 /* ----------------courses----------------- */
 .featured-courses {
   background-color: #f8f9fa;
@@ -223,6 +217,10 @@
 .course-card img {
   width: 100%;
   border-radius: 0.5rem;
+}
+
+.course-card a {
+  text-decoration: none;
 }
 
 .course-info h3 {

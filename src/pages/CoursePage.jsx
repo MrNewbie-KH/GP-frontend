@@ -58,6 +58,7 @@ function CoursePage() {
     getInstructorData();
   }, []);
   const { id } = useParams();
+  console.log(id);
 
   const renderContent = () => {
     switch (selectedPanel) {

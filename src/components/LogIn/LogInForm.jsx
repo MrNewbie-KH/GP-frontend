@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "./Button.jsx";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
   email: "",
@@ -10,6 +11,7 @@ const initialState = {
 function LogInForm() {
   // state part
   const [formData, setFormData] = useState(initialState);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -24,19 +26,23 @@ function LogInForm() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/login",
+        "https://e-learning-platform-uwoj.onrender.com/login/custom",
         formData
       );
-      console.log("Registered successfully with data:", response);
-      if (response.message == "Wrong Password!") {
-        console.log("Wrong Password!");
-      } else if (response.status == "User not found!") {
-        console.log("User not found!");
+      if (response.data.status === "BAD_REQUEST") {
+        console.log(response.data.status);
+      } else if (response.data.status === "NOT_FOUND") {
+        console.log(response.data.status);
+      } else {
+        // Assuming successful response, store the token in local storage
+        const token = response.data.data;
+        localStorage.setItem("token", token);
+        console.log("Token stored successfully:", token);
       }
-
       setFormData(initialState);
+      navigate("/");
     } catch (error) {
-      console.error("Error  :", error.message);
+      console.error("Error:", error.message);
     }
   };
 

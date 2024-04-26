@@ -1,16 +1,23 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 const CategoriesPanel = () => {
   const [categories, setCategories] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:3000/categories")
-      .then((response) => response.json())
-      .then((data) => {
-        setCategories(data);
+    axios
+      .get("https://e-learning-platform-uwoj.onrender.com/category/all")
+      .then((response) => {
+        // Handle successful response
+        const list = response.data.data;
+        setCategories(list); // Update state with fetched data
       })
-      .catch((error) => console.error("Error fetching categories:", error));
+      .catch((error) => {
+        // Handle error
+        console.error("Error fetching courses:", error);
+      });
   }, []);
 
   const showNextCategory = () => {
@@ -36,12 +43,12 @@ const CategoriesPanel = () => {
           &lt;
         </button>
         {categories.slice(currentIndex, currentIndex + 5).map((category) => (
-          <Link to={`courses/${category.name}`}>
-            <div key={category.id} className="categoryCard">
+          <div key={category.id} className="categoryCard">
+            <NavLink to={`courses/${category.name}`}>
               <h3>{category.name}</h3>
-              <p>{category.description}</p>
-            </div>
-          </Link>
+            </NavLink>
+            <p>{category.description}</p>
+          </div>
         ))}
         <button className="arrowButton" onClick={showNextCategory}>
           {" "}

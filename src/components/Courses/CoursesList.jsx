@@ -9,7 +9,6 @@ const CoursesList = ({ courses }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   // pagination funtion-----------------------------------------------------------------------------
-  //------------------------------------------------------------------------------------------------
   const coursesPerPage = 8; // courses per page
   const startIndex = (currentPage - 1) * coursesPerPage;
   const endIndex = startIndex + coursesPerPage;

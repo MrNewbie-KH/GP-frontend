@@ -5,7 +5,7 @@ import Header from "./../components/Home/Header";
 import CourseList from "./../components/Courses/CoursesList";
 import CoursesFilter from "../components/Courses/CoursesFilter";
 import CategoryTitle from "../components/Courses/CategoryTitle";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
@@ -13,24 +13,29 @@ const Courses = () => {
   const [searchValue, setSearchValue] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const { title } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     fetchCourses();
-  }, [searchValue]);
-
+  }, []);
   useEffect(() => {
     fetchSearchResult();
   }, [searchValue]);
 
+  useEffect(() => {
+    setSearchValue(searchParams.get("q"));
+  });
   const fetchCourses = async () => {
     try {
       const response = await fetch("http://localhost:3000/courses");
       const data = await response.json();
+      console.log(data);
       setCourses(data);
     } catch (error) {
       console.error("Error fetching courses:", error);
     }
   };
+
   const fetchSearchResult = () => {
     let result = [...courses];
     result = result.filter(
@@ -39,11 +44,8 @@ const Courses = () => {
           course.title.toLowerCase().includes(searchValue.toLowerCase())) ||
         course.instructor.toLowerCase().includes(searchValue.toLowerCase())
     );
+    console.log(result);
     setSearchResult(result);
-  };
-
-  const showResult = (searchValue) => {
-    setSearchValue(searchValue);
   };
 
   const fitlerCourses = (c) => {
@@ -52,7 +54,7 @@ const Courses = () => {
 
   return (
     <div>
-      <Header onSearched={showResult} />
+      <Header />
 
       <CategoryTitle title={searchValue} description={""} />
 

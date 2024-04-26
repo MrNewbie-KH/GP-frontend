@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-const Search = ({ onSearch }) => {
+import { useNavigate } from "react-router-dom";
+const Search = () => {
   const [searchValue, setSearchValue] = useState("");
 
   const handleInputChange = (event) => {
     const { value } = event.target;
     setSearchValue(value);
   };
-
+  const navigate = useNavigate();
   const applySearch = () => {
-    onSearch(searchValue);
+    // onSearch(searchValue);
+    navigate(`/courses/?q=${searchValue}`);
   };
 
   const handleKeyDown = (event) => {

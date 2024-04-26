@@ -60,6 +60,15 @@
   margin-right: 10px;
   color: #888;
 }
+.instructor-grid {
+  padding: 0.5rem;
+}
+.instructor-grid .instructor-container {
+  padding: 0.2rem;
+}
+
+/* Add any additional styles to make it look awesome! */
+
 .total-courses {
   font-family: "Platypi", serif;
   font-size: 20px;
