@@ -8,8 +8,6 @@ const initialState = {
   lastName: "",
   password: "",
   phone: "",
-  birthday: "",
-  // photo: null,
 };
 function SignupForm() {
   // state part
@@ -29,23 +27,28 @@ function SignupForm() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/register",
+        "https://e-learning-platform-uwoj.onrender.com/signup/custom",
         formData
       );
-      console.log("Registered successfully with data:", formData);
-      if (response.status === "BAD_REQUEST") {
-        setMessageState(response.message);
+      if (response.data.status === "BAD_REQUEST") {
+        console.log(response.data.status);
+      } else if (response.data.status === "NOT_FOUND") {
+        console.log(response.data.status);
       } else {
-        setFormData(initialState);
-        setMessageState(response.message);
+        // Assuming successful response, store the token in local storage
+        const token = response.data.data;
+        localStorage.setItem("token", token);
+        console.log("Token stored successfully:", token);
       }
+      setFormData(initialState);
+      navigate("/login");
     } catch (error) {
-      console.error("Error  :", error.message);
+      console.error("Error:", error.message);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} encType="multipart/form-data">
+    <form onSubmit={handleSubmit}>
       <div className="formRow">
         <label>Email:</label>
         <input
@@ -100,7 +103,7 @@ function SignupForm() {
           required
         />
       </div>
-      <div className="formRow">
+      {/* <div className="formRow">
         <label>Birthday:</label>
         <input
           type="date"
@@ -109,16 +112,7 @@ function SignupForm() {
           onChange={handleChange}
           required
         />
-      </div>
-      <div className="formRow">
-        <label>Photo:</label>
-        <input
-          type="file"
-          name="photo"
-          accept="image/*"
-          onChange={handleChange}
-        />
-      </div>
+      </div> */}
       <Button type="submit">Create account</Button>
     </form>
   );

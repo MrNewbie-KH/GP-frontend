@@ -504,6 +504,15 @@
       "password": "3435",
       "phone": "23424vgf",
       "birthday": "2001-02-20"
+    },
+    {
+      "id": "49b2",
+      "email": "mkhattab369@gmail.com",
+      "firstName": "Mohamed",
+      "lastName": "Khattab",
+      "password": "123KHATTAB@khattab",
+      "phone": "01061336120",
+      "birthday": "2001-10-10"
     }
   ],
   "login": [

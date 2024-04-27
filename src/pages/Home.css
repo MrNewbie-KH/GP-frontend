@@ -249,3 +249,66 @@
 .pagination button.active {
   background-color: #021a34;
 }
+
+/* --------------------------- */
+/* pop up from header  */
+.profile-button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  right: 50%;
+  top: 40px;
+  z-index: 1;
+  border-radius: 5px;
+   width: 200px;
+   background-color: rgb(232, 232, 232);
+   text-align: left;
+}
+
+.profile-button:hover .popup {
+  display: block;
+}
+.popup a{
+  color: rgb(0, 58, 128);
+  display: block;
+  padding: 10px;
+}
+.popup a:hover{
+  color: rgb(0, 204, 255);
+}
+.popup div{
+  
+  border-bottom: 1px solid rgba(0, 0, 0, 0.435);
+}
+/* to change cart  */
+.cart-container {
+  position: relative;
+  display: inline-block;
+}
+
+
+.cart-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: rgba(198, 198, 201, 0.241);
+  color: white;
+  border-radius: 500px;
+  padding: 1px;
+  font-size: 16px;
+}

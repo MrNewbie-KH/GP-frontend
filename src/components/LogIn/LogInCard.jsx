@@ -3,12 +3,13 @@ import LogInForm from "./LogInForm";
 import Button from "./Button";
 import facebookImage from "../../images/facebook.png";
 import googleImage from "../../images/google.png";
+import { NavLink } from "react-router-dom";
 function LogInCard() {
   return (
     <div className="card">
       <h1>Log In</h1>
       <p>
-        Don't have an account? <a href="">Sign Up</a>
+        Don't have an account? <NavLink to="/signup">Sign Up</NavLink>
       </p>
       <LogInForm />
       <h1 className="separator">OR</h1>
