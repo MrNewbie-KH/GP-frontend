@@ -7,13 +7,12 @@ const initialState = {
   firstName: "",
   lastName: "",
   password: "",
-  phone: "",
+  phoneNumber: "",
 };
 function SignupForm() {
   // state part
   const [formData, setFormData] = useState(initialState);
   const [messageState, setMessageState] = useState("");
-
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
     const newValue = type === "file" ? files[0] : value;
@@ -27,7 +26,7 @@ function SignupForm() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://e-learning-platform-uwoj.onrender.com/signup/custom",
+        "https://e-learning-platform-uwoj.onrender.com/signup",
         formData
       );
       if (response.data.status === "BAD_REQUEST") {
@@ -97,8 +96,8 @@ function SignupForm() {
         <label>Phone Number:</label>
         <input
           type="tel"
-          name="phone"
-          value={formData.phone}
+          name="phoneNumber"
+          value={formData.phoneNumber}
           onChange={handleChange}
           required
         />

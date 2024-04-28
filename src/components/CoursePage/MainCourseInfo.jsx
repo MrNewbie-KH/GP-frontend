@@ -1,13 +1,10 @@
-function MainCourseInfo() {
+function MainCourseInfo({information}) {
   return (
     <div className="main-course-info">
-      <h1 className="course-info-title">Hello</h1>
+      <h1 className="course-info-title">{information.title}</h1>
 
       <p className="course-info-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste officia
-        dignissimos distinctio laudantium, laborum itaque aliquid voluptate aut
-        illo assumenda, labore, nihil perspiciatis praesentium impedit minima
-        nam totam doloribus. Eligendi.
+        {information.description}
       </p>
     </div>
   );

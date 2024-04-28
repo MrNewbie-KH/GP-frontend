@@ -9,67 +9,47 @@ import CoursePagePanel from "../components/CoursePage/CoursePagePanel";
 import Header from "../components/Home/Header";
 import "./CoursePage.css";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+import Loader from "../components/Loader";
 function CoursePage() {
-  const [courseBasicInfo, setCourseBasicInfo] = useState(null);
-  const [courseAllInfo, setCourseAllInfo] = useState(null);
+  const token = localStorage.getItem("token");
+  const courseId = useParams();
+
+  const [courseData, setCoursedata] = useState([]);
   const [selectedPanel, setSelectedPanel] = useState("overview");
-  const [overviewData, setOverviewData] = useState(null);
-  const [instructorInformation, setInstructorInformation] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    const getBasicData = async () => {
+    const getData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/courseBasicInfo");
-        const data = await response.json();
-        setCourseBasicInfo(data[0]);
+        const response = await axios.get(
+          `https://e-learning-platform-uwoj.onrender.com/course/get-course/${courseId.id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log(response.data);
+        setCoursedata(response.data.data);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-    const getAllData = async () => {
-      try {
-        const response = await fetch("http://localhost:3000/courseAllInfo");
-        const data = await response.json();
-        setCourseAllInfo(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    const getInstructorData = async () => {
-      try {
-        const response = await fetch("http://localhost:3000/instructors");
-        const data = await response.json();
-        setInstructorInformation(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    const getOverviewData = async () => {
-      try {
-        const response = await fetch("http://localhost:3000/overview");
-        const data = await response.json();
-        setOverviewData(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    getBasicData();
-    getAllData();
-    getOverviewData();
-    getInstructorData();
+
+    getData();
   }, []);
-  const { id } = useParams();
-  console.log(id);
 
   const renderContent = () => {
     switch (selectedPanel) {
       case "overview":
-        return <OverviewContent information={overviewData} />;
+        return <OverviewContent information={courseData} />;
       case "courseContent":
-        return <CourseContent information={courseAllInfo} />;
+        return <CourseContent information={courseData} />;
       case "instructors":
-        return <InstructorsContent information={instructorInformation} />;
+        return <InstructorsContent information={courseData} />;
       case "reviews":
-        return <ReviewsContent />;
+        return <ReviewsContent information={courseData}/>;
       default:
         return null;
     }
@@ -78,38 +58,44 @@ function CoursePage() {
   return (
     <>
       <Header />
-      <MainCourseInfo />
-      <CourseCard information={courseBasicInfo} />
-      <CoursePagePanel
-        selectedPanel={selectedPanel}
-        setSelectedPanel={setSelectedPanel}
-      >
-        <button
-          className="btn panel-btn"
-          onClick={() => setSelectedPanel("overview")}
-        >
-          Overview
-        </button>
-        <button
-          className="btn panel-btn"
-          onClick={() => setSelectedPanel("courseContent")}
-        >
-          Course content
-        </button>
-        <button
-          className="btn panel-btn"
-          onClick={() => setSelectedPanel("instructors")}
-        >
-          instructors
-        </button>
-        <button
-          className="btn panel-btn"
-          onClick={() => setSelectedPanel("reviews")}
-        >
-          reviews
-        </button>
-      </CoursePagePanel>
-      {renderContent()}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <MainCourseInfo information={courseData} />
+          <CourseCard information={courseData} />
+          <CoursePagePanel
+            selectedPanel={selectedPanel}
+            setSelectedPanel={setSelectedPanel}
+          >
+            <button
+              className="btn panel-btn"
+              onClick={() => setSelectedPanel("overview")}
+            >
+              Overview
+            </button>
+            <button
+              className="btn panel-btn"
+              onClick={() => setSelectedPanel("courseContent")}
+            >
+              Course content
+            </button>
+            <button
+              className="btn panel-btn"
+              onClick={() => setSelectedPanel("instructors")}
+            >
+              instructors
+            </button>
+            <button
+              className="btn panel-btn"
+              onClick={() => setSelectedPanel("reviews")}
+            >
+              reviews
+            </button>
+          </CoursePagePanel>
+          {renderContent()}
+        </>
+      )}
     </>
   );
 }

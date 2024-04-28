@@ -3,12 +3,12 @@ const InstructorCard = ({ instructor }) => {
     <div className="instructor-card">
       <div className="image-and-name">
         <img
-          src={instructor.image}
-          alt={instructor.name}
+          src={instructor.imageUrl}
+          alt={instructor.firstName}
           className="instructor-image"
         />
         <div className="info">
-          <p className="instructor-name">{instructor.name}</p>
+          <p className="instructor-name">{instructor.firstName} {instructor.lastName}</p>
           <div className="info-instructor">
             <div className="info-part">
 

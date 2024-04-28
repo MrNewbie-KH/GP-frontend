@@ -5,6 +5,7 @@ function SectionCard({ data }) {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+  // rubish
   function calcDuration(obj){
   let ctr =0;
   for(let i=0;i<obj.lessons.length;i++){
@@ -50,11 +51,11 @@ function SectionCard({ data }) {
               </svg>
             )}
           </span>
-          <p>{data.section}</p>
+          <p>{data.title}</p>
         </div>
         <div>
-          <p>{data.lessons && data.lessons.length} lessons</p>
-          <p>{data.lessons && calcDuration(data)} Minutes</p>
+          <p>{data.numberOfLessons && data.numberOfLessons} lessons</p>
+          <p>{data.duration && data.duration} Minutes</p>
         </div>
       </div>
       {isOpen && (
