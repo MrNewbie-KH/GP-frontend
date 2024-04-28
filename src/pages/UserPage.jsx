@@ -1,45 +1,63 @@
 import Header from "../components/Home/Header";
 import CoursesList from "../components/Courses/CoursesList";
 import "./UserPage.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import Loader from "../components/Loader";
+import { useParams } from "react-router";
 
 function UserPage() {
-//   useEffect(() => {
+  const token = localStorage.getItem("token");
+  const [profile, setProfile] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const instructorId = useParams();
+  useEffect(() => {
+    async function pageData() {
+      try {
+        const response = await axios.get(
+          `https://e-learning-platform-uwoj.onrender.com/user/get-user/${instructorId.id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log(response.data.data);
+        setProfile(response.data.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error(error);
+      }
+    }
 
-//     async function pageData() {
-//       try {
-//         const response = await axios.get(
-//           "https://e-learning-platform-uwoj.onrender.com/user/get-user/655"
-//         );
-//         console.log(response.data);
-//       } catch (error) {
-//         console.error(error);
-//       }
-//     }
-
-//     pageData();
-//   }, []);  
-return (
+    pageData();
+  }, []);
+  return (
     <>
       <Header />
-      <div className="userpage-main">
-        <div className="img-title">
-          <img src="https://via.placeholder.com/300x150" alt="" />
-          <div className="userpage-title">
-            <p>Instructor</p>
-            <h1>Jonas schmedtman</h1>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="userpage-main">
+          <div className="img-title">
+            <img src={profile.imageUrl} alt="" />
+            <div className="userpage-title">
+              <p>Instructor</p>
+              <h1>
+                {profile.firstName} {profile.lastName}
+              </h1>
+            </div>
+          </div>
+          <h1>About me</h1>
+          <p>{profile.about}</p>
+          <h1>My courses</h1>
+          <div>
+            {profile.instructoredCourses && (
+              <CoursesList courses={profile.instructoredCourses} />
+            )}
           </div>
         </div>
-        <h1>About me</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio et ut
-          beatae, aliquid laudantium sunt possimus placeat nulla doloribus
-          dolore quibusdam dolorem! At ex quam quod id doloremque fugit amet?
-        </p>
-        <h1>My courses</h1>
-        {/* <CoursesList courses={courses} /> */}
-      </div>
+      )}
     </>
   );
 }

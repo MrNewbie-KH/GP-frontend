@@ -1,27 +1,24 @@
-.userpage-main{
-    margin: 2rem auto;
-    width: 70%;
-    background-color: rgba(0, 81, 255, 0.161);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 2rem;
-    gap: 1rem;
+.userpage-main {
+  margin: 2rem auto;
+  width: 90%;
+  padding: 2rem;
+  gap: 1rem;
+  background-color: rgba(178, 207, 236, 0.318);
+  border-radius: 25px;
 }
-.userpage-main p{
-    text-align: left;
+.userpage-main p {
+  text-align: left;
 }
-img{
-    border-radius: 500px;
-    width: 10rem;
-    height: 10rem;
+img {
+  border-radius: 500px;
+  width: 10rem;
+  height: 10rem;
 }
-.img-title{
-    display: flex;
-    width: 30%;
-    gap: 1rem;
+.img-title {
+  display: flex;
+  width: 30%;
+  gap: 1rem;
 }
-.userpage-title{
-    text-align: left;
+.userpage-title {
+  text-align: left;
 }

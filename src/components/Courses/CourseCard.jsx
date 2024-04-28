@@ -18,7 +18,7 @@ const CourseCard = ({ course }) => {
           <h3>{course.title}</h3>
           <div className="instructor-grid">
             {course.instructors.map((ins, index) => (
-              <NavLink to="/cart" key={index}>
+              <NavLink to={`/user/${ins.id}`} key={index}>
                 <div className="instructor-container">
                   <span>{ins.email}</span>
                 </div>

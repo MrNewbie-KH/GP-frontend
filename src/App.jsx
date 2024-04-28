@@ -17,6 +17,7 @@ import Cart from "./pages/Cart";
 import MyLearning from "./pages/MyLearning";
 import Profile from "./pages/Profile";
 import UserPage from "./pages/UserPage";
+import EditProfile from "./pages/EditProfile";
 
 // const routes=createBrowserRouter(cre)
 function App() {
@@ -47,7 +48,8 @@ function App() {
           <Route path="/course/:id" element={<CoursePage />}></Route>
           <Route path="/courses/:title?" element={<Courses />}></Route>
           <Route path="/videoPage" element={<VideoPage />} />
-          <Route path="/user" element={<UserPage />} />
+          <Route path="/user/:id" element={<UserPage />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
           <Route path="*" element={<NotfoundPage />} />
         </Routes>
       </BrowserRouter>

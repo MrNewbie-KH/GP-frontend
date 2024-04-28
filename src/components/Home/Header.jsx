@@ -78,7 +78,7 @@ const Header = () => {
                 </div>
                 <div className="popup-section">
                   <Link>Account settings</Link>
-                  <Link>Edit profile</Link>
+                  <Link to="/edit-profile">Edit profile</Link>
                   <Link>Public profile</Link>
                 </div>
                 <NavLink to="/login" onClick={logOut}>
