@@ -17,8 +17,8 @@ const Header = () => {
       {/*conditinal rendering if has token */}
       {isloggedin ? (
         <div className="loggedin">
-          <NavLink to="/mylearning">My Courses</NavLink>
-          <NavLink to="/mylearning">
+          <NavLink to="/mycourses">My Courses</NavLink>
+          <NavLink to="/mycourses/wishlist">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

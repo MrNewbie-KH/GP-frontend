@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CourseCard from "./CourseCard";
 import Pagination from "./Pagination";
-import CourseFilter from "./CoursesFilter";
-import CategoryTitle from "./CategoryTitle";
 
 const CoursesList = ({ courses }) => {
   const [totalPages, setTotalPages] = useState(1);
@@ -13,7 +11,6 @@ const CoursesList = ({ courses }) => {
   const startIndex = (currentPage - 1) * coursesPerPage;
   const endIndex = startIndex + coursesPerPage;
   const displayedCourses = courses.slice(startIndex, endIndex);
-
   useEffect(() => {
     const totalPagesCount = Math.ceil(courses.length / coursesPerPage);
     setTotalPages(totalPagesCount);
@@ -27,9 +24,13 @@ const CoursesList = ({ courses }) => {
   return (
     <div>
       <div className="course-list">
-        {displayedCourses.map((course) => (
-          <CourseCard key={course.id} course={course} />
-        ))}
+        {displayedCourses.length > 0 ? (
+          displayedCourses.map((course) => (
+            <CourseCard key={course.id} course={course} />
+          ))
+        ) : (
+          <h1>No Courses</h1>
+        )}
       </div>
       <Pagination
         totalPages={totalPages}

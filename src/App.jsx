@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import CoursePage from "./pages/CoursePage";
 import NotfoundPage from "./pages/NotfoundPage";
 import Courses from "./pages/Courses";
+import ProtectedRoute from "./components/ProtectedRoute";
 import UnProtectedRoute from "./components/UnProtectedRoute";
 import {
   BrowserRouter,
@@ -14,8 +15,11 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import Cart from "./pages/Cart";
-import MyLearning from "./pages/MyLearning";
 import Profile from "./pages/Profile";
+import MyCourses from "./pages/MyCourses";
+import MyLearning from "./components/MyCourses/MyLearning";
+import Archived from "./components/MyCourses/Archived";
+import Wishlist from "./components/MyCourses/WishList";
 
 // const routes=createBrowserRouter(cre)
 function App() {
@@ -40,7 +44,20 @@ function App() {
               </UnProtectedRoute>
             }
           />
-          <Route path="/mylearning" element={<MyLearning />}></Route>
+
+          <Route
+            path="/mycourses"
+            element={
+              <ProtectedRoute>
+                <MyCourses />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<MyLearning />} />
+            <Route path="wishlist" element={<Wishlist />} />
+            <Route path="archived" element={<Archived />} />
+          </Route>
+
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/course/:id" element={<CoursePage />}></Route>
