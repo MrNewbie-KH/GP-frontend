@@ -11,13 +11,13 @@ import Loader from "./../components/Loader";
 function Home() {
   const [courses, setCourses] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-const token = localStorage.getItem("token")
+  const token = localStorage.getItem("token");
   useEffect(() => {
     axios
-      .get("https://e-learning-platform-uwoj.onrender.com/courses",{
-        headers:{
-          Authorization:`Bearer ${token}`
-        }
+      .get("https://e-learning-platform-uwoj.onrender.com/courses", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       })
       .then((response) => {
         // Handle successful response
