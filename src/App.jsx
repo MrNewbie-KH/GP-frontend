@@ -1,23 +1,27 @@
 import "./App.css";
-import LogIn from "./pages/LogIn";
-import SignUp from "./pages/SignUp";
-import VideoPage from "./pages/VideoPage";
-import Home from "./pages/Home";
-import CoursePage from "./pages/CoursePage";
-import NotfoundPage from "./pages/NotfoundPage";
-import Courses from "./pages/Courses";
-import ProtectedRoute from "./components/ProtectedRoute";
-import UnProtectedRoute from "./components/UnProtectedRoute";
 import {
   BrowserRouter,
   Route,
   Routes,
   createBrowserRouter,
 } from "react-router-dom";
+import LogIn from "./pages/LogIn";
+import SignUp from "./pages/SignUp";
+import VideoPage from "./pages/VideoPage";
+import Home from "./pages/Home";
+import NotfoundPage from "./pages/NotfoundPage";
 import Cart from "./pages/Cart";
+import CoursePage from "./pages/CoursePage";
+import Courses from "./pages/Courses";
+import ProtectedRoute from "./components/ProtectedRoute";
+import UnProtectedRoute from "./components/UnProtectedRoute";
 import Profile from "./pages/Profile";
-import UserPage from "./pages/UserPage";
+import MyCourses from "./pages/MyCourses";
+import MyLearning from "./components/MyCourses/MyLearning";
+import Archived from "./components/MyCourses/Archived";
+import Wishlist from "./components/MyCourses/WishList";
 import EditProfile from "./pages/EditProfile";
+import UserPage from "./pages/UserPage";
 
 // const routes=createBrowserRouter(cre)
 function App() {
