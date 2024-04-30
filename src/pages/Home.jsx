@@ -11,14 +11,9 @@ import Loader from "./../components/Loader";
 function Home() {
   const [courses, setCourses] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const token = localStorage.getItem("token");
   useEffect(() => {
     axios
-      .get("https://e-learning-platform-uwoj.onrender.com/courses", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .get("https://e-learning-platform-uwoj.onrender.com/course/get-courses")
       .then((response) => {
         // Handle successful response
         const list = response.data.data;

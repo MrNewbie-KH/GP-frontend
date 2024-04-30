@@ -12,7 +12,6 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "../components/Loader";
 function CoursePage() {
-  const token = localStorage.getItem("token");
   const courseId = useParams();
 
   const [courseData, setCoursedata] = useState([]);
@@ -22,12 +21,7 @@ function CoursePage() {
     const getData = async () => {
       try {
         const response = await axios.get(
-          `https://e-learning-platform-uwoj.onrender.com/course/get-course/${courseId.id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
+          `https://e-learning-platform-uwoj.onrender.com/course/get-course/${courseId.id}`
         );
         console.log(response.data);
         setCoursedata(response.data.data);
