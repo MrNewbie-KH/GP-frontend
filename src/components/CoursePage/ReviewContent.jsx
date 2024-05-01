@@ -1,6 +1,7 @@
 import { useState } from "react";
 import StarRating from "../StarRating";
 import ReviewCard from "./ReviewCard";
+import AddRating from "../AddRating";
 function ReviewsContent({ information }) {
   return (
     <div className="reviews-content">
@@ -44,6 +45,8 @@ function ReviewsContent({ information }) {
         information.reviews.map((review, index) => {
           return <ReviewCard key={index} data={review} />;
         })}
+        <AddRating/>
+        <ReviewCard />
     </div>
   );
 }

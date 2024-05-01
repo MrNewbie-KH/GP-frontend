@@ -22,6 +22,7 @@ import Archived from "./components/MyCourses/Archived";
 import Wishlist from "./components/MyCourses/WishList";
 import EditProfile from "./pages/EditProfile";
 import UserPage from "./pages/UserPage";
+import ProfilePage from "./pages/ProfilePage";
 
 // const routes=createBrowserRouter(cre)
 function App() {
@@ -65,6 +66,7 @@ function App() {
           <Route path="/course/:id" element={<CoursePage />}></Route>
           <Route path="/courses/:title?" element={<Courses />}></Route>
           <Route path="/videoPage" element={<VideoPage />} />
+          <Route path="/user/profile" element={<ProfilePage />} />
           <Route path="/user/:id" element={<UserPage />} />
           <Route path="/edit-profile" element={<EditProfile />} />
           <Route path="*" element={<NotfoundPage />} />
