@@ -1,6 +1,7 @@
 import StarRating from "../StarRating";
 
 function ReviewCard({ data }) {
+  console.log(data);
   return (
     <div className="review-card">
         <div className="top-part-review-card">
@@ -53,13 +54,3 @@ function ReviewCard({ data }) {
   );
 }
 export default ReviewCard;
-// "id": 652,
-//         "rating": 5,
-//         "creationDate": "2024-04-25",
-//         "modificationDate": "2024-04-25",
-//         "user": {
-//           "id": 652,
-//           "firstName": "user1",
-//           "lastName": "mohamed1",
-//           "imageUrl": "https://via.placeholder.com/300x150"
-//         }

@@ -37,11 +37,13 @@ function LogInForm() {
       } else {
         // Assuming successful response, store the token in local storage
         const token = response.data.data;
-        localStorage.setItem("token", token);
+        if (token) {
+          localStorage.setItem("token", token);
+          navigate("/");
+        }
         console.log("Token stored successfully:", token);
       }
       setFormData(initialState);
-      navigate("/");
     } catch (error) {
       console.error("Error:", error.message);
     }

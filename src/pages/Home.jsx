@@ -13,12 +13,13 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     axios
-      .get("https://e-learning-platform-uwoj.onrender.com/course/public/get-courses/1")
+      .get("https://e-learning-platform-uwoj.onrender.com/course/public/get-courses/0")
       .then((response) => {
         // Handle successful response
         const list = response.data.data;
         setCourses(list); // Update state with fetched data
         setIsLoading(false);
+        console.log(response.data);
       })
       .catch((error) => {
         // Handle error

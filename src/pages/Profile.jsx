@@ -49,13 +49,21 @@ function Profile() {
             </div>
           </div>
           <h1>About me</h1>
-          <p>{profile.about}</p>
-          <h1>My courses</h1>
-          <div>
-            {profile.instructoredCourses && (
-              <CoursesList courses={profile.instructoredCourses} />
-            )}
-          </div>
+          <p>
+            {" "}
+            <b>Who am i ?</b> {profile.about}
+          </p>
+          <p>
+            <b>Phone:</b> {profile.phoneNumber}
+          </p>
+          <p>
+            <b>Email:</b> {profile.email}
+          </p>
+          {profile.paypalEmail && (
+            <p>
+              <b>Paypal:</b> {profile.paypalEmail}
+            </p>
+          )}
         </div>
       )}
     </>
