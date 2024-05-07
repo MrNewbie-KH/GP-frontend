@@ -51,6 +51,9 @@
   border-radius: 50%;
   padding: 5px;
 }
+.heart-icon-container .active {
+  color: red;
+}
 .course-card img {
   width: 100%;
   border-radius: 5px;

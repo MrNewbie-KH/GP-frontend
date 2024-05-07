@@ -11,8 +11,9 @@ const CourseCard = ({ course }) => {
   };
   const AddToWish = () => {
     axios
-      .get(
-        `https://e-learning-platform-uwoj.onrender.com/user/add-to-wishlist/${course.id}`,
+      .post(
+        `https://e-learning-platform-uwoj.onrender.com/user/add-to-wishlist?courseId=${course.id}`,
+        {},
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -40,9 +41,9 @@ const CourseCard = ({ course }) => {
             }
             alt={course.title}
           />
-          <NavLink>
+          <NavLink to="/mycourses/wishlist">
             <div className="heart-icon-container" onClick={AddToWish}>
-              <FontAwesomeIcon icon={faHeart} />
+              <FontAwesomeIcon className="heart" icon={faHeart} />
             </div>
           </NavLink>
         </div>
