@@ -5,7 +5,7 @@ import AddRating from "../AddRating";
 import axios from "axios";
 import Loader from "../Loader";
 
-function ReviewsContent({ courseId,isSubscribed }) {
+function ReviewsContent({ rating, courseId,isSubscribed }) {
   const token = localStorage.getItem("token");
   const [information, setInformation] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -37,8 +37,8 @@ function ReviewsContent({ courseId,isSubscribed }) {
 
       <div className="reviews-content-big-box">
         <div className="course-rating-box">
-          <h1 className="course-rating-number">4.5</h1>
-          <StarRating stars={4.5} />
+          <h1 className="course-rating-number">{rating}</h1>
+          <StarRating stars={rating} />
           <p>Course Rating</p>
         </div>
         <div className="different-ratings-box">
@@ -68,7 +68,7 @@ function ReviewsContent({ courseId,isSubscribed }) {
           </div>
         </div>
       </div>
-      {(!information.isReviewd&&isSubscribed)&& <AddRating />}
+      {(!information.isReviewd&&isSubscribed)&& <AddRating courseId={courseId} status={"add"}/>}
       
       { information.data &&
         information.data.map((review, index) => {

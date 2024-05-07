@@ -50,6 +50,7 @@ function CoursePage() {
       case "reviews":
         return (
           <ReviewsContent
+          rating={courseData.averageRating}
             courseId={courseData.id}
             isSubscribed={courseData.isSubscribed}
           />
