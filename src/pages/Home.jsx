@@ -13,7 +13,7 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     axios
-      .get("https://e-learning-platform-uwoj.onrender.com/course/get-courses")
+      .get("https://e-learning-platform-uwoj.onrender.com/course/public/get-courses/1")
       .then((response) => {
         // Handle successful response
         const list = response.data.data;

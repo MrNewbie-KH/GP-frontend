@@ -29,6 +29,7 @@ function LogInForm() {
         "https://e-learning-platform-uwoj.onrender.com/login/custom",
         formData
       );
+      console.log(response);
       if (response.data.status === "BAD_REQUEST") {
         console.log(response.data.status);
       } else if (response.data.status === "NOT_FOUND") {

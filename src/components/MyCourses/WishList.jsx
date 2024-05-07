@@ -17,7 +17,7 @@ const Wishlist = () => {
       .then((response) => {
         // Handle successful response
 
-        const list = response.data.data.data;
+        const list = response.data.data;
         setCourses(list); // Update state with fetched data
         setIsLoading(false);
       })

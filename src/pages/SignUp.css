@@ -128,3 +128,8 @@ label {
 .login-image {
   width: 55%;
 }
+.alert-message{
+  color: red;
+  margin: 1rem;
+  font-size: x-large;
+}
