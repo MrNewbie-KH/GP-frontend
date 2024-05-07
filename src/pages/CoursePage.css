@@ -348,3 +348,62 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+
+/* ------------------------- */
+/* review and rating part */
+.add-rating-review-content {
+  margin: 1rem;
+  background-color: rgba(65, 105, 224, 0.443);
+  width: 100%;
+  text-align: left;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.add-rating-review-content textarea {
+  border-radius: 4px; /* Adds a slight border radius for a softer look */
+  margin: 10px; /* Adds margin around the textarea */
+  width: calc(100% - 20px); /* Sets the width of the textarea to 100% minus the margin */
+  padding: 8px; /* Adds padding inside the textarea */
+  color: rgb(78, 78, 78);
+  font-size: 36px;
+}
+
+.add-rating-review-content button {
+  border-radius: 4px; /* Adds a slight border radius for a softer look */
+  margin: 10px; /* Adds margin around the button */
+  width: 120px; /* Sets a fixed width for the button */
+  align-self: flex-end; /* Aligns the button to the right */
+  padding: 8px 16px; /* Adds padding inside the button */
+  background-color: #007bff; /* Sets the background color to a blue shade */
+  color: white; /* Sets the text color to white */
+  border: none; /* Removes the border */
+  font-size: 16px; /* Sets the font size */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  transition: background-color 0.3s; /* Adds a smooth transition for the background color change */
+}
+
+.add-rating-review-content button:hover {
+  background-color: #0056b3; /* Darkens the background color on hover */
+}
+.add-rating-review-content textarea {
+  border-radius: 4px;
+  margin: 10px;
+  width: calc(100% - 20px);
+  padding: 8px;
+  font-family: 'Arial', sans-serif; /* Set a custom font */
+  font-size: 14px; /* Set a custom font size */
+  line-height: 1.5; /* Set the line height for better readability */
+  border: 1px solid #ccc; /* Add a border */
+  resize: vertical; /* Allow vertical resizing */
+}
+
+.add-rating-review-content textarea:focus {
+  border-color: #007bff; /* Change border color on focus */
+  outline: none; /* Remove default focus outline */
+}

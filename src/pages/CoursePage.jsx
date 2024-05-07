@@ -13,7 +13,7 @@ import axios from "axios";
 import Loader from "../components/Loader";
 function CoursePage() {
   const courseId = useParams();
-
+  const token = localStorage.getItem("token");
   const [courseData, setCoursedata] = useState([]);
   const [selectedPanel, setSelectedPanel] = useState("overview");
   const [isLoading, setIsLoading] = useState(true);
@@ -21,7 +21,12 @@ function CoursePage() {
     const getData = async () => {
       try {
         const response = await axios.get(
-          `https://e-learning-platform-uwoj.onrender.com/course/public/get-course/${courseId.id}`
+          `https://e-learning-platform-uwoj.onrender.com/course/public/get-course/${courseId.id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
         );
         console.log(response.data.data.data);
         setCoursedata(response.data.data.data);
@@ -43,7 +48,12 @@ function CoursePage() {
       case "instructors":
         return <InstructorsContent information={courseData} />;
       case "reviews":
-        return <ReviewsContent courseId={courseData.id}/>;
+        return (
+          <ReviewsContent
+            courseId={courseData.id}
+            isSubscribed={courseData.isSubscribed}
+          />
+        );
       default:
         return null;
     }
