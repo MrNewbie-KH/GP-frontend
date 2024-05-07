@@ -5,14 +5,14 @@ function StarRating({
   color = "#fcc419",
   size = 32,
   setUserRating,
-  stars
+  stars,
 }) {
-  const containerStyle= {
+  const containerStyle = {
     display: "flex",
     gap: "5px",
-    justifyContent: "center",
+    // justifyContent: "center",
     alignItems: "center",
-  }
+  };
   const [rating, setRating] = useState(0);
   const [tempRating, setTempRating] = useState(0);
 
@@ -38,18 +38,26 @@ function StarRating({
         onAddRating={() => handleRating(index + 1)}
         onHoverIn={() => setTempRating(index + 1)}
         onHoverOut={() => setTempRating(0)}
-        isFull={(stars ? stars >= index + 1 : rating >= index + 1)}
+        isFull={stars ? stars >= index + 1 : rating >= index + 1}
       />
     );
   });
   return (
-    <div >
-      <div style={containerStyle}>{array}</div>
-     {!stars&& <p style={textStyle}>{tempRating || rating || " "}</p>} 
+    <div>
+      <div style={containerStyle}>{array}
+      {!stars && <p style={textStyle}>{tempRating || rating || " "}</p>}
+      </div>
     </div>
   );
 }
-function Star({ color, size, onAddRating, onHoverIn, onHoverOut, isFull=true }) {
+function Star({
+  color,
+  size,
+  onAddRating,
+  onHoverIn,
+  onHoverOut,
+  isFull = true,
+}) {
   const starStyle = {
     display: "block",
     height: size + "px",

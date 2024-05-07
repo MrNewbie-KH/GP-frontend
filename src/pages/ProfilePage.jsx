@@ -4,13 +4,11 @@ import "./UserPage.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "../components/Loader";
-import { useParams } from "react-router";
 
-function Profile() {
+function ProfilePage() {
   const token = localStorage.getItem("token");
   const [profile, setProfile] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const instructorId = useParams();
   useEffect(() => {
     async function pageData() {
       try {
@@ -49,24 +47,16 @@ function Profile() {
             </div>
           </div>
           <h1>About me</h1>
-          <p>
-            {" "}
-            <b>Who am i ?</b> {profile.about}
-          </p>
-          <p>
-            <b>Phone:</b> {profile.phoneNumber}
-          </p>
-          <p>
-            <b>Email:</b> {profile.email}
-          </p>
-          {profile.paypalEmail && (
-            <p>
-              <b>Paypal:</b> {profile.paypalEmail}
-            </p>
-          )}
+          <p>{profile.about}</p>
+          <h1>My courses</h1>
+          <div>
+            {profile.instructoredCourses && (
+              <CoursesList courses={profile.instructoredCourses} />
+            )}
+          </div>
         </div>
       )}
     </>
   );
 }
-export default Profile;
+export default ProfilePage;

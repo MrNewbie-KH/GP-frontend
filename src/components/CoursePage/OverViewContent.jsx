@@ -9,20 +9,23 @@ function OverviewContent({ information }) {
       <div className="overview-content-learn">
         <h2>What you will learn</h2>
         <ul>
-          {information.whatYouWillLearn &&
+          {information.whatYouWillLearn }
+          {/* &&
             information.whatYouWillLearn.map((info, index) => {
               return <LearnOutcome key={index} data={info} />;
-            })}
+            })} */}
         </ul>
       </div>
       <div className="overview-content-requirements">
         <h2>Prerequiset</h2>
         <p>Before starting make sure you know</p>
         <ul>
-          {information.prerequisite &&
-            information.prerequisite.map((info, index) => {
-              return <LearnOutcome key={index} data={info} />;
-            })}
+          {information.prerequisite 
+          // &&
+          //   information.prerequisite.map((info, index) => {
+          //     return <LearnOutcome key={index} data={info} />;
+          //   })
+            }
         </ul>{" "}
       </div>
     </div>

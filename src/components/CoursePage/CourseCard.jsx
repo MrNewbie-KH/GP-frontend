@@ -10,7 +10,24 @@ function CourseCard({ information }) {
       <Button className="btn">Add to cart</Button>
       <Button className="btn">Buy now</Button>
       <p>30 days money back</p>
-      {/* <InfoItem data={information} className="info-List-course-card"/> */}
+      <ul className="info-List-course-card">
+        <li>
+          <span>language</span>
+          <span>{information.language}</span>
+        </li>
+        <li>
+          <span>level</span>
+          <span>{information.level}</span>
+        </li>
+        <li>
+          <span>Students</span>
+          <span>{information.numberOfEnrollments}</span>
+        </li>
+        <li>
+          <span>Rating</span>
+          <span>{information.averageRating}</span>
+        </li>
+      </ul>
     </div>
   );
 }

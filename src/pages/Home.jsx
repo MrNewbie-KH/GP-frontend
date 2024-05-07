@@ -27,6 +27,7 @@ function Home() {
         setCourses(list);
         setTotalPages(response.data.numberOfPages);
         setIsLoading(false);
+        console.log(response.data);
       })
       .catch((error) => {
         // Handle error

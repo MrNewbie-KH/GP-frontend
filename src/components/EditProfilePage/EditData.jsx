@@ -1,16 +1,43 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 function EditData() {
+  const token = localStorage.getItem("token");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    headline: "",
-    biography: "",
-    website: "",
-    twitter: "",
-    facebook: "",
-    linkedin: "",
+    about: "",
+    paypalEmail: "",
+    phoneNumber: "",
   });
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://e-learning-platform-uwoj.onrender.com/user/profile",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log(response.data.data);
+        const { firstName, lastName, about, paypalEmail, phoneNumber } =
+          response.data.data;
+        setFormData({
+          firstName,
+          lastName,
+          about,
+          paypalEmail,
+          phoneNumber,
+        });
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
+    fetchData();
+  }, []);
+  console.log(formData);
   const handleChange = (event) => {
     setFormData({
       ...formData,
@@ -18,9 +45,22 @@ function EditData() {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Handle form submission logic here (e.g., send data to server)
+    try {
+      const response = await axios.post(
+        "https://e-learning-platform-uwoj.onrender.com/user/update-profile",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(response);
+    } catch (error) {
+      console.error("Error:", error);
+    }
     console.log("Form submitted:", formData);
   };
 
@@ -48,66 +88,38 @@ function EditData() {
           />
         </div>
         <div className="input-part">
-          <label htmlFor="headline">Headline</label>
+          <label htmlFor="phone">Phone number</label>
           <input
             type="text"
-            name="headline"
-            placeholder="Instructor at zakker"
-            value={formData.headline}
+            name="phoneNumber"
+            placeholder="01123456789"
+            value={formData.phoneNumber}
             onChange={handleChange}
           />
         </div>
         <div className="input-part">
-          <label htmlFor="biography">Biography</label>
+          <label htmlFor="about">About</label>
           <input
             type="text"
-            name="biography"
+            name="about"
             placeholder="write bio about yourself"
-            value={formData.biography}
+            value={formData.about}
             onChange={handleChange}
           />
         </div>
         <div className="input-part">
-          <label htmlFor="website">Website</label>
+          <label htmlFor="paypalEmail">Paypal</label>
           <input
             type="text"
-            name="website"
-            placeholder="URL"
-            value={formData.website}
+            name="paypalEmail"
+            placeholder="paypal@business.com"
+            value={formData.paypalEmail}
             onChange={handleChange}
           />
         </div>
-        <div className="input-part">
-          <label htmlFor="twitter">twitter</label>
-          <input
-            type="text"
-            name="twitter"
-            placeholder="twitter"
-            value={formData.twitter}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="input-part">
-          <label htmlFor="facebook">facebook</label>
-          <input
-            type="text"
-            name="facebook"
-            placeholder="facebook"
-            value={formData.facebook}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="input-part">
-          <label htmlFor="linkedin">linkedin</label>
-          <input
-            type="text"
-            name="linkedin"
-            placeholder="linkedin"
-            value={formData.linkedin}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit" className="btn">Save</button>
+        <button type="submit" className="btn">
+          Save
+        </button>
       </form>
     </div>
   );

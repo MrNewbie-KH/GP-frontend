@@ -71,4 +71,12 @@
   .add-button:hover {
     transform: scale(1.1); /* Increases the size of the button on hover */
   }
+  /* --------------------------- */
+  /* image
   
+  */
+
+  
+   #file-upload{
+    width: 50%;
+   }

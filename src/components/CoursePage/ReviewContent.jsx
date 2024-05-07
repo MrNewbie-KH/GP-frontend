@@ -1,14 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import StarRating from "../StarRating";
 import ReviewCard from "./ReviewCard";
-function ReviewsContent({ information }) {
+import AddRating from "../AddRating";
+import axios from "axios";
+import Loader from "../Loader";
+
+function ReviewsContent({ rating, courseId,isSubscribed }) {
+  const token = localStorage.getItem("token");
+  const [information, setInformation] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchReviews = async function () {
+      try {
+        const response = await axios.get(`https://e-learning-platform-uwoj.onrender.com/review/get-reviews?courseId=${courseId}`,{
+          headers:{
+            Authorization:`Bearer ${token}`
+          }
+        });
+        setInformation(response.data)
+        setIsLoading(false)
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error fetching reviews:", error);
+      }
+    };
+    fetchReviews();
+  }, []);
+
   return (
     <div className="reviews-content">
+      {isLoading ? <Loader/> : 
+      <>
       <h3> Reviews Content</h3>
+
+
       <div className="reviews-content-big-box">
         <div className="course-rating-box">
-          <h1 className="course-rating-number">4.5</h1>
-          <StarRating stars={4.5} />
+          <h1 className="course-rating-number">{rating}</h1>
+          <StarRating stars={rating} />
           <p>Course Rating</p>
         </div>
         <div className="different-ratings-box">
@@ -38,13 +68,17 @@ function ReviewsContent({ information }) {
           </div>
         </div>
       </div>
-      {/* data must be passed here */}
-      {information.isReviewd && <StarRating />}
-      {information.reviews &&
-        information.reviews.map((review, index) => {
-          return <ReviewCard key={index} data={review} />;
+      {(!information.isReviewd&&isSubscribed)&& <AddRating courseId={courseId} status={"add"}/>}
+      
+      { information.data &&
+        information.data.map((review, index) => {
+          return <ReviewCard key={index} data={review} isReviewd={information.isReviewd} number={index} />;
         })}
+
+  </>
+}
     </div>
   );
 }
+
 export default ReviewsContent;
