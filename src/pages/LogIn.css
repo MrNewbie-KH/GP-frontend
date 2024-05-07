@@ -44,8 +44,8 @@
   background-color: red;
   color: var(--main-light);
 }
-.facebook:hover {
-  background-color: blue;
+.github:hover {
+  background-color: rgba(35, 35, 36, 0.643);
   color: var(--main-light);
 }
 

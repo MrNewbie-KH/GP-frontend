@@ -1,16 +1,23 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 const CategoriesPanel = () => {
   const [categories, setCategories] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:3000/categories")
-      .then((response) => response.json())
-      .then((data) => {
-        setCategories(data);
+    axios
+      .get("https://e-learning-platform-uwoj.onrender.com/category/all")
+      .then((response) => {
+        // Handle successful response
+        const list = response.data.data;
+        setCategories(list); // Update state with fetched data
       })
-      .catch((error) => console.error("Error fetching categories:", error));
+      .catch((error) => {
+        // Handle error
+        console.error("Error fetching courses:", error);
+      });
   }, []);
 
   const showNextCategory = () => {
@@ -37,7 +44,9 @@ const CategoriesPanel = () => {
         </button>
         {categories.slice(currentIndex, currentIndex + 5).map((category) => (
           <div key={category.id} className="categoryCard">
-            <h3>{category.name}</h3>
+            <NavLink to={`courses/${category.name}`}>
+              <h3>{category.name}</h3>
+            </NavLink>
             <p>{category.description}</p>
           </div>
         ))}

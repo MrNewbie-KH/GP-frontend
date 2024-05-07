@@ -5,62 +5,112 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: large;
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
-.nav a {
-  color: white;
+.header a {
+  color: rgb(255, 255, 255);
   margin-left: 1rem;
   text-decoration: none;
 }
 
-.nav a.btn {
+.header .btn {
   background-color: transparent;
   border: 1px solid white;
-  border-radius: 0.3rem;
+  border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   transition: background-color 0.3s, color 0.3s;
+  color: #d4cdcd;
+  font-size: large;
 }
 
-.nav a.btn:hover {
+.header .btn:hover {
   background-color: white;
   color: #2a60e4;
 }
 
+.header-search {
+  margin-left: 6rem; /* Pushes the search bar to the right, taking up all remaining space */
+  margin-right: 1rem; /* Pushes the search bar to the right, taking up all remaining space */
+  flex-grow: 1; /* Allows the search bar to grow and take up remaining space */
+}
+.header-search .search-bar input {
+  width: 100% !important; /* Make the input take up all available space */
+  outline: none;
+  padding-left: 2.5rem;
+}
+.search-bar {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  width: 100%; /* Optionally, set width of outer div */
+  font-size: large;
+}
+
+.search-input-container {
+  position: relative;
+  width: 80%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px; /* Adjust position as needed */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999; /* Adjust color as needed */
+  padding-right: 1rem;
+  cursor: pointer;
+  font-size: larger;
+}
+
+.search-input {
+  padding-left: 2.5rem;
+  font-size: large;
+}
+
+.search-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+/* ---------------------------------------------- */
+
+.loggedin {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.loggedin :hover {
+  color: #000000;
+  font-size: large;
+}
+
+.loggedin svg {
+  width: 24px;
+  height: 24px;
+}
+
+.loggedin svg path {
+  transition: fill 0.3s ease;
+}
+
+/* ---------------------------------------------- */
 .hero {
   background-color: #f8f9fa;
   padding: 4rem 2rem;
   text-align: center;
 }
-
-.search-bar {
-  margin-top: 2rem;
-}
-
-.search-bar input {
-  width: 60%;
-  padding: 0.5rem;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-}
-
-.search-bar button {
-  padding: 0.5rem 1rem;
-  border: none;
-  background-color: #2a60e4;
-  color: white;
-  border-radius: 0.25rem;
-  cursor: pointer;
-}
-
-.search-bar button:hover {
-  background-color: #1d3c7b;
-}
-
 /* ---------------------------------------- */
 .footer {
   background-color: #2a60e4;
@@ -117,6 +167,9 @@
   margin-bottom: 10px;
   color: #333;
 }
+.categoryCard a {
+  text-decoration: none;
+}
 
 .categoryCard p {
   color: #666;
@@ -138,40 +191,7 @@
 .arrowButton:focus {
   outline: none;
 }
-/* -------courses------- */
-/*
-.featured-courses {
-  background-color: #f8f9fa;
-  padding: 4rem 2rem;
-  text-align: center;
-}
 
-.course-cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);  Four columns with equal width 
-  grid-gap: 20px;  Adjust the gap between grid items 
-  margin-top: 2rem;
-}
-
-.course-card {
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  width: 30%;
-}
-
-.course-card img {
-  width: 100%;
-  border-radius: 0.5rem;
-}
-
-.course-info h3 {
-  margin-top: 0.5rem;
-}
-
-
-*/
 /* ----------------courses----------------- */
 .featured-courses {
   background-color: #f8f9fa;
@@ -199,12 +219,32 @@
   border-radius: 0.5rem;
 }
 
+.course-card a {
+  text-decoration: none;
+}
+
 .course-info h3 {
   margin-top: 0.5rem;
 }
+.price {
+  margin: 1rem;
+}
+.home-btn {
+  display: block;
+  width: 50%;
+  margin: auto;
+  margin-top: 1rem;
+  padding: 8px 16px;
+  background-color: #007bffdc;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
 
+/* pagination---------------------------- */
 .pagination {
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .pagination button {
@@ -223,4 +263,65 @@
 
 .pagination button.active {
   background-color: #021a34;
+}
+
+/* --------------------------- */
+/* pop up from header  */
+.profile-button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  right: 50%;
+  top: 40px;
+  z-index: 1;
+  border-radius: 5px;
+  width: 200px;
+  background-color: rgb(232, 232, 232);
+  text-align: left;
+}
+
+.profile-button:hover .popup {
+  display: block;
+}
+.popup a {
+  color: rgb(0, 58, 128);
+  display: block;
+  padding: 10px;
+}
+.popup a:hover {
+  color: rgb(0, 204, 255);
+}
+.popup div {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.435);
+}
+/* to change cart  */
+.cart-container {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: rgba(198, 198, 201, 0.241);
+  color: white;
+  border-radius: 500px;
+  padding: 1px;
+  font-size: 16px;
 }

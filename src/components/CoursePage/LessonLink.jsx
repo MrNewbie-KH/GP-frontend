@@ -3,7 +3,7 @@ function LessonLink({ data }) {
     <div className="lesson-card-viewer">
       <div className="lesson-title">
         <span>
-          {data.type === "video" ? (
+          {data.videoUrl ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -40,7 +40,7 @@ function LessonLink({ data }) {
             </svg>
           )}
         </span>
-        {data.name}
+        <a href={data.videoUrl}>{data.title}</a>
       </div>
       <p>{data.duration} min</p>
     </div>

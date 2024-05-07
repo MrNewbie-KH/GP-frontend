@@ -1,5 +1,6 @@
 // Hero.js
-import React from 'react';
+import React from "react";
+import Search from "./../Search/Search";
 
 const Hero = () => {
   return (
@@ -7,13 +8,10 @@ const Hero = () => {
       <div className="hero-content">
         <h1>Learn Anything, Anywhere</h1>
         <p>Explore thousands of courses for every skill level</p>
-        <div className="search-bar">
-          <input type="text" placeholder="Search for courses" />
-          <button className="btn btn-secondary">Search</button>
-        </div>
+        <Search />
       </div>
     </section>
   );
-}
+};
 
 export default Hero;

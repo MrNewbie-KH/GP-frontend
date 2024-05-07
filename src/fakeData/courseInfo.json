@@ -6,84 +6,201 @@
       "duration": "12 hours",
       "skillLevel": "advanced",
       "language": "Arabic",
-      "certificate": "yes"
+      "certificate": "yes",
+      "id": "0bed"
     }
   ],
   "courseAllInfo": [
     {
       "section": "section 1",
       "lessons": [
-        { "type": "video", "name": "hello world", "duration": 12 },
-        { "type": "doc", "name": "Not hello world", "duration": 5 },
-        { "type": "video", "name": " world", "duration": 55 }
-      ]
+        {
+          "type": "video",
+          "name": "hello world",
+          "duration": 12
+        },
+        {
+          "type": "doc",
+          "name": "Not hello world",
+          "duration": 5
+        },
+        {
+          "type": "video",
+          "name": " world",
+          "duration": 55
+        }
+      ],
+      "id": "85ff"
     },
     {
       "section": "section 3",
       "lessons": [
-        { "type": "doc", "name": "hello world", "duration": 12 },
-        { "type": "video", "name": "Not hello world", "duration": 5 },
-        { "type": "video", "name": " world", "duration": 55 }
-      ]
+        {
+          "type": "doc",
+          "name": "hello world",
+          "duration": 12
+        },
+        {
+          "type": "video",
+          "name": "Not hello world",
+          "duration": 5
+        },
+        {
+          "type": "video",
+          "name": " world",
+          "duration": 55
+        }
+      ],
+      "id": "3957"
     },
     {
       "section": "section 4",
       "lessons": [
-        { "type": "video", "name": "hello world", "duration": 12 },
-        { "type": "video", "name": "Not hello world", "duration": 5 },
-        { "type": "video", "name": " world", "duration": 55 }
-      ]
+        {
+          "type": "video",
+          "name": "hello world",
+          "duration": 12
+        },
+        {
+          "type": "video",
+          "name": "Not hello world",
+          "duration": 5
+        },
+        {
+          "type": "video",
+          "name": " world",
+          "duration": 55
+        }
+      ],
+      "id": "d76a"
     },
     {
       "section": "section 5",
       "lessons": [
-        { "type": "video", "name": "hello world", "duration": 12 },
-        { "type": "video", "name": "Not hello world", "duration": 5 },
-        { "type": "video", "name": " world", "duration": 55 }
-      ]
+        {
+          "type": "video",
+          "name": "hello world",
+          "duration": 12
+        },
+        {
+          "type": "video",
+          "name": "Not hello world",
+          "duration": 5
+        },
+        {
+          "type": "video",
+          "name": " world",
+          "duration": 55
+        }
+      ],
+      "id": "e6fe"
     },
     {
       "section": "section 6 ",
       "lessons": [
-        { "type": "video", "name": "hello world", "duration": 12 },
-        { "type": "video", "name": "Not hello world", "duration": 5 },
-        { "type": "video", "name": " world", "duration": 55 }
-      ]
+        {
+          "type": "video",
+          "name": "hello world",
+          "duration": 12
+        },
+        {
+          "type": "video",
+          "name": "Not hello world",
+          "duration": 5
+        },
+        {
+          "type": "video",
+          "name": " world",
+          "duration": 55
+        }
+      ],
+      "id": "4a8c"
     },
     {
       "section": "section 7",
       "lessons": [
-        { "type": "video", "name": "hello world", "duration": 12 },
-        { "type": "video", "name": "Not hello world", "duration": 5 },
-        { "type": "video", "name": " world", "duration": 55 }
-      ]
+        {
+          "type": "video",
+          "name": "hello world",
+          "duration": 12
+        },
+        {
+          "type": "video",
+          "name": "Not hello world",
+          "duration": 5
+        },
+        {
+          "type": "video",
+          "name": " world",
+          "duration": 55
+        }
+      ],
+      "id": "d17f"
     },
     {
       "section": "section 8 ",
       "lessons": [
-        { "type": "video", "name": "hello world", "duration": 12 },
-        { "type": "video", "name": "Not hello world", "duration": 5 },
-        { "type": "video", "name": " world", "duration": 55 }
-      ]
+        {
+          "type": "video",
+          "name": "hello world",
+          "duration": 12
+        },
+        {
+          "type": "video",
+          "name": "Not hello world",
+          "duration": 5
+        },
+        {
+          "type": "video",
+          "name": " world",
+          "duration": 55
+        }
+      ],
+      "id": "2261"
     },
     {
       "section": "section 9",
       "lessons": [
-        { "type": "video", "name": "hello world", "duration": 12 },
-        { "type": "video", "name": "Not hello world", "duration": 5 },
-        { "type": "video", "name": " world", "duration": 55 }
-      ]
+        {
+          "type": "video",
+          "name": "hello world",
+          "duration": 12
+        },
+        {
+          "type": "video",
+          "name": "Not hello world",
+          "duration": 5
+        },
+        {
+          "type": "video",
+          "name": " world",
+          "duration": 55
+        }
+      ],
+      "id": "bcc4"
     },
     {
       "section": "section 10",
       "lessons": [
-        { "type": "video", "name": "hello world", "duration": 12 },
-        { "type": "video", "name": "Not hello world", "duration": 5 },
-        { "type": "video", "name": " world", "duration": 55 }
-      ]
+        {
+          "type": "video",
+          "name": "hello world",
+          "duration": 12
+        },
+        {
+          "type": "video",
+          "name": "Not hello world",
+          "duration": 5
+        },
+        {
+          "type": "video",
+          "name": " world",
+          "duration": 55
+        }
+      ],
+      "id": "543c"
     }
   ],
-
   "overview": [
     {
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed reprehenderit a, earum ipsa est ipsam repudiandae quos eius cumque quidem quasi error voluptas illum fuga, voluptates rem saepe. Autem, accusantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis deserunt suscipit dolores provident. Quam placeat, molestiae nesciunt aperiam nobis totam, quod accusamus esse animi voluptate, aut corporis quae nemo aliquam.",
@@ -110,12 +227,13 @@
         "hello",
         "hello",
         "hello"
-      ]
+      ],
+      "id": "6fb1"
     }
   ],
   "instructors": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Mohamed",
       "image": "https://via.placeholder.com/300x150",
       "courses": 5,
@@ -123,12 +241,330 @@
       "about": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea ipsum animi unde nostrum distinctio, eius neque eveniet quia reprehenderit placeat fugit fugiat veritatis eligendi tempora rerum inventore error quibusdam porro. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea ipsum animi unde nostrum distinctio, eius neque eveniet quia reprehenderit placeat fugit fugiat veritatis eligendi tempora rerum inventore error quibusdam porro."
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "nagy",
       "image": "https://via.placeholder.com/300x150",
       "courses": 12,
       "students": 23000,
       "about": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea ipsum animi unde nostrum distinctio, eius neque eveniet quia reprehenderit placeat fugit fugiat veritatis eligendi tempora rerum inventore error quibusdam porro. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea ipsum animi unde nostrum distinctio, eius neque eveniet quia reprehenderit placeat fugit fugiat veritatis eligendi tempora rerum inventore error quibusdam porro."
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Programming",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "2",
+      "name": "Photography",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "3",
+      "name": "Business",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "4",
+      "name": "Cooking",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "5",
+      "name": "Fitness",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "6",
+      "name": "Travel",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "7",
+      "name": "Art",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "8",
+      "name": "Music",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "9",
+      "name": "Gaming",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "10",
+      "name": "Science",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "11",
+      "name": "Writing",
+      "image": "https://via.placeholder.com/150"
+    }
+  ],
+  "courses": [
+    {
+      "id": "1",
+      "title": "Introduction to Programming",
+      "instructor": "Professor Smith",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.5,
+      "students": 25000
+    },
+    {
+      "id": "2",
+      "title": "Data Science Fundamentals",
+      "instructor": "Dr. Patel",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.2,
+      "students": 22000
+    },
+    {
+      "id": "3",
+      "title": "Web Development Bootcamp",
+      "instructor": "Sarah Johnson",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.7,
+      "students": 30000
+    },
+    {
+      "id": "4",
+      "title": "Machine Learning Essentials",
+      "instructor": "Professor Lee",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.4,
+      "students": 28000
+    },
+    {
+      "id": "5",
+      "title": "Graphic Design Mastery",
+      "instructor": "Emily White",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.3,
+      "students": 23000
+    },
+    {
+      "id": "6",
+      "title": "Introduction to Psychology",
+      "instructor": "Dr. Ramirez",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.6,
+      "students": 27000
+    },
+    {
+      "id": "7",
+      "title": "Business Management Strategies",
+      "instructor": "Mark Thompson",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4,
+      "students": 20000
+    },
+    {
+      "id": "8",
+      "title": "Photography Basics",
+      "instructor": "Alexandra Green",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.1,
+      "students": 21000
+    },
+    {
+      "id": "9",
+      "title": "Fitness and Nutrition Fundamentals",
+      "instructor": "Coach Davis",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.8,
+      "students": 32000
+    },
+    {
+      "id": "10",
+      "title": "Creative Writing Workshop",
+      "instructor": "Melissa Carter",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.5,
+      "students": 26000
+    },
+    {
+      "id": "11",
+      "title": "Financial Planning and Investment",
+      "instructor": "John Anderson",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.2,
+      "students": 24000
+    },
+    {
+      "id": "12",
+      "title": "Artificial Intelligence Fundamentals",
+      "instructor": "Dr. Kim",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.6,
+      "students": 29000
+    },
+    {
+      "id": "13",
+      "title": "Mobile App Development",
+      "instructor": "David Carter",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.3,
+      "students": 25000
+    },
+    {
+      "id": "14",
+      "title": "Music Production Essentials",
+      "instructor": "Sarah Johnson",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.4,
+      "students": 27000
+    },
+    {
+      "id": "15",
+      "title": "Environmental Science Basics",
+      "instructor": "Dr. Thompson",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.1,
+      "students": 23000
+    },
+    {
+      "id": "16",
+      "title": "Introduction to Cryptocurrency",
+      "instructor": "Michael Baker",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.5,
+      "students": 26000
+    },
+    {
+      "id": "17",
+      "title": "Public Speaking Mastery",
+      "instructor": "Emily White",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.7,
+      "students": 28000
+    },
+    {
+      "id": "18",
+      "title": "User Experience Design",
+      "instructor": "Alexandra Green",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.3,
+      "students": 24000
+    },
+    {
+      "id": "19",
+      "title": "Introduction to Quantum Physics",
+      "instructor": "Dr. Rodriguez",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.8,
+      "students": 30000
+    },
+    {
+      "id": "20",
+      "title": "Cooking Essentials",
+      "instructor": "Chef Martin",
+      "image": "https://via.placeholder.com/300x150",
+      "rating": 4.2,
+      "students": 22000
+    }
+  ],
+  "register": [
+    {
+      "firstName": "mohamed",
+      "lastName": "zahw",
+      "email": "mo@gmail.com",
+      "password": "123456789",
+      "phone": "01061336120",
+      "birthday": "02-02-2001",
+      "id": "2698"
+    },
+    {
+      "id": "1f64",
+      "email": "mkhattab369@gmail.com",
+      "firstName": "Mohamed",
+      "lastName": "Khattab",
+      "password": "13456",
+      "phone": "01061336120",
+      "birthday": "2001-06-02"
+    },
+    {
+      "id": "059f",
+      "email": "hello@google.com",
+      "firstName": "Mohamed",
+      "lastName": "Khattab",
+      "password": "123546",
+      "phone": "01061336120",
+      "birthday": "2001-02-06"
+    },
+    {
+      "id": "78f1",
+      "email": "dawood@gmail",
+      "firstName": "a",
+      "lastName": "d",
+      "password": "3435",
+      "phone": "23424vgf",
+      "birthday": "2001-02-20"
+    },
+    {
+      "id": "49b2",
+      "email": "mkhattab369@gmail.com",
+      "firstName": "Mohamed",
+      "lastName": "Khattab",
+      "password": "123KHATTAB@khattab",
+      "phone": "01061336120",
+      "birthday": "2001-10-10"
+    }
+  ],
+  "login": [
+    {
+      "email": "mo@gmail.com",
+      "password": "123456789",
+      "id": "7076"
+    },
+    {
+      "email": "mkhattab369@gmail.com",
+      "password": "13456",
+      "id": "ec6f"
+    },
+    {
+      "email": "hello@google.com",
+      "password": "123546",
+      "id": "95ea"
+    },
+    {
+      "id": "7c5a",
+      "email": "dawood@gmail",
+      "password": "1222222222222222"
+    },
+    {
+      "id": "0f91",
+      "email": "dawood@gmail",
+      "password": "1213"
+    },
+    {
+      "id": "7484",
+      "email": "dawood@gmail",
+      "password": "asd"
+    },
+    {
+      "id": "5835",
+      "email": "dawood@gmail",
+      "password": "123"
+    },
+    {
+      "id": "0f81",
+      "email": "dawood@gmail",
+      "password": "1213"
+    },
+    {
+      "id": "31b9",
+      "email": "dawood@gmail",
+      "password": "safsa"
+    },
+    {
+      "id": "a6e0",
+      "email": "mkhattab369@gmail.com",
+      "password": "123456789"
     }
   ]
 }

@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 import Button from "./Button.jsx";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+// import { Link,navigate } from "react-router-dom";
 // -----------------------
 const initialState = {
   email: "",
   firstName: "",
   lastName: "",
   password: "",
-  phone: "",
-  birthday: "",
-  // photo: null,
+  phoneNumber: "",
 };
+
 function SignupForm() {
   // state part
   const [formData, setFormData] = useState(initialState);
   const [messageState, setMessageState] = useState("");
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
     const newValue = type === "file" ? files[0] : value;
@@ -29,98 +30,86 @@ function SignupForm() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/register",
+        "https://e-learning-platform-uwoj.onrender.com/signup",
         formData
       );
-      console.log("Registered successfully with data:", formData);
-      if (response.status === "BAD_REQUEST") {
-        setMessageState(response.message);
+      console.log(response);
+      if (response.data.status === "BAD_REQUEST") {
+        setMessageState(
+          (response.data.data && response.data.data.password) ||
+            response.data.message
+        );
       } else {
+        setMessageState(response.data.message);
         setFormData(initialState);
-        setMessageState(response.message);
+          navigate("/login");
       }
     } catch (error) {
-      console.error("Error  :", error.message);
+      console.error("Error:", error.message);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} encType="multipart/form-data">
-      <div className="formRow">
-        <label>Email:</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="formRow">
-        <div className="names">
-          <div>
-            <label>First Name:</label>
-            <input
-              type="text"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label>Last Name:</label>
-            <input
-              type="text"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              required
-            />
+    <div>
+      <form onSubmit={handleSubmit}>
+        <div className="formRow">
+          <label>Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="formRow">
+          <div className="names">
+            <div>
+              <label>First Name:</label>
+              <input
+                type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div>
+              <label>Last Name:</label>
+              <input
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                required
+              />
+            </div>
           </div>
         </div>
-      </div>
-      <div className="formRow">
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="formRow">
-        <label>Phone Number:</label>
-        <input
-          type="tel"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="formRow">
-        <label>Birthday:</label>
-        <input
-          type="date"
-          name="birthday"
-          value={formData.birthday}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="formRow">
-        <label>Photo:</label>
-        <input
-          type="file"
-          name="photo"
-          accept="image/*"
-          onChange={handleChange}
-        />
-      </div>
-      <Button type="submit">Create account</Button>
-    </form>
+        <div className="formRow">
+          <label>Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="formRow">
+          <label>Phone Number:</label>
+          <input
+            type="tel"
+            name="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <Button type="submit">Create account</Button>
+      </form>
+      <div className="alert-message">{messageState}</div>
+    </div>
   );
 }
 

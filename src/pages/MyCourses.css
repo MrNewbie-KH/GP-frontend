@@ -1,0 +1,52 @@
+.mycourses-header {
+  margin: 1rem;
+  border-radius: 6px;
+  padding: 2rem;
+  padding-bottom: 0;
+  background-color: #5588a3;
+  color: white;
+  font-size: 2rem;
+}
+.mycourses-header .name {
+  padding-bottom: 1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 4rem;
+}
+.tabs {
+  display: flex;
+  font-size: x-large;
+  bottom: 0px;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #cce1dd;
+  background-color: #5588a3;
+  border-radius: 10px 10px 0 0;
+  transition: color 0.3s, background-color 0.3s;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.tab.active {
+  color: #000000;
+  background-color: #f4f4f4;
+  border-radius: 10px 10px 0 0 !important;
+  transition: 1000ms;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.tab.inactive {
+}
+
+.tab.active:hover {
+  color: black;
+}
+.tab:hover {
+  color: #fff;
+}
+
+.tab-content {
+  padding: 20px;
+}
