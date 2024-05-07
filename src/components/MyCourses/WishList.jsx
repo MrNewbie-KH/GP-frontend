@@ -25,7 +25,7 @@ const Wishlist = () => {
         // Handle error
         console.error("Error fetching courses:", error);
       });
-  }, []);
+  }, [courses]);
   return <>{isLoading ? <Loader /> : <CoursesList courses={courses} />}</>;
 };
 

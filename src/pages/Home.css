@@ -226,7 +226,22 @@
 .course-info h3 {
   margin-top: 0.5rem;
 }
+.price {
+  margin: 1rem;
+}
+.home-btn {
+  display: block;
+  width: 50%;
+  margin: auto;
+  margin-top: 1rem;
+  padding: 8px 16px;
+  background-color: #007bffdc;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
 
+/* pagination---------------------------- */
 .pagination {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -269,24 +284,23 @@
   top: 40px;
   z-index: 1;
   border-radius: 5px;
-   width: 200px;
-   background-color: rgb(232, 232, 232);
-   text-align: left;
+  width: 200px;
+  background-color: rgb(232, 232, 232);
+  text-align: left;
 }
 
 .profile-button:hover .popup {
   display: block;
 }
-.popup a{
+.popup a {
   color: rgb(0, 58, 128);
   display: block;
   padding: 10px;
 }
-.popup a:hover{
+.popup a:hover {
   color: rgb(0, 204, 255);
 }
-.popup div{
-  
+.popup div {
   border-bottom: 1px solid rgba(0, 0, 0, 0.435);
 }
 /* to change cart  */
@@ -294,7 +308,6 @@
   position: relative;
   display: inline-block;
 }
-
 
 .cart-icon {
   width: 24px;
