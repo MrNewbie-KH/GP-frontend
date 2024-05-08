@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import LessonLink from "./LessonLink";
-function SectionCard({ data }) {
+function SectionCard({ data ,isSubscribed}) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => {
     setIsOpen(!isOpen);

@@ -99,6 +99,10 @@ body {
   height: 20px;
   width: 20px;
 }
+/* -------------------- */
+.section-content a{
+ text-decoration: none;
+}
 .lesson-card-viewer {
   display: flex;
   align-items: center;

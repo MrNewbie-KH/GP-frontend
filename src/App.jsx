@@ -65,7 +65,7 @@ function App() {
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/course/:id" element={<CoursePage />}></Route>
           <Route path="/courses/:title?" element={<Courses />}></Route>
-          <Route path="/videoPage" element={<VideoPage />} />
+          <Route path="/video/:id" element={<VideoPage />} />
           <Route path="/user/profile" element={<ProfilePage />} />
           <Route path="/user/:id" element={<UserPage />} />
           <Route path="/edit-profile" element={<EditProfile />} />
