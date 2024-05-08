@@ -81,6 +81,7 @@ const CourseCard = ({ course }) => {
       )
       .then((response) => {
         // Handle successful response
+        toast.success("Removed");
       })
       .catch((error) => {
         // Handle error

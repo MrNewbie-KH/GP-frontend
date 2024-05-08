@@ -23,7 +23,7 @@ import Wishlist from "./components/MyCourses/WishList";
 import EditProfile from "./pages/EditProfile";
 import UserPage from "./pages/UserPage";
 import ProfilePage from "./pages/ProfilePage";
-
+import Payment from "./pages/Payment";
 // const routes=createBrowserRouter(cre)
 function App() {
   return (
@@ -69,6 +69,7 @@ function App() {
           <Route path="/user/profile" element={<ProfilePage />} />
           <Route path="/user/:id" element={<UserPage />} />
           <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/payment" element={<Payment />} />
           <Route path="*" element={<NotfoundPage />} />
         </Routes>
       </BrowserRouter>
