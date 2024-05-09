@@ -1,40 +1,45 @@
+import axios from "axios";
 import { useState } from "react";
 
-function AddQuestion({ isReply, setAskQuestion }) {
-  const [title, setTitle] = useState("");
+function AddQuestion({ isReply, setAskQuestion, id }) {
   const [description, setDescription] = useState("");
-  const handleSubmit = (event) => {
+  const token = localStorage.getItem("token");
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Title:", title);
-    console.log("Description:", description);
-    // Add your logic here to handle the form submission
+    try {
+      await axios
+        .post(
+          "https://e-learning-platform-uwoj.onrender.com/comment/create-comment",
+          {
+            lessonId: id,
+            content: description,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+        });
+    } catch (error) {
+      console.error("Error here:", error);
+    }
   };
 
   return (
     <div className="add-question-card">
       <button className="back-btn" onClick={() => setAskQuestion(false)}>
-        Back  
+        Back
       </button>
       <form onSubmit={handleSubmit}>
-        {!isReply && (
-          <>
-          <label htmlFor="title">Title:</label>
-        
-        <input
-          type="text"
-          id="question-title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="i.e what is the best practice here?"
-          />
-          </>
-        )}
-        <label htmlFor="description">Description:</label>
+        <label htmlFor="Add">Add:</label>
         <textarea
           id="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="Enter your description here..."
+          placeholder="Enter here..."
         />
         <button type="submit" className="submit-question-btn">
           Submit
