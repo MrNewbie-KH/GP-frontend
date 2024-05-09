@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import RepliesComponent from "./RepliesComponent";
 import axios from "axios";
-function QuestionCard({ question, openReplies, setOpenReplies }) {
+function QuestionCard({ question }) {
   const [voted, setVoted] = useState(question.isLikedByUser);
   const [number, setNumber] = useState(question.numberOfLikes);
-  const token = localStorage.getItem("token");
+  const [openReplies, setOpenReplies] = useState(false);
 
+  const token = localStorage.getItem("token");
   function toggleVotes() {
     setVoted(!voted);
     voted ? disLike() : like();
@@ -22,7 +23,6 @@ function QuestionCard({ question, openReplies, setOpenReplies }) {
           },
         }
       );
-      console.log(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -38,7 +38,6 @@ function QuestionCard({ question, openReplies, setOpenReplies }) {
           },
         }
       );
-      console.log(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -107,7 +106,7 @@ function QuestionCard({ question, openReplies, setOpenReplies }) {
           </div>
         </div>
       ) : (
-        <RepliesComponent setShowReplies={setOpenReplies} />
+        <RepliesComponent  questionId = {question.id} setShowReplies={setOpenReplies} />
       )}
     </>
   );

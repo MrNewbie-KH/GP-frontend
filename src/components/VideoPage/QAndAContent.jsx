@@ -1,18 +1,21 @@
 import QuestionCard from "./QuestionCard";
 import SeeMore from "./SeeMore";
 import AddQuestion from "./AddQuestion";
+import Loader from  "../Loader"
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 function QAndAContent({ id }) {
   const [comments, setComments] = useState([]);
   const [askQuestion, setAskQuestion] = useState(false);
-  const [openReplies, setOpenReplies] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
   const token = localStorage.getItem("token");
 
   useEffect(() => {
     getVideo();
   }, []);
+
   const getVideo = async () => {
     try {
       const response = await axios.get(
@@ -23,47 +26,45 @@ function QAndAContent({ id }) {
           },
         }
       );
-      console.log(response.data.data);
       setComments(response.data.data);
+      setIsLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
+
   return (
     <>
       <h1>Questions</h1>
-      {askQuestion ? (
-        <AddQuestion isReply={false} setAskQuestion={setAskQuestion} id={id} />
+      {isLoading ? (
+        <Loader />
       ) : (
         <>
-          {!openReplies ? (
-            <>
-              <button
-                className="add-question-btn"
-                onClick={() => setAskQuestion(true)}
-              >
-                <span>+</span> Add question
-              </button>
-              {comments.map((comment) => (
-                <QuestionCard
-                  question={comment}
-                  key={comment.id}
-                  openReplies={openReplies}
-                  setOpenReplies={setOpenReplies}
-                />
-              ))}
-              <SeeMore>Questions</SeeMore>
-            </>
+          {askQuestion ? (
+            <AddQuestion isReply={false} setAskQuestion={setAskQuestion} id={id} />
           ) : (
-            <QuestionCard
-              openReplies={openReplies}
-              setOpenReplies={setOpenReplies}
-            />
+            <>
+              {/* {!openReplies ? ( */}
+                <>
+                  <button
+                    className="add-question-btn"
+                    onClick={() => setAskQuestion(true)}
+                  >
+                    <span>+</span> Add question
+                  </button>
+                  {comments.map((comment) => (
+                    <QuestionCard
+                      question={comment}
+                      key={comment.id}
+                    />
+                  ))}
+                  <SeeMore>Questions</SeeMore>
+                </>
+            </>
           )}
         </>
       )}
     </>
   );
 }
-
-export default QAndAContent;
+export default QAndAContent

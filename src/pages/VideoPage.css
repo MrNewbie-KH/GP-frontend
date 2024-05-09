@@ -222,6 +222,8 @@ iframe {
   padding: 5px;
   margin-bottom: 2px;
   border-radius: 5px;
+  background-color: rgba(195, 194, 194, 0.104);
+
 }
 
 .note-card {
@@ -282,17 +284,18 @@ iframe {
 /* Back btn */
 .back-btn {
   padding: 10px;
+  margin: 1rem;
   font-size: 18px;
-  color: rgb(64, 91, 224);
+  color: rgb(224, 64, 64);
   background-color: #fff;
-  border: 2px solid rgb(64, 91, 224);
-  border-radius: 5px;
+  border: 2px solid rgb(224, 64, 64);
+  border-radius: 10rem;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .back-btn:hover {
-  background-color: rgb(64, 91, 224);
+  background-color: rgb(224, 64, 64);
   color: #fff;
 }
 
@@ -342,7 +345,6 @@ iframe {
   width: 70%;
   margin: 100px auto;
   background-color: rgba(224, 226, 226, 0.245);
-  padding: 5rem;
 }
 /* -------------- */
 .add-question-card form {
@@ -361,28 +363,37 @@ iframe {
 /* note card */
 /* ================================ */
 .note-card {
-  background-color: rgba(195, 194, 194, 0.104);
+  background-color: rgba(195, 194, 194, 0.157);
   padding: 1rem;
 }
-.note-card svg {
+.note-card svg, .edit-delete-box svg {
   height: 20px;
   width: 20px;
   cursor: pointer;
   transition: transform 0.3s;
 }
 
-.note-card svg:hover {
+.note-card svg:hover ,.edit-delete-box svg:hover {
   transform: scale(1.2);
 }
 
 .edit-delete-box {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 5px;
 }
 .note-text {
   text-align: left;
   width: 90%;
   font-size: 18px;
   color: #3e3d3d;
+}
+.number-svg{
+  margin-bottom: 1rem;
+}
+
+/* ----------------------- */
+.replies-component{
+  background-color: rgba(53, 139, 252, 0.028);
+  margin-bottom: 1rem;
 }
