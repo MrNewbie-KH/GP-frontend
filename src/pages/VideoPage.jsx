@@ -53,25 +53,14 @@ function VideoPage() {
   return (
     <div>
       <Header />
-
       <div className="video-player-and-content">
         <div
           className="video-container"
-          style={{ position: "relative", paddingTop: "56.25%" }}
         >
-          <iframe
-            src={
-              "https://iframe.mediadelivery.net/play/238983/5d375f3c-d4d1-46d7-bec5-929f39a0880e"
-            }
-            //https://iframe.mediadelivery.net/play/238983/5d375f3c-d4d1-46d7-bec5-929f39a0880e
+              <iframe
+            src={video}
             loading="lazy"
-            style={{
-              border: "none",
-              position: "absolute",
-              top: 0,
-              height: "70%",
-              width: "50%",
-            }}
+
             allow="accelerometer; gyroscope; encrypted-media; picture-in-picture;"
             allowFullScreen
           ></iframe>
