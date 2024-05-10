@@ -48,6 +48,26 @@ function EditComponent({ setEdit,id, type, content }) {
       console.error("Error here:", error);
     }
   }
+
+  const editNote = async () => {
+    try {
+      const response = await axios.post(
+        `https://e-learning-platform-uwoj.onrender.com/lesson/note/update-Note`,
+        {
+          content: state,
+          noteId: id,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
   // -------------------------------------------------------------
   return (
     <div className="add-question-card">

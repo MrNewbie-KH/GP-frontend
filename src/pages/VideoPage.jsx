@@ -42,9 +42,9 @@ function VideoPage() {
       case "qaa":
         return <QAndAContent id={id} />;
       case "courseContent":
-        return <CourseContent information={id} />;
+        return <CourseContent information={id}  />;
       case "notes":
-        return <NotesContent information={id} />;
+        return <NotesContent lessonId={id} />;
       default:
         return null;
     }

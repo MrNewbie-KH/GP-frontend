@@ -50,6 +50,26 @@ async   function addNewReply(){
        console.error("Error here:", error);
      }
   }
+async   function addNewNote(){
+    try {
+      const response= await axios
+         .post(
+           "https://e-learning-platform-uwoj.onrender.com/reply/create-reply",
+           {
+             commentId: questionId,
+             content: description,
+           },
+           {
+             headers: {
+               Authorization: `Bearer ${token}`,
+             },
+           }
+         )
+         console.log(response.data);
+     } catch (error) {
+       console.error("Error here:", error);
+     }
+  }
 // -------------------------------------------------------------
   return (
     <div className="add-question-card">
