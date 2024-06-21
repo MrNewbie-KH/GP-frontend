@@ -54,11 +54,9 @@
 }
 /* sign up card */
 .card {
-  /* background-color: var(--main-dark); */
   margin: 0 auto;
   padding: 50px;
   width: 50%;
-  border-radius: 50px;
   color: var(--main-dark);
   font-family: sans-serif;
 }
@@ -77,10 +75,11 @@
   gap: 5px;
 }
 
-input {
+.formRow input {
   border-radius: 100px;
-  padding: 10px 0 10px 10px;
-  width: 100%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  width: 100% !important;
   background-color: #f1f1f1;
 }
 input:hover {
@@ -102,7 +101,9 @@ form {
 }
 /* ----------sign up image ---------- */
 .signup-image {
-  width: 60%;
+  width: 50%;
+  height: auto;
+  border-radius: 0%;
 }
 
 /* ------------------ */
@@ -112,23 +113,13 @@ form {
   align-items: flex-start;
   justify-content: center;
 }
-input {
-  padding: 15px;
-  border-radius: 100px; /* Adjust the value to control the roundness of the ellipse */
-  border: 1px solid #ccc;
-  width: 100%;
-  background-color: #f1f1f1;
-}
+
 label {
   font-size: 18px;
   margin: 25px 0px 10px 0px;
 }
 
-/* ---------login image */
-.login-image {
-  width: 55%;
-}
-.alert-message{
+.alert-message {
   color: red;
   margin: 1rem;
   font-size: x-large;

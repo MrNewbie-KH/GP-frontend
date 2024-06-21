@@ -1,9 +1,11 @@
 // Header.js
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import Search from "../Search/Search";
 
 const Header = () => {
+  const location = useLocation();
+
   const isloggedin = localStorage.getItem("token") ? true : false;
   function logOut() {
     localStorage.removeItem("token");
@@ -14,7 +16,7 @@ const Header = () => {
         <NavLink to="/">Zakker</NavLink>
       </div>
       <div className="header-search">
-        <Search />
+        {location.pathname !== "/" && <Search />}
       </div>
       <NavLink to="/courses">Categories</NavLink>
       {/*conditinal rendering if has token */}

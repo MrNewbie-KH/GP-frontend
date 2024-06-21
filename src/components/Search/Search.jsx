@@ -12,7 +12,7 @@ const Search = () => {
   const navigate = useNavigate();
   const applySearch = () => {
     // onSearch(searchValue);
-    navigate(`/courses/?q=${searchValue}`);
+    navigate(`/courses/?q=${searchValue}&p=${1}`);
   };
 
   const handleKeyDown = (event) => {

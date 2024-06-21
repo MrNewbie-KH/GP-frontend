@@ -15,8 +15,14 @@ const CourseCard = ({ course }) => {
   const p2 = arr.pop();
   let activeTab = "";
   const handle = () => {
+    if (p1 === "mycourses" || p2 === "mycourses") {
+      activeTab = "mycourses";
+    }
     if (p1 === "wishlist" || p2 === "wishlist") {
       activeTab = "wishlist";
+    }
+    if (p1 === "archived" || p2 === "archived") {
+      activeTab = "archived";
     }
   };
   handle();
@@ -92,23 +98,23 @@ const CourseCard = ({ course }) => {
 
   return (
     <div className="course-card">
-      <NavLink>
-        <div className="icon-container">
-          {activeTab === "wishlist" ? (
-            <FontAwesomeIcon
-              className="delete"
-              icon={faTrash}
-              onClick={DeleteToWish}
-            />
-          ) : (
-            <FontAwesomeIcon
-              className="heart"
-              icon={faHeart}
-              onClick={AddToWish}
-            />
-          )}
-        </div>
-      </NavLink>
+      <div className="icon-container">
+        {activeTab === "mycourses" ? (
+          <></>
+        ) : activeTab === "wishlist" ? (
+          <FontAwesomeIcon
+            className="delete"
+            icon={faTrash}
+            onClick={DeleteToWish}
+          />
+        ) : (
+          <FontAwesomeIcon
+            className="heart"
+            icon={faHeart}
+            onClick={AddToWish}
+          />
+        )}
+      </div>
       <Link to={`/course/${course.id}`}>
         <div className="image-container-course">
           <img src={course.imageUrl} alt={course.title} />
@@ -118,15 +124,12 @@ const CourseCard = ({ course }) => {
         <Link to={`/course/${course.id}`}>
           <h3>{course.title}</h3>
         </Link>
-        <button className="home-btn" onClick={AddToCart}>
-          Add to Cart
-        </button>
         <div className="instructor-grid">
           {course.instructors.map((ins, index) => (
             <NavLink to={`/user/${ins.id}`} key={index}>
               <div className="instructor-container">
                 <span>
-                  {ins.firstName} {ins.firstName}
+                  {ins.firstName} {ins.lastName}
                 </span>
               </div>
             </NavLink>
@@ -137,9 +140,14 @@ const CourseCard = ({ course }) => {
           {course.averageRating} ★({course.numberOfEnrollments})
         </span>
         <span>{course.level ? course.level : "All Level"}</span>
-        <NavLink>
-          <div className="price">{course.price} E£</div>
-        </NavLink>
+        {location.pathname !== "/mycourses" && (
+          <>
+            <div className="price">{course.price} EGP</div>
+            <button className="home-btn" onClick={AddToCart}>
+              Add to Cart
+            </button>
+          </>
+        )}
         <ToastContainer position="bottom-right" />
       </div>
     </div>

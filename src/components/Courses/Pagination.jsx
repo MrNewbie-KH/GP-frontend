@@ -1,17 +1,70 @@
 import React from "react";
 
 const Pagination = ({ totalPages, currentPage, onPageChange }) => {
+  const getPageNumbers = () => {
+    const maxPagesToShow = 10;
+    const pages = [];
+
+    if (totalPages <= maxPagesToShow) {
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      let startPage, endPage;
+      if (currentPage <= Math.floor(maxPagesToShow / 2)) {
+        startPage = 1;
+        endPage = maxPagesToShow;
+      } else if (currentPage + Math.floor(maxPagesToShow / 2) >= totalPages) {
+        startPage = totalPages - maxPagesToShow + 1;
+        endPage = totalPages;
+      } else {
+        startPage = currentPage - Math.floor(maxPagesToShow / 2);
+        endPage = currentPage + Math.floor(maxPagesToShow / 2);
+      }
+
+      for (let i = startPage; i <= endPage; i++) {
+        pages.push(i);
+      }
+      if (endPage < totalPages - 1) {
+        pages.push("...");
+        pages.push(totalPages);
+      } else if (endPage === totalPages - 1) {
+        pages.push(totalPages);
+      }
+    }
+
+    return pages;
+  };
+
+  const pages = getPageNumbers();
+
   return (
     <div className="pagination">
-      {Array.from({ length: totalPages }, (_, index) => (
+      {currentPage > 1 && (
+        <button onClick={() => onPageChange(1)}>First</button>
+      )}
+      {currentPage > 1 && (
+        <button onClick={() => onPageChange(currentPage - 1)}>
+          &lsaquo; Prev
+        </button>
+      )}
+      {pages.map((page) => (
         <button
-          key={index + 1}
-          onClick={() => onPageChange(index + 1)}
-          className={currentPage === index + 1 ? "active" : ""}
+          key={page}
+          onClick={() => onPageChange(page)}
+          className={currentPage === page ? "active" : ""}
         >
-          {index + 1}
+          {page}
         </button>
       ))}
+      {currentPage < totalPages && (
+        <button onClick={() => onPageChange(currentPage + 1)}>
+          Next &rsaquo;
+        </button>
+      )}
+      {currentPage < totalPages && (
+        <button onClick={() => onPageChange(totalPages)}>Last</button>
+      )}
     </div>
   );
 };

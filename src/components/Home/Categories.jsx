@@ -44,7 +44,7 @@ const CategoriesPanel = () => {
         </button>
         {categories.slice(currentIndex, currentIndex + 5).map((category) => (
           <div key={category.id} className="categoryCard">
-            <NavLink to={`courses/${category.name}`}>
+            <NavLink to={`courses/?q=${category.name}`}>
               <h3>{category.name}</h3>
             </NavLink>
             <p>{category.description}</p>

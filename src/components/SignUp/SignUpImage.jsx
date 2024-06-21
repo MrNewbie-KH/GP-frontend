@@ -1,4 +1,4 @@
-import signup from "../../images/signup.png";
+import signup from "../../images/Signup.svg";
 function SignUpImage() {
   return <img className="signup-image" src={signup} alt="sign up image" />;
 }

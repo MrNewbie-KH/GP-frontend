@@ -6,15 +6,20 @@ import Categories from "./../components/Home/Categories";
 import CoursesList from "../components/Courses/CoursesList";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useSearchParams, useNavigate } from "react-router-dom"; // Import useNavigate
 import Loader from "./../components/Loader";
 
 function Home() {
   const [courses, setCourses] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [totalPages, setTotalPages] = useState(0);
+  const navigate = useNavigate(); // Use useNavigate hook from react-router-dom
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
+    let pageParam = parseInt(searchParams.get("p"), 10);
+    setCurrentPage(pageParam || 1);
     axios
       .get(
         `https://e-learning-platform-uwoj.onrender.com/course/public/get-courses/${
@@ -27,7 +32,6 @@ function Home() {
         setCourses(list);
         setTotalPages(response.data.numberOfPages);
         setIsLoading(false);
-        console.log(response.data);
       })
       .catch((error) => {
         // Handle error
@@ -35,9 +39,9 @@ function Home() {
       });
   }, [currentPage]);
 
-  
   const changeCurrentPage = async (page) => {
     if (page !== currentPage) {
+      navigate(`?p=${page}`);
       setCurrentPage(page);
       setIsLoading(true);
     }
