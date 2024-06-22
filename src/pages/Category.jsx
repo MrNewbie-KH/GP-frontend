@@ -24,11 +24,12 @@ const Category = () => {
   const p2 = arr.pop();
 
   useEffect(() => {
+    setLoading(true);
     let pageParam = parseInt(searchParams.get("p"), 10);
     setCurrentPage(pageParam || 1);
     axios
       .get(
-        `https://e-learning-platform-uwoj.onrender.com/course/public/get-by-category/${1002}/${
+        `https://e-learning-platform-uwoj.onrender.com/course/public/get-by-category/${p2}/${
           currentPage - 1
         }`
       )
@@ -43,12 +44,12 @@ const Category = () => {
         // Handle error
         console.error("Error fetching courses:", error);
       });
-  }, [location, p2]);
+  }, [p2]);
 
   const changeCurrentPage = async (page) => {
     if (page !== currentPage) {
-      setCurrentPage(page);
       setLoading(true);
+      setCurrentPage(page);
       navigate(`/category/${p2}/?p=${page}`); // Update URL with searchValue and page
     }
   };

@@ -62,8 +62,8 @@
 .archived {
   color: rgb(20, 107, 100);
 }
-.heart,
-.delete,
+.heart:hover,
+.delete:hover,
 .archived :hover {
   cursor: pointer;
   color: rgb(194, 85, 85);

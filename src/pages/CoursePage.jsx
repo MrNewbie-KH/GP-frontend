@@ -24,7 +24,7 @@ function CoursePage() {
           `https://e-learning-platform-uwoj.onrender.com/course/public/get-course/${courseId.id}`,
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              ...(token !== null && { Authorization: `Bearer ${token}` }),
             },
           }
         );
@@ -50,7 +50,7 @@ function CoursePage() {
       case "reviews":
         return (
           <ReviewsContent
-          rating={courseData.averageRating}
+            rating={courseData.averageRating}
             courseId={courseData.id}
             isSubscribed={courseData.isSubscribed}
           />

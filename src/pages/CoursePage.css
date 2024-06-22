@@ -40,7 +40,7 @@ body {
   font-size: 14px;
   background-color: white;
 }
-.course-card-viewer Button {
+.course-card-viewer .button {
   margin-bottom: 10px;
   width: 90%;
   background-color: #007bff;
@@ -100,8 +100,8 @@ body {
   width: 20px;
 }
 /* -------------------- */
-.section-content a{
- text-decoration: none;
+.section-content a {
+  text-decoration: none;
 }
 .lesson-card-viewer {
   display: flex;
@@ -295,7 +295,7 @@ body {
 .review-card {
   background-color: #9fc3d425;
   margin: auto;
-  padding:10px;
+  padding: 10px;
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -303,25 +303,24 @@ body {
   text-align: left;
   border-radius: 15px;
 }
-.review-card  img{
+.review-card img {
   width: 50px;
   height: 50px;
-  align-self:first baseline;
-
+  align-self: first baseline;
 }
-.image-name-rating{
+.image-name-rating {
   display: flex;
   display: flex;
   align-items: center;
   font-weight: bolder;
   gap: 1rem;
 }
-.rating-container{
+.rating-container {
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.name-stars{
+.name-stars {
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -342,12 +341,12 @@ body {
   transform: scale(1.2);
 }
 
-.edit-delete-box{
+.edit-delete-box {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-.top-part-review-card{
+.top-part-review-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -372,7 +371,9 @@ body {
 .add-rating-review-content textarea {
   border-radius: 4px; /* Adds a slight border radius for a softer look */
   margin: 10px; /* Adds margin around the textarea */
-  width: calc(100% - 20px); /* Sets the width of the textarea to 100% minus the margin */
+  width: calc(
+    100% - 20px
+  ); /* Sets the width of the textarea to 100% minus the margin */
   padding: 8px; /* Adds padding inside the textarea */
   color: rgb(78, 78, 78);
   font-size: 36px;
@@ -400,7 +401,7 @@ body {
   margin: 10px;
   width: calc(100% - 20px);
   padding: 8px;
-  font-family: 'Arial', sans-serif; /* Set a custom font */
+  font-family: "Arial", sans-serif; /* Set a custom font */
   font-size: 14px; /* Set a custom font size */
   line-height: 1.5; /* Set the line height for better readability */
   border: 1px solid #ccc; /* Add a border */

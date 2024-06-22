@@ -210,7 +210,7 @@ const CourseCard = ({ course }) => {
             </button>
           </>
         )}
-        <ToastContainer position="bottom-right" />
+        <ToastContainer position="bottom-center" />
       </div>
     </div>
   );
