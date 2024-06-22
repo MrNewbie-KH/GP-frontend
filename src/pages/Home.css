@@ -225,8 +225,8 @@
 
 /* Individual course card styling */
 .course-card {
-  background-color: white;
-  border-radius: 0.75rem;
+  background-color: white !important;
+  border-radius: 01.75rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   padding: 2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
@@ -234,6 +234,7 @@
 
 .course-card:hover {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+  color: #007bff !important; /* Change link color on hover */
 }
 
 .course-card img {
@@ -249,14 +250,12 @@
 
 .course-card a {
   text-decoration: none;
-  color: inherit; /* Inherit text color */
+  color: inherit;
   transition: color 0.3s ease; /* Smooth text color transition */
 }
-
-.course-card a:hover {
-  color: #007bff; /* Change link color on hover */
+.course-card a h3 {
+  color: inherit;
 }
-
 .course-info h3 {
   margin-top: 1.5rem;
   font-size: 1.6rem; /* Increased font size */

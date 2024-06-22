@@ -18,7 +18,7 @@ const Header = () => {
       <div className="header-search">
         {location.pathname !== "/" && <Search />}
       </div>
-      <NavLink to="/courses">Categories</NavLink>
+      <NavLink to="/category/all">Categories</NavLink>
       {/*conditinal rendering if has token */}
       {isloggedin ? (
         <div className="loggedin">

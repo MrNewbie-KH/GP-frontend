@@ -2,7 +2,11 @@ import React from "react";
 import { useParams, Link, NavLink, useLocation } from "react-router-dom";
 import Button from "./../Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faTrash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHeart,
+  faTrash,
+  faBoxArchive,
+} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -95,20 +99,78 @@ const CourseCard = ({ course }) => {
         toast.error(response.data.message);
       });
   };
-
+  const AddToArch = () => {
+    axios
+      .post(
+        `https://e-learning-platform-uwoj.onrender.com/user/add-to-archived?courseId=${course.id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        if (response.data.status === "OK") {
+          toast.success(response.data.message);
+        } else {
+          toast.error(response.data.message);
+        }
+      })
+      .catch((error) => {
+        console.error("Error add course:", error);
+      });
+  };
+  const DeleteFromArch = () => {
+    axios
+      .delete(
+        `https://e-learning-platform-uwoj.onrender.com/user/delete-from-archived?courseId=${course.id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        if (response.data.status === "OK") {
+          toast.success(response.data.message);
+        } else {
+          toast.error(response.data.message);
+        }
+      })
+      .catch((error) => {
+        // Handle error
+        console.error("Error delete course:", error);
+        toast.error(response.data.message);
+      });
+  };
   return (
     <div className="course-card">
       <div className="icon-container">
         {activeTab === "mycourses" ? (
-          <></>
+          <FontAwesomeIcon
+            title="Add to Archive"
+            className="archived"
+            icon={faBoxArchive}
+            onClick={AddToArch}
+          />
         ) : activeTab === "wishlist" ? (
           <FontAwesomeIcon
+            title="Delete"
             className="delete"
             icon={faTrash}
             onClick={DeleteToWish}
           />
+        ) : activeTab === "archived" ? (
+          <FontAwesomeIcon
+            title="Delete"
+            className="delete"
+            icon={faTrash}
+            onClick={DeleteFromArch}
+          />
         ) : (
           <FontAwesomeIcon
+            title="Add to Wishlist"
             className="heart"
             icon={faHeart}
             onClick={AddToWish}
@@ -140,7 +202,7 @@ const CourseCard = ({ course }) => {
           {course.averageRating} ★({course.numberOfEnrollments})
         </span>
         <span>{course.level ? course.level : "All Level"}</span>
-        {location.pathname !== "/mycourses" && (
+        {activeTab !== "mycourses" && activeTab !== "archived" && (
           <>
             <div className="price">{course.price} EGP</div>
             <button className="home-btn" onClick={AddToCart}>

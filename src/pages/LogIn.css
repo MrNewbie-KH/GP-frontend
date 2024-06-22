@@ -6,6 +6,7 @@
   --light-4: #4dd0e1;
   --secondary-dark: #00838f;
   --main-dark: #006064;
+
   --dark-2: #0097a7;
   --dark-3: #00acc1;
   --dark-4: #00bcd4;
@@ -16,6 +17,14 @@
   align-items: center;
   margin: 0 auto;
 }
+.login-card {
+  margin: 0 auto;
+  padding: 50px;
+  width: 50%;
+  color: var(--main-dark);
+  font-family: sans-serif;
+}
+
 /* BUTTON */
 .login-btn {
   display: block;
@@ -35,6 +44,9 @@
   justify-content: center;
   gap: 5px;
   border: none;
+}
+.login-card .github,.login-card .google {
+  width: 95%;
 }
 .login-btn:hover {
   background-color: #7923dc;
@@ -74,8 +86,4 @@ input {
 .login-image {
   width: 50%;
   height: auto;
-}
-.formRow .test {
-  width: 95% !important;
-  margin: auto;
 }

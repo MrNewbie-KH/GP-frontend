@@ -22,7 +22,7 @@ function LogInCard() {
   };
 
   return (
-    <div className="card">
+    <div className="login-card">
       <h1>Log In</h1>
       <p>
         Don't have an account? <NavLink to="/signup">Sign Up</NavLink>
