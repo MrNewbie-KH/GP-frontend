@@ -22,7 +22,7 @@ function SignUpCard() {
     <div className="card">
       <h1>Create Account</h1>
       <p>
-        Do you have an account ?
+        Do you have an account ?{" "}
         <NavLink to="/login" className={"links"}>
           Login
         </NavLink>

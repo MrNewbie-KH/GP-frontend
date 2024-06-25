@@ -73,30 +73,40 @@ function CoursePage() {
             selectedPanel={selectedPanel}
             setSelectedPanel={setSelectedPanel}
           >
-            <button
-              className="btn panel-btn"
-              onClick={() => setSelectedPanel("overview")}
-            >
-              Overview
-            </button>
-            <button
-              className="btn panel-btn"
-              onClick={() => setSelectedPanel("courseContent")}
-            >
-              Course content
-            </button>
-            <button
-              className="btn panel-btn"
-              onClick={() => setSelectedPanel("instructors")}
-            >
-              instructors
-            </button>
-            <button
-              className="btn panel-btn"
-              onClick={() => setSelectedPanel("reviews")}
-            >
-              reviews
-            </button>
+            <div className="course-page-panel">
+              <button
+                className={`btn panel-btn ${
+                  selectedPanel === "overview" ? "panel-active" : ""
+                }`}
+                onClick={() => setSelectedPanel("overview")}
+              >
+                Overview
+              </button>
+              <button
+                className={`btn panel-btn ${
+                  selectedPanel === "courseContent" ? "panel-active" : ""
+                }`}
+                onClick={() => setSelectedPanel("courseContent")}
+              >
+                Course Content
+              </button>
+              <button
+                className={`btn panel-btn ${
+                  selectedPanel === "instructors" ? "panel-active" : ""
+                }`}
+                onClick={() => setSelectedPanel("instructors")}
+              >
+                Instructors
+              </button>
+              <button
+                className={`btn panel-btn ${
+                  selectedPanel === "reviews" ? "panel-active" : ""
+                }`}
+                onClick={() => setSelectedPanel("reviews")}
+              >
+                Reviews
+              </button>
+            </div>
           </CoursePagePanel>
           {renderContent()}
         </>

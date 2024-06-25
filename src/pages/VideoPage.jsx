@@ -42,7 +42,7 @@ function VideoPage() {
       case "qaa":
         return <QAndAContent id={id} />;
       case "courseContent":
-        return <CourseContent information={id}  />;
+        return <CourseContent information={id} />;
       case "notes":
         return <NotesContent lessonId={id} />;
       default:
@@ -54,36 +54,35 @@ function VideoPage() {
     <div>
       <Header />
       <div className="video-player-and-content">
-        <div
-          className="video-container"
-        >
-              <iframe
+        <div className="video-container">
+          <iframe
             src={video}
             loading="lazy"
-
             allow="accelerometer; gyroscope; encrypted-media; picture-in-picture;"
             allowFullScreen
           ></iframe>
         </div>
         <CoursePagePanel>
-          <button
-            className="btn panel-btn"
-            onClick={() => setSelectedPanel("qaa")}
-          >
-            Q & A
-          </button>
-          <button
-            className="btn panel-btn"
-            onClick={() => setSelectedPanel("courseContent")}
-          >
-            Course content
-          </button>
-          <button
-            className="btn panel-btn"
-            onClick={() => setSelectedPanel("notes")}
-          >
-            Notes
-          </button>
+          <div className="course-page-panel">
+            <button
+              className="btn panel-btn"
+              onClick={() => setSelectedPanel("qaa")}
+            >
+              Q & A
+            </button>
+            <button
+              className="btn panel-btn"
+              onClick={() => setSelectedPanel("courseContent")}
+            >
+              Course content
+            </button>
+            <button
+              className="btn panel-btn"
+              onClick={() => setSelectedPanel("notes")}
+            >
+              Notes
+            </button>
+          </div>
         </CoursePagePanel>
         {renderContent()}
       </div>

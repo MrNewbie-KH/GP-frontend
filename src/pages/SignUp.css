@@ -1,18 +1,6 @@
-:root {
-  --secondary-light: #5588a3;
-  --main-light: #e0f7fa;
-  --light-2: #b2ebf2;
-  --light-3: #80deea;
-  --light-4: #4dd0e1;
-  --secondary-dark: #00838f;
-  --main-dark: #006064;
-  --dark-2: #0097a7;
-  --dark-3: #00acc1;
-  --dark-4: #00bcd4;
-}
 .links {
   text-decoration: none;
-  color:#000000;
+  color: #000000;
   font-weight: bold;
 }
 .links:hover {
@@ -32,8 +20,8 @@
   font-weight: bold;
   text-align: center;
   text-decoration: none;
-  color: var(--main-light);
-  background-color: var(--secondary-dark);
+  color: white;
+  background: linear-gradient(45deg, #20272b, #0056b3);
   border-radius: 100px;
   cursor: pointer;
   margin-top: 10px;
@@ -45,15 +33,13 @@
   border: none;
 }
 .signup-btn:hover {
-  background-color: #7923dc;
-  transition: background-color 0.3s ease;
+  background: #7923dc;
 }
 .google:hover {
-  background-color: red;
-  color: var(--main-light);
+  background: red;
 }
 .facebook:hover {
-  background-color: blue;
+  background: blue;
   color: var(--main-light);
 }
 
@@ -65,8 +51,14 @@
   margin: 0 auto;
   padding: 50px;
   width: 50%;
-  color: var(--main-dark);
   font-family: sans-serif;
+}
+.card h1 {
+  background: linear-gradient(45deg, #20272b, #0056b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 .separator {
   position: relative;
@@ -99,7 +91,7 @@ label {
 .names {
   display: flex;
   width: 97%;
-  justify-content: end;
+  justify-content: space-between;
   gap: 20px;
 }
 

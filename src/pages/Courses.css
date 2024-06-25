@@ -4,7 +4,6 @@
   background: #000;
 }
 .category-div {
-  background: #e0f7fa;
   padding: 20px;
   margin: 20px;
   border-radius: 5px;
@@ -54,13 +53,13 @@
   font-size: 30px;
 }
 .heart {
-  color: rgb(20, 107, 100);
+  color: rgb(30, 97, 131);
 }
 .delete {
-  color: rgb(20, 107, 100);
+  color: rgb(30, 97, 131);
 }
 .archived {
-  color: rgb(20, 107, 100);
+  color: rgb(30, 97, 131);
 }
 .heart:hover,
 .delete:hover,

@@ -21,10 +21,15 @@
   margin: 0 auto;
   padding: 50px;
   width: 50%;
-  color: var(--main-dark);
   font-family: sans-serif;
 }
-
+.login-card h1 {
+  background: linear-gradient(45deg, #20272b, #0056b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
 /* BUTTON */
 .login-btn {
   display: block;
@@ -34,7 +39,7 @@
   text-align: center;
   text-decoration: none;
   color: var(--main-light);
-  background-color: var(--secondary-dark);
+  background: linear-gradient(45deg, #20272b, #0056b3);
   border-radius: 100px;
   cursor: pointer;
   margin-top: 10px;
@@ -45,12 +50,12 @@
   gap: 5px;
   border: none;
 }
-.login-card .github,.login-card .google {
+.login-card .github,
+.login-card .google {
   width: 95%;
 }
 .login-btn:hover {
-  background-color: #7923dc;
-  transition: background-color 0.3s ease;
+  background: #7923dc;
 }
 .google:hover {
   background-color: red;
@@ -63,6 +68,9 @@
 
 .login-btn:active {
   transform: translateY(1px);
+}
+.forgot-password {
+  margin-top: 2px !important;
 }
 /* sign up card */
 

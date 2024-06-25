@@ -1,3 +1,7 @@
+.logo-link {
+  text-decoration: none;
+}
+
 .header {
   background-color: #2a60e4;
   color: white;
@@ -113,10 +117,12 @@
 }
 /* ---------------------------------------- */
 .footer {
-  background-color: #2a60e4;
+  background: linear-gradient(45deg, #20272b, #0056b3);
   color: white;
   padding: 2rem;
   text-align: center;
+  bottom: 0px !important;
+  width: 100%;
 }
 
 .footer a {
@@ -400,7 +406,12 @@
   position: relative;
   display: inline-block;
 }
-
+.test:hover,
+.test:hover svg,
+.test:hover #cart-count {
+  color: black;
+  stroke: black; /* This will change the color of the SVG stroke */
+}
 .cart-icon {
   width: 24px;
   height: 24px;
@@ -409,11 +420,77 @@
 
 .cart-count {
   position: absolute;
-  top: -8px;
-  right: -8px;
-  background-color: rgba(198, 198, 201, 0.241);
+  top: -14px;
+  right: -5px;
+  background-color: rgba(255, 255, 255, 0);
   color: white;
   border-radius: 500px;
   padding: 1px;
   font-size: 16px;
+  font-family: "Playwrite US Trad", cursive;
+}
+.courses-list {
+  display: none;
+  position: absolute;
+  top: 100%; /* Position below the NavLink */
+  right: 0; /* Align to the right edge of the NavLink */
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+  list-style-type: none;
+  z-index: 1000; /* Ensure the dropdown is on top */
+  width: auto; /* Set a width for the dropdown */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  opacity: 0;
+  transform: translateY(-10px); /* Start position for animation */
+  text-align: left;
+}
+.course-item {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+  margin-bottom: 10px; /* Adjust margin as needed */
+}
+
+.course-link {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+  text-decoration: none;
+}
+
+.course-item .course-image {
+  width: 60px; /* Adjust the width of the image */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 10px; /* Adjust spacing between image and text */
+}
+
+.test:hover .courses-list {
+  display: block;
+  opacity: 1;
+  transform: translateY(0); /* End position for animation */
+}
+
+.courses-list ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.courses-list li {
+  margin: 5px 0;
+}
+
+.courses-list li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.courses-list li a:hover {
+  background-color: #f0f0f0;
+  color: #007bff; /* Change color on hover */
 }
