@@ -54,7 +54,7 @@ async   function addNewNote(){
     try {
       const response= await axios
          .post(
-           "https://e-learning-platform-uwoj.onrender.com/reply/create-reply",
+           "https://e-learning-platform-uwoj.onrender.com/lesson/note/create-Note",
            {
              commentId: questionId,
              content: description,

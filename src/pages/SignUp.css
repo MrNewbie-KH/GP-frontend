@@ -10,6 +10,14 @@
   --dark-3: #00acc1;
   --dark-4: #00bcd4;
 }
+.links {
+  text-decoration: none;
+  color:#000000;
+  font-weight: bold;
+}
+.links:hover {
+  color: #7923dc;
+}
 .signupPageBox {
   display: flex;
   width: 80%;

@@ -8,10 +8,9 @@ import axios from "axios";
 function SignUpCard() {
   const submitGoogle = async (e) => {
     e.preventDefault();
-    const {data} = await axios.get(
+    const { data } = await axios.get(
       "https://e-learning-platform-uwoj.onrender.com/login/google"
     );
-
   };
   const submitGithub = async (e) => {
     e.preventDefault();
@@ -22,11 +21,12 @@ function SignUpCard() {
   return (
     <div className="card">
       <h1>Create Account</h1>
-      <p>Do you have an account ?  
-        <NavLink to="/login">
-        Login
+      <p>
+        Do you have an account ?
+        <NavLink to="/login" className={"links"}>
+          Login
         </NavLink>
-        </p>
+      </p>
       <SignUpForm />
       <h1 className="separator">OR</h1>
       <button className="login-btn github" onClick={submitGithub}>

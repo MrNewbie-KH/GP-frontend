@@ -25,7 +25,7 @@ function LogInCard() {
     <div className="login-card">
       <h1>Log In</h1>
       <p>
-        Don't have an account? <NavLink to="/signup">Sign Up</NavLink>
+        Don't have an account? <NavLink to="/signup" className={"links"}>Sign Up</NavLink>
       </p>
       <LogInForm />
       <ForgotPasswordPopup />
