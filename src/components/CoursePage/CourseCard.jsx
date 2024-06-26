@@ -37,7 +37,7 @@ function CourseCard({ information }) {
   return (
     <div className="course-card-viewer">
       <img src={information.imageUrl} alt="" />
-      <p>Price {information.price}$</p>
+      <p>Price {information.price} EGP</p>
       <button className="button" onClick={AddToCart}>
         Add to cart
       </button>

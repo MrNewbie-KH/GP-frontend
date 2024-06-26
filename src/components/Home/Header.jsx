@@ -16,7 +16,6 @@ const Header = () => {
     localStorage.removeItem("token");
   }
   const countCart = () => {
-    console.log("count cart");
     const token = localStorage.getItem("token");
     axios
       .get("https://e-learning-platform-uwoj.onrender.com/user/get-cart", {
@@ -26,7 +25,6 @@ const Header = () => {
       })
       .then((response) => {
         const list = response.data.data;
-        console.log(list);
         setItems(list);
       })
       .catch((error) => {

@@ -12,6 +12,7 @@ const CategoriesPanel = () => {
       .then((response) => {
         // Handle successful response
         const list = response.data.data;
+        console.log(list);
         setCategories(list); // Update state with fetched data
       })
       .catch((error) => {
@@ -42,14 +43,16 @@ const CategoriesPanel = () => {
           {" "}
           &lt;
         </button>
-        {categories.slice(currentIndex, currentIndex + 5).map((category) => (
-          <div key={category.id} className="categoryCard">
-            <NavLink to={`/category/${category.name}/?p=1`}>
-              <h3>{category.name}</h3>
-            </NavLink>
-            <p>{category.description}</p>
-          </div>
-        ))}
+        <div className="categoryCards">
+          {categories.slice(currentIndex, currentIndex + 5).map((category) => (
+            <div key={category.id} className="categoryCard">
+              <NavLink to={`/category/${category.name}/?p=1`}>
+                <h3>{category.name}</h3>
+              </NavLink>
+              <p>{category.description}</p>
+            </div>
+          ))}
+        </div>
         <button className="arrowButton" onClick={showNextCategory}>
           {" "}
           &gt;

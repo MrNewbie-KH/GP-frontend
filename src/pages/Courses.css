@@ -49,7 +49,7 @@
   position: absolute;
   top: 1rem;
   right: 1.5rem;
-  background-color: rgb(255, 255, 255);
+  background-color: transparent;
   font-size: 30px;
 }
 .heart {
