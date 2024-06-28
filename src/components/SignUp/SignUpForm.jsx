@@ -42,7 +42,7 @@ function SignupForm() {
       } else {
         setMessageState(response.data.message);
         setFormData(initialState);
-          navigate("/login");
+        navigate("/login");
       }
     } catch (error) {
       console.error("Error:", error.message);
