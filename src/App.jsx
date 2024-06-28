@@ -23,14 +23,15 @@ import Wishlist from "./components/MyCourses/WishList";
 import EditProfile from "./pages/EditProfile";
 import UserPage from "./pages/UserPage";
 import ProfilePage from "./pages/ProfilePage";
-
+import Payment from "./pages/Payment";
+import Category from "./pages/Category";
 // const routes=createBrowserRouter(cre)
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/:page?" element={<Home />} />
           <Route
             path="/login"
             element={
@@ -65,10 +66,12 @@ function App() {
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/course/:id" element={<CoursePage />}></Route>
           <Route path="/courses/:title?" element={<Courses />}></Route>
-          <Route path="/videoPage" element={<VideoPage />} />
+          <Route path="/category/:title/:page?" element={<Category />}></Route>
+          <Route path="/video/:id" element={<VideoPage />} />
           <Route path="/user/profile" element={<ProfilePage />} />
           <Route path="/user/:id" element={<UserPage />} />
           <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/payment" element={<Payment />} />
           <Route path="*" element={<NotfoundPage />} />
         </Routes>
       </BrowserRouter>

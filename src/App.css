@@ -1,11 +1,15 @@
 #root {
+  height: 100vh;
+
   margin: 0;
   padding: 0;
   text-align: center;
 }
 /* App.css */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Playwrite US Trad", cursive;
+
+  height: 100vh;
   margin: 0;
   padding: 0;
 }

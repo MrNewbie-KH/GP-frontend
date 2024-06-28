@@ -6,6 +6,7 @@
   --light-4: #4dd0e1;
   --secondary-dark: #00838f;
   --main-dark: #006064;
+
   --dark-2: #0097a7;
   --dark-3: #00acc1;
   --dark-4: #00bcd4;
@@ -16,6 +17,19 @@
   align-items: center;
   margin: 0 auto;
 }
+.login-card {
+  margin: 0 auto;
+  padding: 50px;
+  width: 50%;
+  font-family: sans-serif;
+}
+.login-card h1 {
+  background: linear-gradient(45deg, #20272b, #0056b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
 /* BUTTON */
 .login-btn {
   display: block;
@@ -25,7 +39,7 @@
   text-align: center;
   text-decoration: none;
   color: var(--main-light);
-  background-color: var(--secondary-dark);
+  background: linear-gradient(45deg, #20272b, #0056b3);
   border-radius: 100px;
   cursor: pointer;
   margin-top: 10px;
@@ -36,9 +50,12 @@
   gap: 5px;
   border: none;
 }
+.login-card .github,
+.login-card .google {
+  width: 95%;
+}
 .login-btn:hover {
-  background-color: #7923dc;
-  transition: background-color 0.3s ease;
+  background: #7923dc;
 }
 .google:hover {
   background-color: red;
@@ -52,16 +69,11 @@
 .login-btn:active {
   transform: translateY(1px);
 }
-/* sign up card */
-.card {
-  /* background-color: var(--main-dark); */
-  margin: 0 auto;
-  padding: 50px;
-  width: 50%;
-  border-radius: 50px;
-  color: var(--main-dark);
-  font-family: sans-serif;
+.forgot-password {
+  margin-top: 2px !important;
 }
+/* sign up card */
+
 .separator {
   position: relative;
   text-align: center;
@@ -69,62 +81,17 @@
 }
 /* ------------------------------------- */
 /* signup form */
-.formRow {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 5px;
-}
 
-input {
-  border-radius: 100px;
-  padding: 10px 0 10px 10px;
-  width: 100%;
-  background-color: #f1f1f1;
-}
-input:hover {
-  border: 1px solid var(--main-dark);
-}
-label {
-  font-size: 18px;
-}
-.names {
-  display: flex;
-  width: 100%;
-  justify-content: end;
-  gap: 24px;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-/* ----------sign up image ---------- */
-.signup-image {
-  width: 60%;
-}
-
-/* ------------------ */
-.formRow {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
 input {
   padding: 15px;
   border-radius: 100px; /* Adjust the value to control the roundness of the ellipse */
   border: 1px solid #ccc;
-  width: 100%;
   background-color: #f1f1f1;
-}
-label {
-  font-size: 18px;
-  margin: 25px 0px 10px 0px;
+  width: 100% !important;
 }
 
 /* ---------login image */
 .login-image {
-  width: 55%;
+  width: 50%;
+  height: auto;
 }

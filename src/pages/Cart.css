@@ -39,7 +39,7 @@
 
 .cart-item-img {
   width: 100px;
-  height: 100px;
+  height: auto;
   border-radius: 8px;
   margin-right: 20px;
 }
@@ -78,7 +78,9 @@
   margin-top: 20px;
   font-size: 20px;
 }
-
+.cart-total a {
+  text-decoration: none;
+}
 .cart-total h3 {
   margin-bottom: 10px;
 }

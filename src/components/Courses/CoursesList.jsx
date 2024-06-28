@@ -13,7 +13,7 @@ const CoursesList = ({
   };
   return (
     <div>
-      {courses !== undefined && courses.length > 0 ? (
+      {courses !== null && courses !== undefined && courses.length > 0 ? (
         <div>
           {" "}
           <div className="course-list">

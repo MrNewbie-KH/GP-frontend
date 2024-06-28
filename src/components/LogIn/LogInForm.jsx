@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "./Button.jsx";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {} from "@fortawesome/react-fontawesome";
 
 const initialState = {
   email: "",
@@ -12,6 +13,7 @@ function LogInForm() {
   // state part
   const [formData, setFormData] = useState(initialState);
   const navigate = useNavigate();
+  const [visible, useVisible] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -66,7 +68,7 @@ function LogInForm() {
       <div className="formRow">
         <label>Password:</label>
         <input
-          type="password"
+          type={visible ? "text" : "password"}
           name="password"
           className="test"
           placeholder="password"
@@ -74,6 +76,12 @@ function LogInForm() {
           onChange={handleChange}
           required
         />
+        {/* <div className="password-icon">
+          <FontAwesomeIcon
+            icon={visible ? faEyeSlash : faEye}
+            onClick={() => useVisible(!visible)}
+          />
+        </div> */}
       </div>
       <Button type="submit">Log In</Button>
     </form>

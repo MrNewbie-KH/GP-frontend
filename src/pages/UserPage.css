@@ -5,8 +5,13 @@
   gap: 1rem;
   background-color: rgba(178, 207, 236, 0.318);
   border-radius: 25px;
+  justify-content: first baseline;
 }
 .userpage-main p {
+  text-align: left;
+}
+
+.userpage-main h1 {
   text-align: left;
 }
 img {

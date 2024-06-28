@@ -1,15 +1,21 @@
 /* video player */
 .video-container {
+  padding: 1rem;
   position: relative;
-  width: 90%;
-  max-width: 1000px;
-  display: flex;
-  justify-content: center;
-  margin-inline: auto;
-  background-color: #000; /*to appear when on theter mode*/
-}
-video {
   width: 100%;
+  margin-top: 1rem;
+  max-width: 1000px;
+  height: 60vh;
+  margin: auto;
+  margin-top: 1rem;
+  border-radius: 16px;
+  background-color: rgb(0, 0, 0); /*to appear when on theter mode*/
+}
+iframe {
+  width:100%;
+  height: 100%;
+  border: none; /* Remove border */
+
 }
 .video-controls-container {
   position: absolute;
@@ -216,9 +222,11 @@ video {
   padding: 5px;
   margin-bottom: 2px;
   border-radius: 5px;
+  background-color: rgba(195, 194, 194, 0.104);
+
 }
 
-.note-card{
+.note-card {
   margin: 1rem auto;
 }
 .question-card:hover {
@@ -266,7 +274,7 @@ video {
   cursor: pointer;
 }
 /* -------------------------- */
-.replies-component{
+.replies-component {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -276,17 +284,18 @@ video {
 /* Back btn */
 .back-btn {
   padding: 10px;
+  margin: 1rem;
   font-size: 18px;
-  color: rgb(64, 91, 224);
+  color: rgb(224, 64, 64);
   background-color: #fff;
-  border: 2px solid rgb(64, 91, 224);
-  border-radius: 5px;
+  border: 2px solid rgb(224, 64, 64);
+  border-radius: 10rem;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .back-btn:hover {
-  background-color: rgb(64, 91, 224);
+  background-color: rgb(224, 64, 64);
   color: #fff;
 }
 
@@ -297,11 +306,14 @@ video {
 .reply-card p {
   text-align: left;
 }
-.reply-card-left{
+.reply-card-left {
   display: flex;
 }
 /* add question button */
-.add-question-btn, .submit-question-btn,.add-reply-btn ,.add-note-btn{
+.add-question-btn,
+.submit-question-btn,
+.add-reply-btn,
+.add-note-btn {
   padding: 10px 20px;
   background-color: rgb(64, 91, 224);
   color: white;
@@ -313,23 +325,26 @@ video {
   margin: 1rem;
 }
 
-.add-question-btn:hover,.submit-question-btn:hover ,.add-reply-btn:hover,.add-note-btn:hover  {
+.add-question-btn:hover,
+.submit-question-btn:hover,
+.add-reply-btn:hover,
+.add-note-btn:hover {
   background-color: rgb(44, 64, 158);
 }
 
-.add-question-btn:focus,.submit-question-btn:focus  {
+.add-question-btn:focus,
+.submit-question-btn:focus {
   outline: none;
 }
 
-.add-question-card{
+.add-question-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   width: 70%;
-  margin:  100px auto;
+  margin: 100px auto;
   background-color: rgba(224, 226, 226, 0.245);
-  padding: 5rem;
 }
 /* -------------- */
 .add-question-card form {
@@ -347,30 +362,38 @@ video {
 /* ================================ */
 /* note card */
 /* ================================ */
-.note-card{
-  background-color: rgba(195, 194, 194, 0.104);
+.note-card {
+  background-color: rgba(195, 194, 194, 0.157);
   padding: 1rem;
-
 }
-.note-card svg {
+.note-card svg, .edit-delete-box svg {
   height: 20px;
   width: 20px;
   cursor: pointer;
   transition: transform 0.3s;
 }
 
-.note-card svg:hover {
+.note-card svg:hover ,.edit-delete-box svg:hover {
   transform: scale(1.2);
 }
 
-.edit-delete-box{
+.edit-delete-box {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 5px;
 }
-.note-text{
+.note-text {
   text-align: left;
   width: 90%;
   font-size: 18px;
   color: #3e3d3d;
+}
+.number-svg{
+  margin-bottom: 1rem;
+}
+
+/* ----------------------- */
+.replies-component{
+  background-color: rgba(53, 139, 252, 0.028);
+  margin-bottom: 1rem;
 }

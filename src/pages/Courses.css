@@ -4,7 +4,6 @@
   background: #000;
 }
 .category-div {
-  background: #e0f7fa;
   padding: 20px;
   margin: 20px;
   border-radius: 5px;
@@ -28,14 +27,14 @@
   margin-left: 10%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 20px;
 }
 
 .course-card {
   position: relative;
   display: inline-block;
   background-color: #ffffff;
-  border-radius: 5px;
+  border-radius: 25px;
+  border: #dbd4d4 1px solid;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
@@ -49,22 +48,25 @@
   z-index: 99;
   position: absolute;
   top: 1rem;
-  right: 1rem;
-  background-color: rgb(7, 7, 7);
-  border-radius: 50%;
-  padding: 5px;
-  font-size: large;
+  right: 1.5rem;
+  background-color: transparent;
+  font-size: 30px;
 }
 .heart {
-  color: rgb(20, 107, 100);
+  color: rgb(30, 97, 131);
 }
 .delete {
-  color: rgb(20, 107, 100);
+  color: rgb(30, 97, 131);
 }
-.delete {
-  background: #000;
+.archived {
+  color: rgb(30, 97, 131);
 }
-
+.heart:hover,
+.delete:hover,
+.archived :hover {
+  cursor: pointer;
+  color: rgb(194, 85, 85);
+}
 .course-card img {
   width: 100%;
   border-radius: 5px;

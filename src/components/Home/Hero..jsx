@@ -7,7 +7,7 @@ const Hero = () => {
     <section className="hero">
       <div className="hero-content">
         <h1>Learn Anything, Anywhere</h1>
-        <p>Explore thousands of courses for every skill level</p>
+        <p>We make it easy to learn everything everywhere...</p>
         <Search />
       </div>
     </section>

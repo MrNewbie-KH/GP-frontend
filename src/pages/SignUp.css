@@ -1,14 +1,10 @@
-:root {
-  --secondary-light: #5588a3;
-  --main-light: #e0f7fa;
-  --light-2: #b2ebf2;
-  --light-3: #80deea;
-  --light-4: #4dd0e1;
-  --secondary-dark: #00838f;
-  --main-dark: #006064;
-  --dark-2: #0097a7;
-  --dark-3: #00acc1;
-  --dark-4: #00bcd4;
+.links {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+}
+.links:hover {
+  color: #7923dc;
 }
 .signupPageBox {
   display: flex;
@@ -24,8 +20,8 @@
   font-weight: bold;
   text-align: center;
   text-decoration: none;
-  color: var(--main-light);
-  background-color: var(--secondary-dark);
+  color: white;
+  background: linear-gradient(45deg, #20272b, #0056b3);
   border-radius: 100px;
   cursor: pointer;
   margin-top: 10px;
@@ -37,15 +33,13 @@
   border: none;
 }
 .signup-btn:hover {
-  background-color: #7923dc;
-  transition: background-color 0.3s ease;
+  background: #7923dc;
 }
 .google:hover {
-  background-color: red;
-  color: var(--main-light);
+  background: red;
 }
 .facebook:hover {
-  background-color: blue;
+  background: blue;
   color: var(--main-light);
 }
 
@@ -54,13 +48,17 @@
 }
 /* sign up card */
 .card {
-  /* background-color: var(--main-dark); */
   margin: 0 auto;
   padding: 50px;
   width: 50%;
-  border-radius: 50px;
-  color: var(--main-dark);
   font-family: sans-serif;
+}
+.card h1 {
+  background: linear-gradient(45deg, #20272b, #0056b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 .separator {
   position: relative;
@@ -77,10 +75,11 @@
   gap: 5px;
 }
 
-input {
+.formRow input {
   border-radius: 100px;
-  padding: 10px 0 10px 10px;
-  width: 100%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  width: 94% !important;
   background-color: #f1f1f1;
 }
 input:hover {
@@ -91,10 +90,11 @@ label {
 }
 .names {
   display: flex;
-  width: 100%;
-  justify-content: end;
-  gap: 24px;
+  width: 97%;
+  justify-content: space-between;
+  gap: 20px;
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -102,7 +102,9 @@ form {
 }
 /* ----------sign up image ---------- */
 .signup-image {
-  width: 60%;
+  width: 50%;
+  height: auto;
+  border-radius: 0%;
 }
 
 /* ------------------ */
@@ -112,23 +114,13 @@ form {
   align-items: flex-start;
   justify-content: center;
 }
-input {
-  padding: 15px;
-  border-radius: 100px; /* Adjust the value to control the roundness of the ellipse */
-  border: 1px solid #ccc;
-  width: 100%;
-  background-color: #f1f1f1;
-}
+
 label {
   font-size: 18px;
   margin: 25px 0px 10px 0px;
 }
 
-/* ---------login image */
-.login-image {
-  width: 55%;
-}
-.alert-message{
+.alert-message {
   color: red;
   margin: 1rem;
   font-size: x-large;

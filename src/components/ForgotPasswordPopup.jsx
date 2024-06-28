@@ -36,7 +36,7 @@ const ForgotPasswordPopup = () => {
 
   return (
     <div>
-      <Button variant="contained" color="primary" onClick={handleClickOpen}>
+      <Button variant="contained" color="primary" onClick={handleClickOpen} className="forgot-password">
         Forgot Password
       </Button>
       <Dialog open={open} onClose={handleClose}>

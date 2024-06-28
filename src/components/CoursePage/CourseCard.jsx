@@ -1,14 +1,47 @@
 // import VideoPlayer from "../VideoPlayer/VideoPlayer";
 import Button from "../Button";
 import InfoItem from "./InfoItem";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
 
 function CourseCard({ information }) {
+  const token = localStorage.getItem("token");
+
+  const AddToCart = () => {
+    console.log("dfasgha");
+    axios
+      .post(
+        `https://e-learning-platform-uwoj.onrender.com/user/add-to-cart?courseId=${information.id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        // Handle successful response
+        if (response.data.message === "Course added to cart") {
+          toast.success(response.data.message);
+        } else {
+          toast.error(response.data.message);
+        }
+      })
+      .catch((error) => {
+        // Handle error
+        console.error("Error fetching courses:", error);
+        toast.error("Failed to add item to cart!");
+      });
+  };
+
   return (
     <div className="course-card-viewer">
       <img src={information.imageUrl} alt="" />
-      <p>Price {information.price}$</p>
-      <Button className="btn">Add to cart</Button>
-      <Button className="btn">Buy now</Button>
+      <p>Price {information.price} EGP</p>
+      <button className="button" onClick={AddToCart}>
+        Add to cart
+      </button>
+      {/* <Button className="btn">Buy now</Button> */}
       <p>30 days money back</p>
       <ul className="info-List-course-card">
         <li>
@@ -28,6 +61,7 @@ function CourseCard({ information }) {
           <span>{information.averageRating}</span>
         </li>
       </ul>
+      <ToastContainer position="bottom-center" />
     </div>
   );
 }

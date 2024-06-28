@@ -1,20 +1,22 @@
 import axios from "axios";
 import { useState } from "react";
 
-function AddQuestion({ questionId, isReply, setAskQuestion, id }) {
-  const [description, setDescription] = useState("");
+function EditComponent({ setEdit,id, type, content }) {
+  const [state, setState] = useState(content);
   const token = localStorage.getItem("token");
   const handleSubmit = async (event) => {
     event.preventDefault();
-    isReply ? addNewReply() : addNewQuestion();
+    if (type === "reply") editReply();
+    else if (type === "question") editQuestion();
+    else if (type === "note") editNote();
   };
-  async function addNewQuestion() {
+  async function editReply() {
     try {
       const response = await axios.post(
-        "https://e-learning-platform-uwoj.onrender.com/comment/create-comment",
+        "https://e-learning-platform-uwoj.onrender.com/reply/update-reply",
         {
-          lessonId: id,
-          content: description,
+          replyId: id,
+          content: state,
         },
         {
           headers: {
@@ -46,13 +48,14 @@ function AddQuestion({ questionId, isReply, setAskQuestion, id }) {
       console.error("Error here:", error);
     }
   }
-  async function addNewNote() {
+
+  const editNote = async () => {
     try {
       const response = await axios.post(
-        "https://e-learning-platform-uwoj.onrender.com/lesson/note/create-Note",
+        `https://e-learning-platform-uwoj.onrender.com/lesson/note/update-Note`,
         {
-          commentId: questionId,
-          content: description,
+          content: state,
+          noteId: id,
         },
         {
           headers: {
@@ -62,21 +65,21 @@ function AddQuestion({ questionId, isReply, setAskQuestion, id }) {
       );
       console.log(response.data);
     } catch (error) {
-      console.error("Error here:", error);
+      console.error("Error fetching data:", error);
     }
-  }
+  };
   // -------------------------------------------------------------
   return (
     <div className="add-question-card">
-      <button className="back-btn" onClick={() => setAskQuestion(false)}>
+      <button className="back-btn" onClick={() => setEdit(false)}>
         Back
       </button>
       <form onSubmit={handleSubmit}>
         <label htmlFor="Add">Add:</label>
         <textarea
           id="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          value={state}
+          onChange={(e) => setState(e.target.value)}
           placeholder="Enter here..."
         />
         <button type="submit" className="submit-question-btn">
@@ -87,4 +90,4 @@ function AddQuestion({ questionId, isReply, setAskQuestion, id }) {
   );
 }
 
-export default AddQuestion;
+export default EditComponent;

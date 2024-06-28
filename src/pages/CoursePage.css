@@ -13,11 +13,12 @@ body {
 
   text-align: left;
   padding: 10px;
-  background-color: #2284ec70;
+  background-color: #8e919170;
 }
 .course-info-title,
 .course-info-description {
   width: 60%;
+  margin-left: 40px;
 }
 /* -------------------------- */
 /* card that is used to buy course */
@@ -29,7 +30,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 2px;
-  width: 12%;
+  width: 15%;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 10px;
@@ -40,7 +41,7 @@ body {
   font-size: 14px;
   background-color: white;
 }
-.course-card-viewer Button {
+.course-card-viewer .button {
   margin-bottom: 10px;
   width: 90%;
   background-color: #007bff;
@@ -69,6 +70,8 @@ body {
 }
 .course-card-viewer img {
   width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 /* ========================================= */
 /* course content part */
@@ -79,8 +82,9 @@ body {
   flex-direction: column;
   align-items: center;
   margin: auto;
+  margin-bottom: 10%;
   border: 1px solid rgb(216, 216, 249);
-  padding: 5px;
+  padding: 15px;
   border-radius: 20px;
 }
 .section-name {
@@ -99,6 +103,13 @@ body {
   height: 20px;
   width: 20px;
 }
+/* -------------------- */
+.section-content {
+  margin-left: 5%;
+}
+.section-content a {
+  text-decoration: none;
+}
 .lesson-card-viewer {
   display: flex;
   align-items: center;
@@ -114,6 +125,7 @@ body {
   align-items: center;
   gap: 10px;
   font-size: 16px;
+  color: #254e4b;
 }
 
 .section-card-header {
@@ -124,27 +136,44 @@ body {
   border-width: 80%;
   border-bottom: 1px solid rgba(175, 188, 234, 0.984);
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .section-card-header p {
+  font-weight: bold;
   margin: 5px 0;
-  font-size: 14px;
+  font-size: x-large;
   color: #666;
 }
 
 /* ========================================= */
 /* panel */
 /* ========================================= */
+.course-page-panel {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: auto;
+  margin-top: 10px;
+  padding: 5px;
+  gap: 10px;
+}
+
 .panel-btn {
+  width: 100%;
   border: none;
   background: none;
-  color: #333;
+  color: #254e4b;
   text-decoration: none;
+  font-weight: bolder;
   cursor: pointer;
   padding: 10px 20px;
   font-size: 16px;
   position: relative;
   overflow: hidden;
+  border-radius: 20%;
 }
 
 .panel-btn::before {
@@ -166,32 +195,60 @@ body {
 .panel-btn:hover {
   color: #007bff;
 }
+
+.panel-active {
+  /* Enhanced styles for the active tab */
+  background: linear-gradient(
+    45deg,
+    #20272b,
+    #0056b3
+  ); /* Gradient background */
+  color: white; /* Text color for the active tab */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transform: scale(1.05); /* Slightly enlarge the active tab */
+  border-radius: 1.5rem;
+}
+
 /* ========================================== */
 /* overview */
 /* ========================================== */
 .overview-content {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 70%;
   margin: auto;
-  padding: 10px;
-  border: 0.5px solid rgba(0, 149, 255, 0.346);
-  border-radius: 50px;
+  border: 0.5px solid rgb(216, 216, 249);
+  padding: 5px;
+  border-radius: 20px;
+
+  width: 70%;
+  margin-top: 10px;
+  margin-bottom: 60px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
-.overview-content h2 {
+.overview-content h2,
+p {
   color: #0056b3;
+  margin-top: 1px;
 }
-.overview-content-requirements ul,
-.overview-content-learn ul {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+.overview-content-description,
+.overview-content-learn,
+.overview-content-requirements {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 4px;
+  width: 100%;
+  padding-left: 10%;
 }
 .learn-outcome {
   display: flex;
   align-items: center;
 }
 .learn-outcome svg {
-  width: 25px;
+  width: 250px;
   height: 15px;
 }
 /* ==================================== */
@@ -291,7 +348,7 @@ body {
 .review-card {
   background-color: #9fc3d425;
   margin: auto;
-  padding:10px;
+  padding: 10px;
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -299,25 +356,24 @@ body {
   text-align: left;
   border-radius: 15px;
 }
-.review-card  img{
+.review-card img {
   width: 50px;
   height: 50px;
-  align-self:first baseline;
-
+  align-self: first baseline;
 }
-.image-name-rating{
+.image-name-rating {
   display: flex;
   display: flex;
   align-items: center;
   font-weight: bolder;
   gap: 1rem;
 }
-.rating-container{
+.rating-container {
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.name-stars{
+.name-stars {
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -338,12 +394,12 @@ body {
   transform: scale(1.2);
 }
 
-.edit-delete-box{
+.edit-delete-box {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-.top-part-review-card{
+.top-part-review-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -368,7 +424,9 @@ body {
 .add-rating-review-content textarea {
   border-radius: 4px; /* Adds a slight border radius for a softer look */
   margin: 10px; /* Adds margin around the textarea */
-  width: calc(100% - 20px); /* Sets the width of the textarea to 100% minus the margin */
+  width: calc(
+    100% - 20px
+  ); /* Sets the width of the textarea to 100% minus the margin */
   padding: 8px; /* Adds padding inside the textarea */
   color: rgb(78, 78, 78);
   font-size: 36px;
@@ -396,7 +454,7 @@ body {
   margin: 10px;
   width: calc(100% - 20px);
   padding: 8px;
-  font-family: 'Arial', sans-serif; /* Set a custom font */
+  font-family: "Arial", sans-serif; /* Set a custom font */
   font-size: 14px; /* Set a custom font size */
   line-height: 1.5; /* Set the line height for better readability */
   border: 1px solid #ccc; /* Add a border */

@@ -1,22 +1,55 @@
 // Header.js
-import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import Search from "../Search/Search";
+import axios from "axios";
 
 const Header = () => {
+  const location = useLocation();
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    countCart();
+  }, [items]);
+
   const isloggedin = localStorage.getItem("token") ? true : false;
   function logOut() {
     localStorage.removeItem("token");
   }
+  const countCart = () => {
+    const token = localStorage.getItem("token");
+    axios
+      .get("https://e-learning-platform-uwoj.onrender.com/user/get-cart", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        const list = response.data.data;
+        setItems(list);
+      })
+      .catch((error) => {
+        console.error("Error fetching courses:", error);
+      });
+  };
+
+  const handleMouseOver = () => {
+    document.getElementById("courses-list").style.display = "block";
+  };
+
+  const handleMouseOut = () => {
+    document.getElementById("courses-list").style.display = "none";
+  };
   return (
     <header className="header">
       <div className="logo">
-        <NavLink to="/">Zakker</NavLink>
+        <NavLink to="/" className={"logo-link"}>
+          Zakker
+        </NavLink>
       </div>
       <div className="header-search">
-        <Search />
+        {location.pathname !== "/" && <Search />}
       </div>
-      <NavLink to="/courses">Categories</NavLink>
+      <NavLink to="/category/all">Categories</NavLink>
       {/*conditinal rendering if has token */}
       {isloggedin ? (
         <div className="loggedin">
@@ -32,7 +65,12 @@ const Header = () => {
             </svg>
           </NavLink>
           <div className="cart-container">
-            <NavLink to="/cart" className="test">
+            <NavLink
+              to="/cart"
+              className="test"
+              onMouseOver={(countCart, handleMouseOver)}
+              onMouseOut={handleMouseOut}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -48,7 +86,22 @@ const Header = () => {
                 />
               </svg>
               <div id="cart-count" className="cart-count">
-                0
+                {items.length}
+              </div>
+              <div id="courses-list" className="courses-list">
+                <ul>
+                  {items.map((item) => (
+                    <li key={item.id} className="course-item">
+                      <NavLink
+                        to={`/course/${item.id}`}
+                        className="course-link"
+                      >
+                        <img src={item.imageUrl} className="course-image" />
+                        <p>{item.title}</p>
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </NavLink>
           </div>
