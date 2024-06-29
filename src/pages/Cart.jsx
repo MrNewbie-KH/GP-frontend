@@ -5,7 +5,7 @@ import Loader from "../components/Loader";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Cart.css";
-import CoursePreview from "../components/CoursePreview";
+import CoursePreview from "./../components/Cart/CoursePreview";
 import { NavLink } from "react-router-dom";
 const Cart = () => {
   const [items, setItems] = useState([]);

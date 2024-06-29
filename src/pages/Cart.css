@@ -102,3 +102,49 @@
 .checkout-btn:hover {
   background-color: #d63737;
 }
+
+/* _____________________________________________________________ */
+
+.courses-list {
+  width: 250px;
+}
+.small-cart-items-grid {
+  display: grid;
+  margin: 20px;
+}
+
+.small-cart-item-card {
+  position: relative;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+
+.small-cart-delete {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  font-size: small;
+}
+
+.small-cart-item-img {
+  width: 50px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.small-cart-item-title {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.small-cart-item-price {
+
+  font-size: x-large;
+}

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import Search from "../Search/Search";
 import axios from "axios";
-
+import CartCourseCard from "../Cart/CartCourseCard";
 const Header = () => {
   const location = useLocation();
   const [items, setItems] = useState([]);
@@ -49,7 +49,9 @@ const Header = () => {
       <div className="header-search">
         {location.pathname !== "/" && <Search />}
       </div>
-      <NavLink to="/category/all">Categories</NavLink>
+      <NavLink to="/category/all" className="categories">
+        Categories
+      </NavLink>
       {/*conditinal rendering if has token */}
       {isloggedin ? (
         <div className="loggedin">
@@ -89,19 +91,9 @@ const Header = () => {
                 {items.length}
               </div>
               <div id="courses-list" className="courses-list">
-                <ul>
-                  {items.map((item) => (
-                    <li key={item.id} className="course-item">
-                      <NavLink
-                        to={`/course/${item.id}`}
-                        className="course-link"
-                      >
-                        <img src={item.imageUrl} className="course-image" />
-                        <p>{item.title}</p>
-                      </NavLink>
-                    </li>
-                  ))}
-                </ul>
+                {items.map((item) => (
+                  <CartCourseCard key={item.id} course={item} />
+                ))}
               </div>
             </NavLink>
           </div>
