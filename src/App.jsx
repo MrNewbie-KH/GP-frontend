@@ -32,7 +32,9 @@ function App() {
     try {
       var link = document.createElement("link");
       link.rel = "icon";
-      link.href = "../src/images/logo.png";
+      // link.href = "../src/images/logo.png";
+      link.href =
+        "https://github.com/MrNewbie-KH/GP-frontend/blob/2b0905ad342ca091542903080108591b43d52494/src/images/logo.png";
 
       document.head.appendChild(link);
     } catch (error) {
