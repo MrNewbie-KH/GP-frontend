@@ -87,7 +87,7 @@ input {
   border-radius: 100px; /* Adjust the value to control the roundness of the ellipse */
   border: 1px solid #ccc;
   background-color: #f1f1f1;
-  width: 100% !important;
+  width: 100%;
 }
 
 /* ---------login image */

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./MyCourses.css";
 import { Outlet, Link, useLocation } from "react-router-dom";
 import Header from "./../components/Home/Header";
@@ -17,6 +17,15 @@ function MyCourses() {
     } else activeTab = "archived";
   };
   handle();
+  useEffect(() => {
+    document.title =
+      activeTab == "mycourses"
+        ? "Zakker - My Learning"
+        : activeTab == "wishlist"
+        ? "Zakker - Wishlist"
+        : "Zakker - Archived";
+    console.log("document.title", document.title);
+  }, [activeTab]);
   return (
     <>
       <Header />

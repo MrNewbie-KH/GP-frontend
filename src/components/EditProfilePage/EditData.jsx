@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 function EditData() {
   const token = localStorage.getItem("token");
   const [formData, setFormData] = useState({
@@ -20,7 +21,6 @@ function EditData() {
             },
           }
         );
-        console.log(response.data.data);
         const { firstName, lastName, about, paypalEmail, phoneNumber } =
           response.data.data;
         setFormData({
@@ -37,7 +37,6 @@ function EditData() {
 
     fetchData();
   }, []);
-  console.log(formData);
   const handleChange = (event) => {
     setFormData({
       ...formData,
@@ -52,16 +51,13 @@ function EditData() {
         "https://e-learning-platform-uwoj.onrender.com/user/update-profile",
         formData,
         {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { Authorization: `Bearer ${token}` },
         }
       );
-      console.log(response);
+      toast.success("Data updated successfully");
     } catch (error) {
-      console.error("Error:", error);
+      toast.error("Error updating data,Please try again later");
     }
-    console.log("Form submitted:", formData);
   };
 
   return (
@@ -99,7 +95,7 @@ function EditData() {
         </div>
         <div className="input-part">
           <label htmlFor="about">About</label>
-          <input
+          <textarea
             type="text"
             name="about"
             placeholder="write bio about yourself"
@@ -117,7 +113,7 @@ function EditData() {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="btn">
+        <button type="submit" className="save-btn">
           Save
         </button>
       </form>

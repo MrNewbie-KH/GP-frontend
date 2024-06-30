@@ -46,6 +46,11 @@ const Category = () => {
       });
   }, [p2]);
 
+  useEffect(() => {
+    document.title = p2 == "category" ? "Categories" : "Category - " + p2;
+    console.log("document.title", document.title);
+  }, [p2]);
+
   const changeCurrentPage = async (page) => {
     if (page !== currentPage) {
       setLoading(true);
@@ -65,8 +70,10 @@ const Category = () => {
       ) : (
         <>
           <CategoriesPanel />
-          <CategoryTitle title={p2} description={""} />
-          {loading ? (
+          <CategoryTitle title={p2 == "category" ? "" : p2} description={""} />
+          {p2 == "category" ? (
+            <h2>Choose a category</h2>
+          ) : loading ? (
             <Loader />
           ) : (
             <>

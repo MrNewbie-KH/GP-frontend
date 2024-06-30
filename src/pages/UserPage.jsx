@@ -48,9 +48,11 @@ function UserPage() {
               </h1>
             </div>
           </div>
-          <h1>About me</h1>
-          <p>{profile.about}</p>
-          <h1>My courses</h1>
+          <div className="userpage-info">
+            <h1>About</h1>
+            <p>{profile.about}</p>
+            <h1>Courses</h1>
+          </div>
           <div>
             {profile.instructoredCourses && (
               <CoursesList courses={profile.instructoredCourses} />

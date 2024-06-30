@@ -25,8 +25,21 @@ import UserPage from "./pages/UserPage";
 import ProfilePage from "./pages/ProfilePage";
 import Payment from "./pages/Payment";
 import Category from "./pages/Category";
+import { useEffect } from "react";
 // const routes=createBrowserRouter(cre)
 function App() {
+  useEffect(() => {
+    try {
+      var link = document.createElement("link");
+      link.rel = "icon";
+      link.href = "../src/images/logo.png";
+
+      document.head.appendChild(link);
+    } catch (error) {
+      console.error("Error setting favicon:", error);
+    }
+  }, []); // Add an empty dependency array to run the effect only once
+
   return (
     <>
       <BrowserRouter>

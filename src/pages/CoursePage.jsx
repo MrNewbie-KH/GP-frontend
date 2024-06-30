@@ -14,7 +14,7 @@ import Loader from "../components/Loader";
 function CoursePage() {
   const courseId = useParams();
   const token = localStorage.getItem("token");
-  const [courseData, setCoursedata] = useState([]);
+  const [courseData, setCourseData] = useState([]);
   const [selectedPanel, setSelectedPanel] = useState("overview");
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -29,7 +29,7 @@ function CoursePage() {
           }
         );
         console.log("response", response.data.data);
-        setCoursedata(response.data.data);
+        setCourseData(response.data.data);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -37,8 +37,14 @@ function CoursePage() {
     };
 
     getData();
-  }, []);
+  }, [courseId, token]);
 
+  useEffect(() => {
+    console.log("df", courseData.title);
+    document.title = courseData.title
+      ? `${courseData.title} - ZAKKER`
+      : "Zakker";
+  }, [courseData]);
   const renderContent = () => {
     switch (selectedPanel) {
       case "overview":

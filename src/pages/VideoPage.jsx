@@ -27,7 +27,6 @@ function VideoPage() {
             },
           }
         );
-        console.log(response.data.data.videoUrl);
         setVideo(response.data.data.videoUrl);
       } catch (error) {
         console.error("Error fetching data:", error);

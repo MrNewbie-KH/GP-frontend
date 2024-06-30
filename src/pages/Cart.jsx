@@ -13,6 +13,11 @@ const Cart = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [reload, setReload] = useState(false);
 
+  useEffect(() => {
+    document.title = "Shopping Cart - Zakker";
+    console.log("document.title", document.title);
+  }, []);
+
   const re = () => {
     setReload((reload) => !reload);
     console.log("reload");

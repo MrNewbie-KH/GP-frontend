@@ -1,4 +1,5 @@
 const InstructorCard = ({ instructor }) => {
+  console.log("instructor", instructor);
   return (
     <div className="instructor-card">
       <div className="image-and-name">
@@ -11,7 +12,7 @@ const InstructorCard = ({ instructor }) => {
           <p className="instructor-name">
             {instructor.firstName} {instructor.lastName}
           </p>
-          <div className="info-instructor">
+          {/* <div className="info-instructor">
             <div className="info-part">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +47,7 @@ const InstructorCard = ({ instructor }) => {
               </svg>
               <p>{instructor.students} Students</p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <p className="description">{instructor.about}</p>
