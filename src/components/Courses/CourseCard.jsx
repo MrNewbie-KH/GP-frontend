@@ -114,8 +114,9 @@ const CourseCard = ({ course, reload }) => {
         }
       )
       .then((response) => {
-        reload();
+        console.log(response.data);
         toast.success("Removed");
+        reload();
       })
       .catch((error) => {
         console.error("Error delete course:", error);
@@ -240,7 +241,6 @@ const CourseCard = ({ course, reload }) => {
             </button>
           </>
         )}
-        <ToastContainer position="bottom-center" />
       </div>
     </div>
   );

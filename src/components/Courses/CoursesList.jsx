@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CourseCard from "./CourseCard";
 import Pagination from "./Pagination";
+import { ToastContainer } from "react-toastify";
 
 const CoursesList = ({
   courses,
@@ -31,6 +32,7 @@ const CoursesList = ({
       ) : (
         <h1>No Courses</h1>
       )}
+      <ToastContainer position="bottom-center" />
     </div>
   );
 };
