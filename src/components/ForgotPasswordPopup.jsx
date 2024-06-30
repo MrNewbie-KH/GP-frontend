@@ -8,6 +8,7 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@mui/material";
+import { toast } from "react-toastify";
 
 const ForgotPasswordPopup = () => {
   const [open, setOpen] = useState(false);
@@ -24,11 +25,11 @@ const ForgotPasswordPopup = () => {
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
-        `https://e-learning-platform-uwoj.onrender.com/forget-password?email=${emailInput}`,
-        // { "email": emailInput }
+        `https://e-learning-platform-uwoj.onrender.com/forget-password`,
+        { email: emailInput }
       );
       console.log(emailInput);
-      console.log(response);
+      toast.success(response.data.message);
     } catch (error) {
       console.error("Error:", error.message);
     }
@@ -36,7 +37,12 @@ const ForgotPasswordPopup = () => {
 
   return (
     <div>
-      <Button variant="contained" color="primary" onClick={handleClickOpen} className="forgot-password">
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleClickOpen}
+        className="forgot-password"
+      >
         Forgot Password
       </Button>
       <Dialog open={open} onClose={handleClose}>

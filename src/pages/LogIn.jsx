@@ -2,8 +2,12 @@ import Header from "../components/Home/Header";
 import LogInCard from "../components/LogIn/LogInCard";
 import LogInImage from "../components/LogIn/LogInImage";
 import "./LogIn.css";
-
+import { useEffect } from "react";
 function LogIn() {
+  useEffect(() => {
+    document.title = "Login";
+    console.log("document.title", document.title);
+  }, []);
   return (
     <>
       <Header />

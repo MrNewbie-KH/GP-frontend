@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Button from "./Button.jsx";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+
 import {} from "@fortawesome/react-fontawesome";
 
 const initialState = {
@@ -32,22 +34,25 @@ function LogInForm() {
         formData
       );
       console.log(response);
-      if (response.data.status === "BAD_REQUEST") {
-        console.log(response.data.status);
-      } else if (response.data.status === "NOT_FOUND") {
-        console.log(response.data.status);
-      } else {
-        // Assuming successful response, store the token in local storage
+      if (response.data.status === "OK") {
         const token = response.data.data;
         if (token) {
           localStorage.setItem("token", token);
           navigate("/");
         }
-        console.log("Token stored successfully:", token);
+      } else if (response.data.status === "NOT_FOUND") {
+        console.log(response.data.status);
+        toast.error(response.data.message);
+      } else if (response.data.status === "BAD_REQUEST") {
+        console.log(response.data.status);
+        toast.error(response.data.message);
+      } else {
+        toast.error(response.data.data);
       }
       setFormData(initialState);
     } catch (error) {
       console.error("Error:", error.message);
+      toast.error("Something went wrong , please try again later.");
     }
   };
 
@@ -84,6 +89,7 @@ function LogInForm() {
         </div> */}
       </div>
       <Button type="submit">Log In</Button>
+      <ToastContainer position="bottom-center" />
     </form>
   );
 }

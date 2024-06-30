@@ -22,9 +22,9 @@ function CourseCard({ information }) {
       .then((response) => {
         // Handle successful response
         if (response.data.message === "Course added to cart") {
-          toast.success(response.data.message);
+          toast.success("Course added to cart");
         } else {
-          toast.error(response.data.message);
+          toast.error("already in cart");
         }
       })
       .catch((error) => {

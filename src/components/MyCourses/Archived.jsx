@@ -6,7 +6,12 @@ import axios from "axios";
 const Archived = () => {
   const [courses, setCourses] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [reload, setReload] = useState(false);
   let token = localStorage.getItem("token");
+  const re = () => {
+    setReload((reload) => !reload);
+    console.log("reload");
+  };
   useEffect(() => {
     axios
       .get("https://e-learning-platform-uwoj.onrender.com/user/get-archived", {
@@ -20,13 +25,18 @@ const Archived = () => {
         const list = response.data.data;
         setCourses(list); // Update state with fetched data
         setIsLoading(false);
+        setReload(false);
       })
       .catch((error) => {
         // Handle error
         console.error("Error fetching courses:", error);
       });
-  }, [courses]);
-  return <>{isLoading ? <Loader /> : <CoursesList courses={courses} />}</>;
+  }, [reload, token]);
+  return (
+    <>
+      {isLoading ? <Loader /> : <CoursesList courses={courses} reload={re} />}
+    </>
+  );
 };
 
 export default Archived;

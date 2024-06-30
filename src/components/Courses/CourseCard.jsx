@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link, NavLink, useLocation } from "react-router-dom";
 import Button from "./../Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,8 +11,27 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const CourseCard = ({ course }) => {
-  const token = localStorage.getItem("token");
+const CourseCard = ({ course, reload }) => {
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [isTokenChanged, setIsTokenChanged] = useState(false);
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const newToken = localStorage.getItem("token");
+      console.log("newToken", newToken);
+      console.log("token", token);
+      if (newToken !== token) {
+        setToken(newToken);
+        setIsTokenChanged(true);
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, [token]);
+
   const location = useLocation();
   const arr = location.pathname.split("/");
   const p1 = arr.pop();
@@ -30,7 +49,9 @@ const CourseCard = ({ course }) => {
     }
   };
   handle();
+
   const AddToCart = () => {
+    if (token === null || isTokenChanged) return toast.error("Login First");
     axios
       .post(
         `https://e-learning-platform-uwoj.onrender.com/user/add-to-cart?courseId=${course.id}`,
@@ -42,20 +63,22 @@ const CourseCard = ({ course }) => {
         }
       )
       .then((response) => {
-        // Handle successful response
         if (response.data.message === "Course added to cart") {
-          toast.success(response.data.message);
+          toast.success("Course added to cart");
+          reload();
         } else {
-          toast.error(response.data.message);
+          toast.error("already in cart");
         }
       })
       .catch((error) => {
-        // Handle error
         console.error("Error fetching courses:", error);
         toast.error("Failed to add item to cart!");
       });
   };
+
   const AddToWish = () => {
+    if (token === null || isTokenChanged) return toast.error("Login First");
+
     axios
       .post(
         `https://e-learning-platform-uwoj.onrender.com/user/add-to-wishlist?courseId=${course.id}`,
@@ -67,19 +90,20 @@ const CourseCard = ({ course }) => {
         }
       )
       .then((response) => {
-        // Handle successful response
         if (response.data.message === "Course added to wishlist") {
-          toast.success(response.data.message);
+          toast.success("Course added to wishlist");
         } else {
-          toast.error(response.data.message);
+          toast.error("already in wishlist");
         }
       })
       .catch((error) => {
-        // Handle error
         console.error("Error add course:", error);
       });
   };
+
   const DeleteToWish = () => {
+    if (token === null || isTokenChanged) return toast.error("Login First");
+
     axios
       .delete(
         `https://e-learning-platform-uwoj.onrender.com/user/delete-from-wishlist?courseId=${course.id}`,
@@ -90,16 +114,18 @@ const CourseCard = ({ course }) => {
         }
       )
       .then((response) => {
-        // Handle successful response
+        reload();
         toast.success("Removed");
       })
       .catch((error) => {
-        // Handle error
         console.error("Error delete course:", error);
         toast.error(response.data.message);
       });
   };
+
   const AddToArch = () => {
+    if (token === null || isTokenChanged) return toast.error("Login First");
+
     axios
       .post(
         `https://e-learning-platform-uwoj.onrender.com/user/add-to-archived?courseId=${course.id}`,
@@ -112,16 +138,19 @@ const CourseCard = ({ course }) => {
       )
       .then((response) => {
         if (response.data.status === "OK") {
-          toast.success(response.data.message);
+          toast.success("Course added to archived");
         } else {
-          toast.error(response.data.message);
+          toast.error("already in archived");
         }
       })
       .catch((error) => {
         console.error("Error add course:", error);
       });
   };
+
   const DeleteFromArch = () => {
+    if (token === null || isTokenChanged) return toast.error("Login First");
+
     axios
       .delete(
         `https://e-learning-platform-uwoj.onrender.com/user/delete-from-archived?courseId=${course.id}`,
@@ -133,17 +162,18 @@ const CourseCard = ({ course }) => {
       )
       .then((response) => {
         if (response.data.status === "OK") {
-          toast.success(response.data.message);
+          toast.success("Removed");
+          reload();
         } else {
-          toast.error(response.data.message);
+          toast.error("not in archived");
         }
       })
       .catch((error) => {
-        // Handle error
         console.error("Error delete course:", error);
         toast.error(response.data.message);
       });
   };
+
   return (
     <div className="course-card">
       <div className="icon-container">

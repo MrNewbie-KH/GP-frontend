@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Button from "./Button.jsx";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+
 // import { Link,navigate } from "react-router-dom";
 // -----------------------
 const initialState = {
@@ -15,7 +17,6 @@ const initialState = {
 function SignupForm() {
   // state part
   const [formData, setFormData] = useState(initialState);
-  const [messageState, setMessageState] = useState("");
   const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -35,14 +36,18 @@ function SignupForm() {
       );
       console.log(response);
       if (response.data.status === "BAD_REQUEST") {
-        setMessageState(
+        toast.error(
           (response.data.data && response.data.data.password) ||
             response.data.message
         );
       } else {
-        setMessageState(response.data.message);
         setFormData(initialState);
-        navigate("/login");
+        toast.success("Verification link has been sent to your email");
+
+        setTimeout(() => {
+          navigate("/login");
+          console.log("navigate");
+        }, 6000);
       }
     } catch (error) {
       console.error("Error:", error.message);
@@ -94,6 +99,7 @@ function SignupForm() {
             value={formData.password}
             onChange={handleChange}
             required
+            placeholder="at least one number, one upper, one lower, and be at least 8 characters long"
           />
         </div>
         <div className="formRow">
@@ -107,8 +113,8 @@ function SignupForm() {
           />
         </div>
         <Button type="submit">Create account</Button>
+        <ToastContainer position="bottom-center" />
       </form>
-      <div className="alert-message">{messageState}</div>
     </div>
   );
 }

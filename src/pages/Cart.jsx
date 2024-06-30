@@ -7,9 +7,17 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Cart.css";
 import CoursePreview from "./../components/Cart/CoursePreview";
 import { NavLink } from "react-router-dom";
+
 const Cart = () => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [reload, setReload] = useState(false);
+
+  const re = () => {
+    setReload((reload) => !reload);
+    console.log("reload");
+  };
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
@@ -20,16 +28,17 @@ const Cart = () => {
       })
       .then((response) => {
         const list = response.data.data;
-        console.log(list);
+        console.log(reload);
         setItems(list);
         setIsLoading(false);
+        setReload(false);
       })
       .catch((error) => {
         console.error("Error fetching courses:", error);
       });
-  }, [items]);
+  }, [reload]);
 
-  let calculateTotalPrice = () => {
+  const calculateTotalPrice = () => {
     return items.reduce((total, course) => total + course.price, 0);
   };
 
@@ -44,7 +53,7 @@ const Cart = () => {
           ) : items !== undefined && items.length > 0 ? (
             <div className="cart-items-grid">
               {items.map((course) => (
-                <CoursePreview course={course} key={course.id} />
+                <CoursePreview course={course} reload={re} key={course.id} />
               ))}
             </div>
           ) : (

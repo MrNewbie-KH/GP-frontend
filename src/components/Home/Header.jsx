@@ -1,20 +1,25 @@
-// Header.js
 import React, { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import Search from "../Search/Search";
 import axios from "axios";
 import CartCourseCard from "../Cart/CartCourseCard";
-const Header = () => {
+
+const Header = (changed) => {
   const location = useLocation();
   const [items, setItems] = useState([]);
-  useEffect(() => {
-    countCart();
-  }, [items]);
-
   const isloggedin = localStorage.getItem("token") ? true : false;
-  function logOut() {
+
+  useEffect(() => {
+    console.log("changed");
+    if (isloggedin) {
+      countCart();
+    }
+  }, [isloggedin, changed]);
+
+  const logOut = () => {
     localStorage.removeItem("token");
-  }
+  };
+
   const countCart = () => {
     const token = localStorage.getItem("token");
     axios
@@ -91,7 +96,7 @@ const Header = () => {
                 {items.length}
               </div>
               <div id="courses-list" className="courses-list">
-                {items.map((item) => (
+                {items.length > 0 && items.map((item) => (
                   <CartCourseCard key={item.id} course={item} />
                 ))}
               </div>

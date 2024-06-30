@@ -8,7 +8,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 const CartCourseCard = (course) => {
   const token = localStorage.getItem("token");
-  console.log(course);
   const DeletefromCart = () => {
     axios
       .delete(

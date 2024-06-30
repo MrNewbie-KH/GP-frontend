@@ -12,7 +12,6 @@ const CategoriesPanel = () => {
       .then((response) => {
         // Handle successful response
         const list = response.data.data;
-        console.log(list);
         setCategories(list); // Update state with fetched data
       })
       .catch((error) => {

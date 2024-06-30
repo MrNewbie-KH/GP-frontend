@@ -16,10 +16,21 @@ function Home() {
   const navigate = useNavigate(); // Use useNavigate hook from react-router-dom
   const [currentPage, setCurrentPage] = useState(1);
   const [searchParams] = useSearchParams();
-
+  const [reload, setReload] = useState(false);
+  const re = () => {
+    setReload((reload) => !reload);
+    console.log("reload");
+  };
   useEffect(() => {
+    document.title = "Zakker";
+    console.log("document.title", document.title);
+  }, []);
+  useEffect(() => {
+    console.log("currentPage", currentPage);
     let pageParam = parseInt(searchParams.get("p"), 10);
     setCurrentPage(pageParam || 1);
+  }, [searchParams]);
+  useEffect(() => {
     axios
       .get(
         `https://e-learning-platform-uwoj.onrender.com/course/public/get-courses/${
@@ -48,7 +59,7 @@ function Home() {
   };
   return (
     <div className="Home">
-      <Header />
+      <Header changed={reload} />
       <Hero />
       <Categories />
       {isLoading ? (
@@ -59,6 +70,7 @@ function Home() {
           totalPages={totalPages}
           currentPage={currentPage}
           changeCurrentPage={changeCurrentPage}
+          reload={re}
         />
       )}
       <Footer />
