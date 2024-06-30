@@ -106,11 +106,31 @@
 /* _____________________________________________________________ */
 
 .courses-list {
-  width: 250px;
+  width: 300px;
+  display: none;
+  position: absolute;
+  top: 100%; /* Position below the NavLink */
+  right: 0; /* Align to the right edge of the NavLink */
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+  list-style-type: none;
+  z-index: 1000; /* Ensure the dropdown is on top */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  opacity: 0;
+  transform: translateY(-10px); /* Start position for animation */
+  text-align: left;
+}
+
+.test:hover .courses-list {
+  display: block;
+  opacity: 1;
 }
 .small-cart-items-grid {
   display: grid;
-  margin: 20px;
+  margin: 2px;
 }
 
 .small-cart-item-card {
@@ -118,17 +138,19 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 10px;
   display: grid;
   margin-top: 5px;
   margin-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
   grid-template-columns: auto 1fr;
   align-items: center;
+  color: #2e91fc !important;
 }
 
 .small-cart-delete {
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 1rem;
   right: 1rem;
   cursor: pointer;
   font-size: small;
@@ -149,5 +171,22 @@
 .small-cart-item-price {
   margin-top: 15px;
   font-size: small !important;
-  color: inherit !important;
+  color: #2e91fc !important;
+}
+.show-more {
+  color: red;
+  margin: 10px; /* Corrected 'Px' to 'px' */
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid #2e91fc; /* Moved color and width */
+  box-shadow: 0 5px 10px rgba(46, 145, 252, 0.2); /* Adjusted shadow opacity for a softer look */
+  text-align: center;
+  padding: 10px 20px; /* Added padding for better click area */
+  border-radius: 5px; /* Added border radius for rounded corners */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Added transition for smooth hover effect */
+}
+
+.show-more:hover {
+  background-color: #2e91fc; /* Added background color on hover */
+  color: white; /* Changed text color on hover */
 }

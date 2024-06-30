@@ -96,9 +96,18 @@ const Header = (changed) => {
                 {items.length}
               </div>
               <div id="courses-list" className="courses-list">
-                {items.length > 0 && items.map((item) => (
-                  <CartCourseCard key={item.id} course={item} />
-                ))}
+                {items.length > 0 &&
+                  items.slice(0, 4).map((item) => (
+                    <NavLink>
+                      {" "}
+                      <CartCourseCard key={item.id} course={item} />
+                    </NavLink>
+                  ))}
+                {items.length > 4 && (
+                  <NavLink to="/cart">
+                    <div className="show-more">Show more</div>
+                  </NavLink>
+                )}
               </div>
             </NavLink>
           </div>

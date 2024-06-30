@@ -1,17 +1,30 @@
 import React, { useState } from "react";
 import LessonLink from "./LessonLink";
-function SectionCard({ data ,isSubscribed}) {
+function SectionCard({ data, isSubscribed }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
   // rubish
-  function calcDuration(obj){
-  let ctr =0;
-  for(let i=0;i<obj.lessons.length;i++){
-    ctr+=obj.lessons[i].duration
+  function calcDuration(obj) {
+    let ctr = 0;
+    for (let i = 0; i < obj.lessons.length; i++) {
+      ctr += obj.lessons[i].duration;
+    }
+    return ctr;
   }
-  return ctr;
+
+  function formatDuration(seconds) {
+    const pad = (num) => String(num).padStart(2, "0");
+
+    if (seconds < 3600) {
+      const minutes = Math.ceil(seconds / 60);
+      return `${pad(minutes)}`;
+    } else {
+      const hours = Math.floor(seconds / 3600);
+      const remainingMinutes = Math.floor((seconds % 3600) / 60);
+      return `${hours}hr${remainingMinutes}min`;
+    }
   }
 
   return (
@@ -55,7 +68,7 @@ function SectionCard({ data ,isSubscribed}) {
         </div>
         <div>
           <p>{data.numberOfLessons && data.numberOfLessons} lessons</p>
-          <p>{data.duration && data.duration} Minutes</p>
+          <p>{data.duration ? formatDuration(data.duration) : ""} Minutes</p>
         </div>
       </div>
       {isOpen && (

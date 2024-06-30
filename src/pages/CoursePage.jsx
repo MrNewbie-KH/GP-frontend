@@ -28,8 +28,8 @@ function CoursePage() {
             },
           }
         );
-        console.log(response.data.data.data);
-        setCoursedata(response.data.data.data);
+        console.log("response", response.data.data);
+        setCoursedata(response.data.data);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);

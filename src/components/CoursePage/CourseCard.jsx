@@ -6,7 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 
 function CourseCard({ information }) {
   const token = localStorage.getItem("token");
-
+  console.log("card", information.isSubscribed);
   const AddToCart = () => {
     console.log("dfasgha");
     axios
@@ -37,12 +37,17 @@ function CourseCard({ information }) {
   return (
     <div className="course-card-viewer">
       <img src={information.imageUrl} alt="" />
-      <p>Price {information.price} EGP</p>
-      <button className="button" onClick={AddToCart}>
-        Add to cart
-      </button>
-      {/* <Button className="btn">Buy now</Button> */}
-      <p>30 days money back</p>
+      {!information.isSubscribed ? (
+        <>
+          <p>Price {information.price} EGP</p>
+          <button className="button" onClick={AddToCart}>
+            Add to cart
+          </button>
+          <p>30 days money back</p>
+        </>
+      ) : (
+        <></>
+      )}
       <ul className="info-List-course-card">
         <li>
           <span>language</span>
@@ -58,7 +63,9 @@ function CourseCard({ information }) {
         </li>
         <li>
           <span>Rating</span>
-          <span>{information.averageRating}</span>
+          <span>
+            {information.averageRating} ({information.numberOfRatings} ratings)
+          </span>
         </li>
       </ul>
       <ToastContainer position="bottom-center" />

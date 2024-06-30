@@ -5,8 +5,7 @@ body {
 .main-course-info {
   width: 80%;
   height: 30vh;
-  margin: 100px auto 200px;
-  /* margin-top:100px ; */
+  margin: 100px auto 150px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -23,9 +22,11 @@ body {
 /* -------------------------- */
 /* card that is used to buy course */
 .course-card-viewer {
+  height: 45vh;
   position: absolute;
-  top: 25%;
   left: 75%;
+  top: 29%;
+
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
@@ -38,8 +39,9 @@ body {
   border-radius: 10px;
   margin: 100px;
   align-items: center;
-  font-size: 14px;
+  font-size: 20px;
   background-color: white;
+  justify-content: center;
 }
 .course-card-viewer .button {
   margin-bottom: 10px;
@@ -72,6 +74,9 @@ body {
   width: 100%;
   height: auto;
   border-radius: 10px;
+}
+.course-card-viewer p {
+  margin: auto;
 }
 /* ========================================= */
 /* course content part */
@@ -332,6 +337,10 @@ p {
   background-color: #9fc3d425;
   border-radius: 5px;
   margin: auto;
+  padding: 10px 20px;
+}
+.myReviewContent {
+  padding-left: 80px;
 }
 .reviews-content-big-box {
   display: flex;
@@ -340,15 +349,15 @@ p {
 .rating-text {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
 }
 /* --------------------- */
 /* reviews */
 .review-card {
-  background-color: #9fc3d425;
+  background-color: #0f99d925;
   margin: auto;
-  padding: 10px;
+  padding: 20px;
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -370,8 +379,13 @@ p {
 }
 .rating-container {
   display: flex;
-  align-items: center;
-  gap: 5px;
+  gap: 15px;
+  margin-top: 20px;
+  margin: 20px;
+  margin-bottom: 10px;
+}
+.reviewcontent {
+  margin: auto !important;
 }
 .name-stars {
   display: flex;
@@ -409,59 +423,56 @@ p {
 /* review and rating part */
 .add-rating-review-content {
   margin: 1rem;
-  background-color: rgba(65, 105, 224, 0.443);
-  width: 100%;
+  background-color: rgba(0, 30, 119, 0.599);
+  width: 80%;
   text-align: left;
-  padding: 12px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 50px;
-  border-bottom-left-radius: 50px;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+  transition: transform 0.2s; /* Adds a smooth transform transition */
+  margin: auto;
+}
+
+.add-rating-review-content:hover {
+  transform: scale(1.02); /* Slightly scales up the container on hover */
 }
 
 .add-rating-review-content textarea {
-  border-radius: 4px; /* Adds a slight border radius for a softer look */
-  margin: 10px; /* Adds margin around the textarea */
-  width: calc(
-    100% - 20px
-  ); /* Sets the width of the textarea to 100% minus the margin */
-  padding: 8px; /* Adds padding inside the textarea */
+  border-radius: 8px;
+  margin: 10px 0;
+  width: 98%;
+  padding: 12px;
   color: rgb(78, 78, 78);
-  font-size: 36px;
-}
-
-.add-rating-review-content button {
-  border-radius: 4px; /* Adds a slight border radius for a softer look */
-  margin: 10px; /* Adds margin around the button */
-  width: 120px; /* Sets a fixed width for the button */
-  align-self: flex-end; /* Aligns the button to the right */
-  padding: 8px 16px; /* Adds padding inside the button */
-  background-color: #007bff; /* Sets the background color to a blue shade */
-  color: white; /* Sets the text color to white */
-  border: none; /* Removes the border */
-  font-size: 16px; /* Sets the font size */
-  cursor: pointer; /* Changes the cursor to a pointer on hover */
-  transition: background-color 0.3s; /* Adds a smooth transition for the background color change */
-}
-
-.add-rating-review-content button:hover {
-  background-color: #0056b3; /* Darkens the background color on hover */
-}
-.add-rating-review-content textarea {
-  border-radius: 4px;
-  margin: 10px;
-  width: calc(100% - 20px);
-  padding: 8px;
-  font-family: "Arial", sans-serif; /* Set a custom font */
-  font-size: 14px; /* Set a custom font size */
-  line-height: 1.5; /* Set the line height for better readability */
-  border: 1px solid #ccc; /* Add a border */
-  resize: vertical; /* Allow vertical resizing */
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+  line-height: 2;
+  border: 1px solid #ccc;
+  resize: vertical;
+  transition: border-color 0.3s, box-shadow 0.3s; /* Adds smooth transitions for border color and box shadow */
 }
 
 .add-rating-review-content textarea:focus {
-  border-color: #007bff; /* Change border color on focus */
-  outline: none; /* Remove default focus outline */
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Adds a blue glow on focus */
+}
+
+.add-rating-review-content button {
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  align-self: flex-end; /* Aligns the button to the right */
+  transition: background-color 0.3s, transform 0.2s; /* Adds transitions for background color and transform */
+}
+
+.add-rating-review-content button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Slightly scales up the button on hover */
 }

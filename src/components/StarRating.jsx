@@ -44,8 +44,9 @@ function StarRating({
   });
   return (
     <div>
-      <div style={containerStyle}>{array}
-      {!stars && <p style={textStyle}>{tempRating || rating || " "}</p>}
+      <div style={containerStyle}>
+        {array}
+        {!stars && <p style={textStyle}>{tempRating || rating || " "}</p>}
       </div>
     </div>
   );
