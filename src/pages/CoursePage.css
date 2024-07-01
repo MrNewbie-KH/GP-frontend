@@ -115,11 +115,29 @@ body {
 .section-content a {
   text-decoration: none;
 }
+.active-lesson {
+  background-color: #9d989860; /* Light background color for active lesson */
+  border-left: 6px solid #007bff; /* Blue border to highlight the active lesson */
+  padding: 10px; /* Padding to give some space around the content */
+  transition: background-color 0.5s, border-left-color 0.5s; /* Smooth transition for changes */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for a 3D effect */
+  border-radius: 40px; /* Rounded corners */
+}
+
+.active-lesson p {
+  color: #001a35; /* Blue color for the text of active lesson */
+  font-weight: bold; /* Bold text */
+}
 .lesson-card-viewer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2px;
+  margin: 5px;
+  padding: 15px 10px 5px 10px;
+  border-radius: 10px;
+}
+.lesson-card-viewer:hover {
+  background-color: #e3dede;
 }
 .lesson-card-viewer svg {
   height: 24px;
@@ -131,6 +149,7 @@ body {
   gap: 10px;
   font-size: 16px;
   color: #254e4b;
+  padding-top: px;
 }
 
 .section-card-header {

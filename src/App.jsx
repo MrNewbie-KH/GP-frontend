@@ -81,7 +81,7 @@ function App() {
           <Route path="/course/:id" element={<CoursePage />}></Route>
           <Route path="/courses/:title?" element={<Courses />}></Route>
           <Route path="/category/:title/:page?" element={<Category />}></Route>
-          <Route path="/video/:id" element={<VideoPage />} />
+          <Route path="/video/:cid/:vid" element={<VideoPage />} />
           <Route path="/user/profile" element={<ProfilePage />} />
           <Route path="/user/:id" element={<UserPage />} />
           <Route path="/edit-profile" element={<EditProfile />} />

@@ -1,23 +1,28 @@
 import React, { useEffect, useState } from "react";
 import LessonLink from "./LessonLink";
-function SectionCard({ k, data, isSubscribed }) {
+
+function SectionCard({ k, data, isSubscribed, courseId, videoId }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeLessonId, setActiveLessonId] = useState(videoId);
+
   useEffect(() => {
     if (k === 0) {
       setIsOpen(true);
     }
   }, []);
+
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-  // rubish
-  function calcDuration(obj) {
-    let ctr = 0;
-    for (let i = 0; i < obj.lessons.length; i++) {
-      ctr += obj.lessons[i].duration;
-    }
-    return ctr;
-  }
+
+  const handleLessonClick = (lessonId) => {
+    setActiveLessonId(lessonId);
+  };
+  useEffect(() => {
+    console.log("activeLessonId", activeLessonId);
+    console.log("videoId", videoId);
+    handleLessonClick(+videoId);
+  }, [videoId]);
 
   function formatDuration(seconds) {
     const pad = (num) => String(num).padStart(2, "0");
@@ -79,7 +84,15 @@ function SectionCard({ k, data, isSubscribed }) {
       {isOpen && (
         <div className="section-content">
           {data.lessons.map((lesson, index) => (
-            <LessonLink key={index} data={lesson} />
+            <LessonLink
+              key={index}
+              data={lesson}
+              isSubscribed={isSubscribed}
+              courseId={courseId}
+              videoId={videoId}
+              onClick={() => handleLessonClick(lesson.id)}
+              isActive={activeLessonId === lesson.id}
+            />
           ))}
         </div>
       )}

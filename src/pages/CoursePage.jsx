@@ -50,7 +50,7 @@ function CoursePage() {
       case "overview":
         return <OverviewContent information={courseData} />;
       case "courseContent":
-        return <CourseContent information={courseData} />;
+        return <CourseContent cid={courseId.id} />;
       case "instructors":
         return <InstructorsContent information={courseData} />;
       case "reviews":

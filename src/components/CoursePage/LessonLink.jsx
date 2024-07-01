@@ -1,7 +1,14 @@
+import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-function LessonLink({ data }) {
-
+function LessonLink({
+  data,
+  isSubscribed,
+  courseId,
+  videoId,
+  onClick,
+  isActive,
+}) {
   function formatDuration(seconds) {
     const pad = (num) => String(num).padStart(2, "0");
 
@@ -15,9 +22,29 @@ function LessonLink({ data }) {
       return `${hours}hr${remainingMinutes}min`;
     }
   }
+  // useEffect(() => {
+  //   if (+videoId === data.id) {
+  //     console.log("videoId ", videoId, data.id);
+
+  //     document.getElementById("lesson-card").classList.add("active-lesson");
+  //   } else {
+  //     document.getElementById("lesson-card").classList.remove("active-lesson");
+  //     console.log("2");
+  //   }
+  // }, [videoId, data.id]);
+
   return (
-    <NavLink to={`/video/${data.id}`}>
-      <div className="lesson-card-viewer">
+    <NavLink to={`/video/${courseId}/${data.id}`}>
+      <div
+        className={
+          isActive ? "lesson-card-viewer active-lesson" : "lesson-card-viewer"
+        }
+        onClick={onClick}
+      >
+        {/* <div
+      className={`lesson-link ${isActive ? "active-lesson" : ""}`}
+      onClick={onClick}
+    > */}
         <div className="lesson-title">
           <span>
             {data.type === "text" ? (
@@ -59,7 +86,7 @@ function LessonLink({ data }) {
           </span>
           <p>{data.title}</p>
         </div>
-        <p>{data.duration ? formatDuration(data.duration) : 0}</p>
+        <p>{data.duration ? formatDuration(data.duration) : " "}</p>
       </div>
     </NavLink>
   );

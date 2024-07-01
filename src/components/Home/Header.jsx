@@ -10,7 +10,6 @@ const Header = (changed) => {
   const isloggedin = localStorage.getItem("token") ? true : false;
 
   useEffect(() => {
-    console.log("changed");
     if (isloggedin) {
       countCart();
     }

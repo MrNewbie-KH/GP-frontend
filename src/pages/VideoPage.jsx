@@ -13,14 +13,14 @@ import axios from "axios";
 function VideoPage() {
   const [video, setVideo] = useState("");
   const [selectedPanel, setSelectedPanel] = useState("courseContent");
-  const { id } = useParams();
+  const { cid, vid } = useParams();
   const token = localStorage.getItem("token");
 
   useEffect(() => {
     const getVideo = async () => {
       try {
         const response = await axios.get(
-          `https://e-learning-platform-uwoj.onrender.com/lesson/get-lesson?lessonId=${id}`,
+          `https://e-learning-platform-uwoj.onrender.com/lesson/get-lesson?lessonId=${vid}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -34,16 +34,16 @@ function VideoPage() {
     };
 
     getVideo();
-  }, []);
+  }, [vid]);
 
   const renderContent = () => {
     switch (selectedPanel) {
       case "qaa":
-        return <QAndAContent id={id} />;
+        return <QAndAContent id={vid} />;
       case "courseContent":
-        return <CourseContent information={id} />;
+        return <CourseContent cid={cid} vid={vid} />;
       case "notes":
-        return <NotesContent lessonId={id} />;
+        return <NotesContent lessonId={vid} />;
       default:
         return null;
     }
@@ -84,6 +84,7 @@ function VideoPage() {
           </div>
         </CoursePagePanel>
         {renderContent()}
+        <div style={{ margin: "30%" }}>Zakker</div>
       </div>
     </div>
   );
