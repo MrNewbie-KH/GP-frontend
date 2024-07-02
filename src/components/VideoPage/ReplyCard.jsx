@@ -2,13 +2,12 @@ import axios from "axios";
 import { useState } from "react";
 import AddQuestion from "./AddQuestion";
 import EditComponent from "./EditComponent";
-function ReplyCard({ data }) {
+function ReplyCard({ data, reload }) {
   const [voted, setVoted] = useState(data.isLikedByUser);
   const token = localStorage.getItem("token");
   const [content, setContent] = useState(data.content);
   const [number, setNumber] = useState(data.numberOfLikes);
   const [edit, setEdit] = useState(false);
-  console.log(data);
 
   function toggleVotes() {
     setVoted(!voted);
@@ -26,7 +25,6 @@ function ReplyCard({ data }) {
           },
         }
       );
-      // console.log(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -42,7 +40,6 @@ function ReplyCard({ data }) {
           },
         }
       );
-      console.log(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -52,7 +49,7 @@ function ReplyCard({ data }) {
       const response = await axios.post(
         `https://e-learning-platform-uwoj.onrender.com/reply/update-reply`,
         {
-          content: "hello",
+          content: content,
           replyId: data.id,
         },
         {
@@ -61,7 +58,6 @@ function ReplyCard({ data }) {
           },
         }
       );
-      console.log(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -76,7 +72,7 @@ function ReplyCard({ data }) {
           },
         }
       );
-      console.log(response.data);
+      reload();
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -86,13 +82,22 @@ function ReplyCard({ data }) {
   return (
     <>
       {edit ? (
-        <EditComponent type={"reply"} setEdit={setEdit} content={content} id={data.id}  />
+        <EditComponent
+          type={"reply"}
+          setEdit={setEdit}
+          content={content}
+          setContent={setContent}
+          id={data.id}
+          reload={reload}
+        />
       ) : (
         <div className="reply-card">
           <div className="reply-card-left">
             <img src={data.user.imageUrl} alt="User who replied here" />
-            <h2>{data.user.firstName}</h2>
-            <p>{data.content}</p>
+            <div>
+              <h2>{data.user.firstName}</h2>
+              <p>{data.content}</p>
+            </div>
           </div>
 
           <div className="numbers-reply-votes">
@@ -138,7 +143,7 @@ function ReplyCard({ data }) {
                   strokeWidth={1.5}
                   stroke="currentColor"
                   className="w-6 h-6"
-                  onClick={()=>setEdit(true)}
+                  onClick={() => setEdit(true)}
                 >
                   <path
                     strokeLinecap="round"

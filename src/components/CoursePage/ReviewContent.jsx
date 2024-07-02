@@ -13,7 +13,6 @@ function ReviewsContent({ rating, courseId, isSubscribed }) {
 
   let FunReload = () => {
     setReload((reload) => !reload);
-    console.log("reload");
   };
 
   useEffect(() => {
@@ -29,7 +28,6 @@ function ReviewsContent({ rating, courseId, isSubscribed }) {
         );
         setInformation(response.data);
         setIsLoading(false);
-        console.log(response.data);
       } catch (error) {
         console.error("Error fetching reviews:", error);
       }

@@ -15,12 +15,10 @@ const Cart = () => {
 
   useEffect(() => {
     document.title = "Shopping Cart - Zakker";
-    console.log("document.title", document.title);
   }, []);
 
   const re = () => {
     setReload((reload) => !reload);
-    console.log("reload");
   };
 
   useEffect(() => {
@@ -33,7 +31,6 @@ const Cart = () => {
       })
       .then((response) => {
         const list = response.data.data;
-        console.log(reload);
         setItems(list);
         setIsLoading(false);
         setReload(false);

@@ -9,13 +9,17 @@ import { useEffect, useState } from "react";
 import CoursePagePanel from "../components/CoursePage/CoursePagePanel";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 function VideoPage() {
   const [video, setVideo] = useState("");
+  const [information, setInformation] = useState([]);
   const [selectedPanel, setSelectedPanel] = useState("courseContent");
   const { cid, vid } = useParams();
   const token = localStorage.getItem("token");
-
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [title, setTitle] = useState("");
+  useEffect(() => {}, [selectedPanel]);
   useEffect(() => {
     const getVideo = async () => {
       try {
@@ -27,28 +31,62 @@ function VideoPage() {
             },
           }
         );
-        setVideo(response.data.data.videoUrl);
+        if (response.data.status === "UNAUTHORIZED") {
+          toast.error("Buy Course to watch videos");
+        } else if (response.data.status === "NOT_FOUND") {
+          toast.error("Video not found");
+        } else if (response.data.status === "OK") {
+          setVideo(response.data.data.videoUrl);
+          return;
+        }
+        toast.error("Something went wrong");
       } catch (error) {
         console.error("Error fetching data:", error);
+        toast.error("Something went wrong");
       }
     };
-
     getVideo();
-  }, [vid]);
+  }, [cid, vid, token]);
+  useEffect(() => {
+    if (cid) {
+      const getData = async () => {
+        try {
+          const response = await axios.get(
+            `https://e-learning-platform-uwoj.onrender.com/course/public/get-course/${cid}`,
+            {
+              headers: {
+                ...(token !== null && { Authorization: `Bearer ${token}` }),
+              },
+            }
+          );
+          setInformation(response.data.data);
+          setIsSubscribed(response.data.data.isSubscribed);
+          response.data.data.sections.map((section) =>
+            section.lessons.map((lesson) =>
+              lesson.id === +vid ? setTitle(lesson.title) : null
+            )
+          );
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
 
+      getData();
+    }
+  }, [cid, vid, token]);
   const renderContent = () => {
     switch (selectedPanel) {
       case "qaa":
         return <QAndAContent id={vid} />;
       case "courseContent":
-        return <CourseContent cid={cid} vid={vid} />;
+        return <CourseContent cid={cid} vid={vid} information={information} />;
       case "notes":
         return <NotesContent lessonId={vid} />;
       default:
         return null;
     }
   };
-
+  document.title = title;
   return (
     <div>
       <Header />
@@ -63,26 +101,37 @@ function VideoPage() {
         </div>
         <CoursePagePanel>
           <div className="course-page-panel">
+            {isSubscribed && (
+              <button
+                className={`btn panel-btn  ${
+                  selectedPanel === "qaa" ? "panel-active" : "inactive"
+                }`}
+                onClick={() => setSelectedPanel("qaa")}
+              >
+                Q & A
+              </button>
+            )}
             <button
-              className="btn panel-btn"
-              onClick={() => setSelectedPanel("qaa")}
-            >
-              Q & A
-            </button>
-            <button
-              className="btn panel-btn"
+              className={`btn panel-btn  ${
+                selectedPanel === "courseContent" ? "panel-active" : "inactive"
+              }`}
               onClick={() => setSelectedPanel("courseContent")}
             >
               Course content
             </button>
-            <button
-              className="btn panel-btn"
-              onClick={() => setSelectedPanel("notes")}
-            >
-              Notes
-            </button>
+            {isSubscribed && (
+              <button
+                className={`btn panel-btn  ${
+                  selectedPanel === "notes" ? "panel-active" : "inactive"
+                }`}
+                onClick={() => setSelectedPanel("notes")}
+              >
+                Notes
+              </button>
+            )}
           </div>
         </CoursePagePanel>
+        <ToastContainer position="bottom-center" />
         {renderContent()}
         <div style={{ margin: "30%" }}>Zakker</div>
       </div>

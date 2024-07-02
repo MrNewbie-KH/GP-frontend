@@ -34,7 +34,6 @@ function SignupForm() {
         "https://e-learning-platform-uwoj.onrender.com/signup",
         formData
       );
-      console.log(response);
       if (response.data.status === "BAD_REQUEST") {
         toast.error(
           (response.data.data && response.data.data.password) ||
@@ -46,7 +45,6 @@ function SignupForm() {
 
         setTimeout(() => {
           navigate("/login");
-          console.log("navigate");
         }, 6000);
       }
     } catch (error) {

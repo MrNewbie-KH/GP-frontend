@@ -1,5 +1,4 @@
 const InstructorCard = ({ instructor }) => {
-  console.log("instructor", instructor);
   return (
     <div className="instructor-card">
       <div className="image-and-name">

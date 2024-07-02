@@ -20,7 +20,6 @@ const CoursePreview = ({ course, reload }) => {
         }
       )
       .then((response) => {
-        console.log(response.data);
         toast.success("Removed");
         reload(); // Call the reload function passed as a prop
       })

@@ -18,8 +18,6 @@ const CourseCard = ({ course, reload }) => {
   useEffect(() => {
     const handleStorageChange = () => {
       const newToken = localStorage.getItem("token");
-      console.log("newToken", newToken);
-      console.log("token", token);
       if (newToken !== token) {
         setToken(newToken);
         setIsTokenChanged(true);
@@ -114,7 +112,6 @@ const CourseCard = ({ course, reload }) => {
         }
       )
       .then((response) => {
-        console.log(response.data);
         toast.success("Removed");
         reload();
       })

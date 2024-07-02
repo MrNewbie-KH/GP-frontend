@@ -53,12 +53,13 @@ const Header = (changed) => {
       <div className="header-search">
         {location.pathname !== "/" && <Search />}
       </div>
-      <NavLink to="/category/all" className="categories">
-        Categories
-      </NavLink>
+
       {/*conditinal rendering if has token */}
       {isloggedin ? (
         <div className="loggedin">
+          <NavLink to="/category/all" className="categories">
+            Categories
+          </NavLink>
           <NavLink to="/mycourses">My Courses</NavLink>
           <NavLink to="/mycourses/wishlist">
             <svg
@@ -97,7 +98,7 @@ const Header = (changed) => {
               <div id="courses-list" className="courses-list">
                 {items.length > 0 &&
                   items.slice(0, 4).map((item) => (
-                    <NavLink>
+                    <NavLink key={item.id}>
                       {" "}
                       <CartCourseCard key={item.id} course={item} />
                     </NavLink>

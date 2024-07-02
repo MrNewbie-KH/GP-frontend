@@ -22,7 +22,6 @@ function UserPage() {
             },
           }
         );
-        console.log(response.data.data);
         setProfile(response.data.data);
         setIsLoading(false);
       } catch (error) {

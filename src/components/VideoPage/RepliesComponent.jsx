@@ -3,8 +3,7 @@ import SeeMore from "./SeeMore";
 import AddQuestion from "./AddQuestion";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Loader from  "../Loader"
-
+import Loader from "../Loader";
 
 function RepliesComponent({ questionId, setShowReplies }) {
   const token = localStorage.getItem("token");
@@ -12,14 +11,21 @@ function RepliesComponent({ questionId, setShowReplies }) {
   const [replies, setReplies] = useState([]);
   const [page, setPage] = useState(0); // Current page number
   const [isLoading, setIsLoading] = useState(true);
+  const [reload, setReload] = useState(false);
+  const re = () => {
+    setReload((reload) => !reload);
+  };
 
   const getReplies = async function (id) {
     try {
-      const response = await axios.get(`https://e-learning-platform-uwoj.onrender.com/reply/get-replyes?commentId=${questionId}&pageNumber=${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        `https://e-learning-platform-uwoj.onrender.com/reply/get-replyes?commentId=${questionId}&pageNumber=${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setIsLoading(false);
       // setReplies((prevReplies) => [...prevReplies, ...response.data.data]);
       setReplies(() => response.data.data);
@@ -31,7 +37,7 @@ function RepliesComponent({ questionId, setShowReplies }) {
 
   useEffect(() => {
     getReplies(page);
-  }, [page]); // Fetch replies whenever the page number changes
+  }, [page, questionId, token, reload]); // Fetch replies whenever the page number changes
 
   const handlePageChange = (newPage) => {
     setPage(newPage);
@@ -39,27 +45,38 @@ function RepliesComponent({ questionId, setShowReplies }) {
 
   return (
     <div className="replies-component">
+      <button className="back-btn" onClick={() => setShowReplies(false)}>
+        X
+      </button>
+      <button
+        className="add-reply-btn"
+        onClick={() => setAddReply((addReply) => !addReply)}
+      >
+        Add reply
+      </button>
+      {addReply && (
+        <AddQuestion
+          questionId={questionId}
+          isReply={true}
+          setAskQuestion={setAddReply}
+          reload={re}
+        />
+      )}
       {isLoading ? (
         <Loader />
-      ) : 
-        (
+      ) : (
         <>
-          {addReply ? (
-            <AddQuestion questionId={questionId} isReply={true} setAskQuestion={setAddReply} />
-          ) : (
+          {
             <>
-              <button className="back-btn" onClick={() => setShowReplies(false)}>
-                X
-              </button>
               {replies.map((reply) => (
-                <ReplyCard data={reply} key={reply.id} />
+                <ReplyCard data={reply} key={reply.id} reload={re} />
               ))}
-              <button className="add-reply-btn" onClick={() => setAddReply(true)}>
-                Add reply
-              </button>
-              <button onClick={() => handlePageChange(page + 1)}>Load more</button>
+
+              {/* <button onClick={() => handlePageChange(page + 1)}>
+                Load more
+              </button> */}
             </>
-          )}
+          }{" "}
         </>
       )}
     </div>

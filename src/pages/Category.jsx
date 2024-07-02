@@ -48,7 +48,6 @@ const Category = () => {
 
   useEffect(() => {
     document.title = p2 == "category" ? "Categories" : "Category - " + p2;
-    console.log("document.title", document.title);
   }, [p2]);
 
   const changeCurrentPage = async (page) => {
@@ -64,7 +63,7 @@ const Category = () => {
       <Header />
       {error ? (
         <>
-          <h1>Error {console.log(error)}</h1>
+          <h1>Error</h1>
           <h2>Please try again</h2>
         </>
       ) : (

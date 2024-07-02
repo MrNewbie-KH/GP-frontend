@@ -20,7 +20,6 @@ const CartCourseCard = (course) => {
       )
       .then((response) => {
         // Handle successful response
-        console.log(response.data);
         toast.success("Removed");
       })
       .catch((error) => {

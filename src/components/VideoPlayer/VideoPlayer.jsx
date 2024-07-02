@@ -62,7 +62,6 @@ function VideoPlayer() {
     }
   }
   function changeVolume(value) {
-    console.log(value);
     const video = document.querySelector("video"); // Get the video element
     setVolume(value);
     video.volume = value;

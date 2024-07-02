@@ -139,17 +139,42 @@ body {
 .lesson-card-viewer:hover {
   background-color: #e3dede;
 }
+
 .lesson-card-viewer svg {
   height: 24px;
   width: 24px;
 }
-.lesson-card-viewer .lesson-title {
+.lesson-title {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 16px;
   color: #254e4b;
-  padding-top: px;
+  padding-top: 0px;
+}
+.lesson-free {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  color: #0056b3;
+  font-weight: bold;
+}
+
+.lesson-not-free {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px;
+  padding: 15px 10px 5px 10px;
+  border-radius: 10px;
+  cursor: default !important;
+  color: #20272b;
+}
+.lesson-not-free p {
+  color: #20272b;
+}
+.lesson-not-free svg {
+  height: 24px;
+  width: 24px;
 }
 
 .section-card-header {
@@ -221,7 +246,6 @@ body {
 }
 
 .panel-active {
-  /* Enhanced styles for the active tab */
   background: linear-gradient(
     45deg,
     #20272b,
@@ -231,6 +255,8 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   transform: scale(1.05); /* Slightly enlarge the active tab */
   border-radius: 1.5rem;
+  transition: background 1s ease, color 1s ease, box-shadow 1s ease,
+    transform 0.3s ease;
 }
 
 /* ========================================== */
@@ -240,7 +266,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 70%;
+  width: 55% !important;
   margin: auto;
   border: 0.5px solid rgb(216, 216, 249);
   padding: 5px;
@@ -251,6 +277,11 @@ body {
   margin-bottom: 60px;
   padding-top: 30px;
   padding-bottom: 30px;
+}
+.overview-content h2 {
+  display: block;
+  width: 100%;
+  text-align: left;
 }
 .overview-content h2,
 p {
@@ -264,8 +295,8 @@ p {
   flex-direction: column;
   align-items: flex-start;
   margin: 4px;
-  width: 100%;
-  padding-left: 10%;
+  width: 90%;
+  padding: 0 10%;
 }
 .learn-outcome {
   display: flex;

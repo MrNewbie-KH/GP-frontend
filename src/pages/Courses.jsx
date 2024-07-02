@@ -33,12 +33,9 @@ const Courses = () => {
             currentPage - 1
           }`
         );
-        console.log(response.data);
         setSearchResult(response.data.data);
-        setTotalPages(response.data.numberOfPages); 
-        console.log("totalPages", response.data.numberOfPages);
+        setTotalPages(response.data.numberOfPages);
       } catch (err) {
-        console.log(err);
         setError(err);
       } finally {
         setLoading(false);
@@ -63,7 +60,7 @@ const Courses = () => {
       <Header />
       {error ? (
         <>
-          <h1>Error {console.log(error)}</h1>
+          <h1>Error</h1>
           <h2>Please try again</h2>
         </>
       ) : (

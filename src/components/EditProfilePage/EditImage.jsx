@@ -17,8 +17,6 @@ function EditImage() {
 
     const formData = new FormData();
     formData.append("image", selectedFile);
-
-    console.log(formData);
     try {
       const response = await axios.post(
         "https://e-learning-platform-uwoj.onrender.com/user/upload-image",
@@ -47,7 +45,7 @@ function EditImage() {
           </button>
         </div>
       </form>
-      <ToastContainer position="bottom-center"/>
+      <ToastContainer position="bottom-center" />
     </div>
   );
 }

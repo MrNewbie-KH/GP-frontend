@@ -28,7 +28,6 @@ function CoursePage() {
             },
           }
         );
-        console.log("response", response.data.data);
         setCourseData(response.data.data);
         setIsLoading(false);
       } catch (error) {
@@ -40,7 +39,6 @@ function CoursePage() {
   }, [courseId, token]);
 
   useEffect(() => {
-    console.log("df", courseData.title);
     document.title = courseData.title
       ? `${courseData.title} - ZAKKER`
       : "Zakker";
@@ -50,7 +48,7 @@ function CoursePage() {
       case "overview":
         return <OverviewContent information={courseData} />;
       case "courseContent":
-        return <CourseContent cid={courseId.id} />;
+        return <CourseContent cid={courseId.id} information={courseData} isSubscribed={courseData.isSubscribed} />;
       case "instructors":
         return <InstructorsContent information={courseData} />;
       case "reviews":

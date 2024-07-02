@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import EditComponent from "./EditComponent";
 
-function NoteCard({ data }) {
+function NoteCard({ data, reload }) {
   const [edit, setEdit] = useState(false);
   const token = localStorage.getItem("token");
 
@@ -17,7 +17,7 @@ function NoteCard({ data }) {
           },
         }
       );
-      console.log(response.data);
+      reload();
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -59,7 +59,15 @@ function NoteCard({ data }) {
           </svg>
         </div>
       </div>
-      {edit && < EditComponent setEdit={setEdit} id={data.id} type={"note"}  content={data.content}/>}
+      {edit && (
+        <EditComponent
+          setEdit={setEdit}
+          id={data.id}
+          type={"note"}
+          content={data.content}
+          reload={reload}
+        />
+      )}
     </>
   );
 }

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import LessonLink from "./LessonLink";
+import { ToastContainer, toast } from "react-toastify";
 
-function SectionCard({ k, data, isSubscribed, courseId, videoId }) {
+function SectionCard({ k, data, isSubscribed, courseId, videoId, notGo }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLessonId, setActiveLessonId] = useState(videoId);
-
   useEffect(() => {
     if (k === 0) {
       setIsOpen(true);
@@ -16,11 +16,13 @@ function SectionCard({ k, data, isSubscribed, courseId, videoId }) {
   };
 
   const handleLessonClick = (lessonId) => {
+    if (notGo) {
+      toast("Login First");
+      return;
+    }
     setActiveLessonId(lessonId);
   };
   useEffect(() => {
-    console.log("activeLessonId", activeLessonId);
-    console.log("videoId", videoId);
     handleLessonClick(+videoId);
   }, [videoId]);
 
@@ -74,7 +76,10 @@ function SectionCard({ k, data, isSubscribed, courseId, videoId }) {
               </svg>
             )}
           </span>
-          <p>{data.title}</p>
+          <div>
+            <p>{data.title}</p>
+            <span>{data.description}</span>
+          </div>
         </div>
         <div>
           <p>{data.numberOfLessons && data.numberOfLessons} lessons</p>
@@ -87,15 +92,19 @@ function SectionCard({ k, data, isSubscribed, courseId, videoId }) {
             <LessonLink
               key={index}
               data={lesson}
-              isSubscribed={isSubscribed}
+              view={isSubscribed || lesson.free}
               courseId={courseId}
               videoId={videoId}
-              onClick={() => handleLessonClick(lesson.id)}
+              onClick={() =>
+                (isSubscribed || lesson.free) && handleLessonClick(lesson.id)
+              }
               isActive={activeLessonId === lesson.id}
+              notGo={notGo}
             />
           ))}
         </div>
       )}
+      <ToastContainer position="bottom-center" />
     </div>
   );
 }

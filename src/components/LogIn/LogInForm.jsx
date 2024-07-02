@@ -33,7 +33,6 @@ function LogInForm() {
         "https://e-learning-platform-uwoj.onrender.com/login/custom",
         formData
       );
-      console.log(response);
       if (response.data.status === "OK") {
         const token = response.data.data;
         if (token) {
@@ -41,10 +40,8 @@ function LogInForm() {
           navigate("/");
         }
       } else if (response.data.status === "NOT_FOUND") {
-        console.log(response.data.status);
         toast.error(response.data.message);
       } else if (response.data.status === "BAD_REQUEST") {
-        console.log(response.data.status);
         toast.error(response.data.message);
       } else {
         toast.error(response.data.data);

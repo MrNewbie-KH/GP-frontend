@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-function EditComponent({ setEdit,id, type, content }) {
+function EditComponent({ setEdit, id, type, content, reload }) {
   const [state, setState] = useState(content);
   const token = localStorage.getItem("token");
   const handleSubmit = async (event) => {
@@ -9,6 +9,7 @@ function EditComponent({ setEdit,id, type, content }) {
     if (type === "reply") editReply();
     else if (type === "question") editQuestion();
     else if (type === "note") editNote();
+    setEdit(false);
   };
   async function editReply() {
     try {
@@ -24,18 +25,19 @@ function EditComponent({ setEdit,id, type, content }) {
           },
         }
       );
-      console.log(response.data);
+
+      reload();
     } catch (error) {
       console.error("Error here:", error);
     }
   }
-  async function addNewReply() {
+  async function editQuestion() {
     try {
       const response = await axios.post(
-        "https://e-learning-platform-uwoj.onrender.com/reply/create-reply",
+        "https://e-learning-platform-uwoj.onrender.com/comment/update-comment",
         {
-          commentId: questionId,
-          content: description,
+          commentId: id,
+          content: state,
         },
         {
           headers: {
@@ -43,12 +45,11 @@ function EditComponent({ setEdit,id, type, content }) {
           },
         }
       );
-      console.log(response.data);
+      reload();
     } catch (error) {
       console.error("Error here:", error);
     }
   }
-
   const editNote = async () => {
     try {
       const response = await axios.post(
@@ -63,7 +64,7 @@ function EditComponent({ setEdit,id, type, content }) {
           },
         }
       );
-      console.log(response.data);
+      reload();
     } catch (error) {
       console.error("Error fetching data:", error);
     }

@@ -6,9 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 
 function CourseCard({ information }) {
   const token = localStorage.getItem("token");
-  console.log("card", information.isSubscribed);
   const AddToCart = () => {
-    console.log("dfasgha");
     axios
       .post(
         `https://e-learning-platform-uwoj.onrender.com/user/add-to-cart?courseId=${information.id}`,

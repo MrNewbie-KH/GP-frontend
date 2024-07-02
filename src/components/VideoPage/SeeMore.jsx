@@ -1,4 +1,8 @@
-function SeeMore({children}) {
-  return <div className="see-more">See more {children}</div>;
+function SeeMore({ children, changePage }) {
+  return (
+    <div className="see-more" onClick={changePage}>
+      See more {children}
+    </div>
+  );
 }
 export default SeeMore;

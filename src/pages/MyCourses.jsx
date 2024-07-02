@@ -24,7 +24,6 @@ function MyCourses() {
         : activeTab == "wishlist"
         ? "Zakker - Wishlist"
         : "Zakker - Archived";
-    console.log("document.title", document.title);
   }, [activeTab]);
   return (
     <>

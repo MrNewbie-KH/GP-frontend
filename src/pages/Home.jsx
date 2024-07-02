@@ -19,14 +19,11 @@ function Home() {
   const [reload, setReload] = useState(false);
   const re = () => {
     setReload((reload) => !reload);
-    console.log("reload");
   };
   useEffect(() => {
     document.title = "Zakker";
-    console.log("document.title", document.title);
   }, []);
   useEffect(() => {
-    console.log("currentPage", currentPage);
     let pageParam = parseInt(searchParams.get("p"), 10);
     setCurrentPage(pageParam || 1);
   }, [searchParams]);

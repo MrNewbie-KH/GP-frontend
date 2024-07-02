@@ -1,12 +1,20 @@
 import axios from "axios";
 import { useState } from "react";
 
-function AddQuestion({ questionId, isReply, setAskQuestion, id }) {
+function AddQuestion({
+  questionId,
+  isReply,
+  isNote,
+  setAskQuestion,
+  id,
+  reload,
+}) {
   const [description, setDescription] = useState("");
   const token = localStorage.getItem("token");
   const handleSubmit = async (event) => {
     event.preventDefault();
-    isReply ? addNewReply() : addNewQuestion();
+    isReply ? addNewReply() : isNote ? addNewNote() : addNewQuestion();
+    setAskQuestion(false);
   };
   async function addNewQuestion() {
     try {
@@ -22,7 +30,7 @@ function AddQuestion({ questionId, isReply, setAskQuestion, id }) {
           },
         }
       );
-      console.log(response.data);
+      reload();
     } catch (error) {
       console.error("Error here:", error);
     }
@@ -41,7 +49,7 @@ function AddQuestion({ questionId, isReply, setAskQuestion, id }) {
           },
         }
       );
-      console.log(response.data);
+      reload();
     } catch (error) {
       console.error("Error here:", error);
     }
@@ -51,8 +59,8 @@ function AddQuestion({ questionId, isReply, setAskQuestion, id }) {
       const response = await axios.post(
         "https://e-learning-platform-uwoj.onrender.com/lesson/note/create-Note",
         {
-          commentId: questionId,
           content: description,
+          lessonId: id,
         },
         {
           headers: {
@@ -60,7 +68,7 @@ function AddQuestion({ questionId, isReply, setAskQuestion, id }) {
           },
         }
       );
-      console.log(response.data);
+      reload();
     } catch (error) {
       console.error("Error here:", error);
     }
@@ -72,7 +80,7 @@ function AddQuestion({ questionId, isReply, setAskQuestion, id }) {
         Back
       </button>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="Add">Add:</label>
+        {/* <label htmlFor="Add">Add:</label> */}
         <textarea
           id="description"
           value={description}

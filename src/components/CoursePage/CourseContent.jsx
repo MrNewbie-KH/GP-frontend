@@ -1,49 +1,48 @@
 import SectionCard from "./SectionCard";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
-function CourseContent({ cid, vid }) {
-  const [information, setInformation] = useState([]);
+function CourseContent({ cid, vid, isSubscribed, information }) {
   const [token] = useState(localStorage.getItem("token"));
-  useEffect(() => {
-    if (cid) {
-      const getData = async () => {
-        try {
-          const response = await axios.get(
-            `https://e-learning-platform-uwoj.onrender.com/course/public/get-course/${cid}`,
-            {
-              headers: {
-                ...(token !== null && { Authorization: `Bearer ${token}` }),
-              },
-            }
-          );
-          setInformation(response.data.data);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
-      };
-
-      getData();
-    }
-  }, [token]);
 
   const getData = async function () {};
-  if (!information) {
-    getData();
-  }
+
+  useEffect(() => {
+    if (!information) {
+      getData();
+    }
+  }, [information]);
+  const login = () => {
+    window.location.href = "/login";
+  };
   return (
     <div className="course-content-section">
-      {information.sections &&
-        information.sections.map((info, index) => (
-          <SectionCard
-            key={index}
-            k={index}
-            data={info}
-            isSubscribed={information.isSubscribed}
-            courseId={cid}
-            videoId={vid}
-          />
-        ))}
+      {token
+        ? information.sections &&
+          information.sections.map((info, index) => (
+            <SectionCard
+              key={index}
+              k={index}
+              data={info}
+              isSubscribed={information.isSubscribed}
+              courseId={cid}
+              videoId={vid}
+              notGo={false}
+            />
+          ))
+        : information.sections &&
+          information.sections.map((info, index) => (
+            <SectionCard
+              key={index}
+              k={index}
+              data={info}
+              isSubscribed={false}
+              courseId={cid}
+              videoId={vid}
+              notGo={true}
+            />
+          ))}
     </div>
   );
 }

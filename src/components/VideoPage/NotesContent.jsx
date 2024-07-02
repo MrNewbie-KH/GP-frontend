@@ -7,7 +7,11 @@ import Loader from "../Loader";
 function NotesContent({ lessonId }) {
   const [addNote, setAddNote] = useState(false);
   const [notes, setNotes] = useState();
-  const [isLoading,setIsLoading]=useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const [reload, setReload] = useState(false);
+  const re = () => {
+    setReload((reload) => !reload);
+  };
   const token = localStorage.getItem("token");
   useEffect(() => {
     const getNotes = async function () {
@@ -21,30 +25,32 @@ function NotesContent({ lessonId }) {
       );
       setNotes(response.data.data);
       setIsLoading(false);
-      console.log(response.data);
     };
     getNotes();
-  }, []);
+  }, [lessonId, reload]);
 
   return (
     <>
       <h1>Notes</h1>
-      {isLoading ? (
-  <Loader />
-) : (
-  !addNote ? (
-    <>
-      <button className="add-note-btn" onClick={() => setAddNote(true)}>
+      <button
+        className="add-note-btn"
+        onClick={() => setAddNote(true)}
+      >
         + Add Note
       </button>
-      {notes && notes.map((note, index) => <NoteCard data={note} key={index} />)}
-    </>
-  ) : (
-    <AddQuestion isReply={true} />
-  )
-)}
-
- 
+      {addNote ? (
+        <AddQuestion id={lessonId} isNote={true} setAskQuestion={setAddNote} reload={re} />
+      ) : (
+        <></>
+      )}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          {notes &&
+            notes.map((note, index) => <NoteCard data={note} key={index} reload={re} />)}
+        </>
+      )}
     </>
   );
 }

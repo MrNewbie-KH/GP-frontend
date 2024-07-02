@@ -9,7 +9,6 @@ function ReviewCard({ data, isReviewd, number, reload }) {
 
   let CloseEdit = () => {
     setEditIt(false);
-    console.log("closed");
   };
 
   async function deleteReview() {
@@ -23,7 +22,6 @@ function ReviewCard({ data, isReviewd, number, reload }) {
         }
       );
       reload();
-      console.log(response);
     } catch (error) {
       console.error("Error deleting review:", error);
     }

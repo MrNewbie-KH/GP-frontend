@@ -28,7 +28,6 @@ const ForgotPasswordPopup = () => {
         `https://e-learning-platform-uwoj.onrender.com/forget-password`,
         { email: emailInput }
       );
-      console.log(emailInput);
       toast.success(response.data.message);
     } catch (error) {
       console.error("Error:", error.message);

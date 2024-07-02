@@ -10,7 +10,6 @@ const Wishlist = () => {
   let token = localStorage.getItem("token");
   const re = () => {
     setReload((reload) => !reload);
-    console.log("reload");
   };
   useEffect(() => {
     axios
