@@ -25,6 +25,11 @@ function Home() {
   }, []);
   useEffect(() => {
     let pageParam = parseInt(searchParams.get("p"), 10);
+    let token = searchParams.get("token");
+    if (token) {
+      localStorage.setItem("token", token);
+      navigate("/");
+    }
     setCurrentPage(pageParam || 1);
   }, [searchParams]);
   useEffect(() => {

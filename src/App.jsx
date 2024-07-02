@@ -45,7 +45,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/:page?" element={<Home />} />
+          <Route path="/:page?/:token?" element={<Home />} />
           <Route
             path="/login"
             element={
