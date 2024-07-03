@@ -5,10 +5,12 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-links">
-        <a href="#">About Us</a>
-        <a href="#">Contact Us</a>
+        <a href="https://github.com/MrNewbie-KH/GP-frontend?tab=readme-ov-file#graduation-project">
+          About Us
+        </a>
+        <a href="https://github.com/MrNewbie-KH/GP-frontend">Contact Us</a>
       </div>
-      <div className="social-icons">
+      {/* <div className="social-icons">
         <a href="#">
           <i className="fab fa-facebook"></i>
         </a>
@@ -21,7 +23,7 @@ const Footer = () => {
         <a href="#">
           <i className="fab fa-linkedin"></i>
         </a>
-      </div>
+      </div> */}
     </footer>
   );
 };

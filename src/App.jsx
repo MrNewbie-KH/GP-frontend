@@ -26,6 +26,9 @@ import ProfilePage from "./pages/ProfilePage";
 import Payment from "./pages/Payment";
 import Category from "./pages/Category";
 import { useEffect } from "react";
+import UploadCourse from "./pages/UploadCourse";
+import Dashboard from "./pages/Dashboard";
+import UpdateCourse from "./pages/UpdateCourse";
 // const routes=createBrowserRouter(cre)
 function App() {
   useEffect(() => {
@@ -62,7 +65,6 @@ function App() {
               </UnProtectedRoute>
             }
           />
-
           <Route
             path="/mycourses"
             element={
@@ -75,10 +77,15 @@ function App() {
             <Route path="wishlist" element={<Wishlist />} />
             <Route path="archived" element={<Archived />} />
           </Route>
-
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
-          <Route path="/course/:id" element={<CoursePage />}></Route>
+          <Route path="/course/:id" element={<CoursePage />}></Route>{" "}
+          <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route path="/dashboard/upload" element={<UploadCourse />}></Route>
+          <Route
+            path="/dashboard/update/:id"
+            element={<UpdateCourse />}
+          ></Route>
           <Route path="/courses/:title?" element={<Courses />}></Route>
           <Route path="/category/:title/:page?" element={<Category />}></Route>
           <Route path="/video/:cid/:vid" element={<VideoPage />} />

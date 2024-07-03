@@ -133,7 +133,7 @@ const Header = (changed) => {
                   <Link to="/cart">My Cart</Link>
 
                   <Link to="/mylearning">Wishlist</Link>
-                  <Link>Dasboard</Link>
+                  <Link to="/dashboard">Dasboard</Link>
                 </div>
                 <div className="popup-section">
                   <Link>Account settings</Link>

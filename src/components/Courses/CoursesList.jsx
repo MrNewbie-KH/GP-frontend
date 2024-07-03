@@ -9,6 +9,8 @@ const CoursesList = ({
   currentPage,
   changeCurrentPage,
   reload,
+  owncourse,
+  edit,
 }) => {
   const handlePageChange = async (page) => {
     changeCurrentPage(page);
@@ -20,7 +22,13 @@ const CoursesList = ({
           {" "}
           <div className="course-list">
             {courses.map((course) => (
-              <CourseCard key={course.id} course={course} reload={reload} />
+              <CourseCard
+                key={course.id}
+                course={course}
+                reload={reload}
+                owncourse={owncourse}
+                edit={edit}
+              />
             ))}
           </div>
           <Pagination

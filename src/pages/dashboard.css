@@ -1,0 +1,19 @@
+.add-course .add-course-btn {
+  background: linear-gradient(
+    45deg,
+    #20272b,
+    #0056b3
+  ); /* Gradient background */
+  color: white; /* Text color for the active tab */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transform: scale(1.05); /* Slightly enlarge the active tab */
+  border-radius: 1.5rem;
+  transition: background 1s ease, color 1s ease, box-shadow 1s ease,
+    transform 0.3s ease;
+  width: 25%;
+  height: 100%;
+  margin: auto;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 25px;
+}

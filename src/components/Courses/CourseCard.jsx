@@ -11,9 +11,14 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const CourseCard = ({ course, reload }) => {
+const CourseCard = ({ course, reload, owncourse, edit }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [isTokenChanged, setIsTokenChanged] = useState(false);
+  const location = useLocation();
+  const arr = location.pathname.split("/");
+  const p1 = arr.pop();
+  const p2 = arr.pop();
+  let activeTab = "";
 
   useEffect(() => {
     const handleStorageChange = () => {
@@ -30,11 +35,6 @@ const CourseCard = ({ course, reload }) => {
     };
   }, [token]);
 
-  const location = useLocation();
-  const arr = location.pathname.split("/");
-  const p1 = arr.pop();
-  const p2 = arr.pop();
-  let activeTab = "";
   const handle = () => {
     if (p1 === "mycourses" || p2 === "mycourses") {
       activeTab = "mycourses";
@@ -197,23 +197,39 @@ const CourseCard = ({ course, reload }) => {
             onClick={DeleteFromArch}
           />
         ) : (
-          <FontAwesomeIcon
-            title="Add to Wishlist"
-            className="heart"
-            icon={faHeart}
-            onClick={AddToWish}
-          />
+          !owncourse && (
+            <FontAwesomeIcon
+              title="Add to Wishlist"
+              className="heart"
+              icon={faHeart}
+              onClick={AddToWish}
+            />
+          )
         )}
       </div>
-      <Link to={`/course/${course.id}`}>
-        <div className="image-container-course">
-          <img src={course.imageUrl} alt={course.title} />
-        </div>
-      </Link>
-      <div className="course-info">
-        <Link to={`/course/${course.id}`}>
-          <h3>{course.title}</h3>
+      {owncourse && edit ? (
+        <Link to={`/dashboard/update/${course.id}`}>
+          <div className="image-container-course">
+            <img src={course.imageUrl} alt={course.title} />
+          </div>
         </Link>
+      ) : (
+        <Link to={`/course/${course.id}`}>
+          <div className="image-container-course">
+            <img src={course.imageUrl} alt={course.title} />
+          </div>{" "}
+        </Link>
+      )}
+      <div className="course-info">
+        {owncourse && edit ? (
+          <Link to={`/dashboard/update/${course.id}`}>
+            <h3>{course.title}</h3>
+          </Link>
+        ) : (
+          <Link to={`/course/${course.id}`}>
+            <h3>{course.title}</h3>
+          </Link>
+        )}
         <div className="instructor-grid">
           {course.instructors.map((ins, index) => (
             <NavLink to={`/user/${ins.id}`} key={index}>
@@ -233,9 +249,11 @@ const CourseCard = ({ course, reload }) => {
         {activeTab !== "mycourses" && activeTab !== "archived" && (
           <>
             <div className="price">{course.price} EGP</div>
-            <button className="home-btn" onClick={AddToCart}>
-              Add to Cart
-            </button>
+            {!owncourse && (
+              <button className="home-btn" onClick={AddToCart}>
+                Add to Cart
+              </button>
+            )}
           </>
         )}
       </div>
