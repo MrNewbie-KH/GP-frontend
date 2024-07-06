@@ -39,14 +39,15 @@ function LogInForm() {
           localStorage.setItem("token", token);
           navigate("/");
         }
-      } else if (response.data.status === "NOT_FOUND") {
+      } else if (
+        response.data.status === "NOT_FOUND" ||
+        response.data.status === "BAD_REQUEST"
+      ) {
         toast.error(response.data.message);
-      } else if (response.data.status === "BAD_REQUEST") {
-        toast.error(response.data.message);
+        setFormData(initialState);
       } else {
         toast.error(response.data.data);
       }
-      setFormData(initialState);
     } catch (error) {
       console.error("Error:", error.message);
       toast.error("Something went wrong , please try again later.");
