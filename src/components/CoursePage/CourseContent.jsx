@@ -21,15 +21,18 @@ function CourseContent({ cid, vid, isSubscribed, information }) {
       {token
         ? information.sections &&
           information.sections.map((info, index) => (
-            <SectionCard
-              key={index}
-              k={index}
-              data={info}
-              isSubscribed={information.isSubscribed}
-              courseId={cid}
-              videoId={vid}
-              notGo={false}
-            />
+            <>
+              <SectionCard
+                key={index}
+                k={index}
+                data={info}
+                isSubscribed={information.isSubscribed}
+                courseId={cid}
+                videoId={vid}
+                notGo={false}
+              />
+              {console.log(info)}
+            </>
           ))
         : information.sections &&
           information.sections.map((info, index) => (

@@ -133,12 +133,12 @@ const Header = (changed) => {
                   <Link to="/cart">My Cart</Link>
 
                   <Link to="/mylearning">Wishlist</Link>
+                  <Link to="/profile">Public profile</Link>
                   <Link to="/dashboard">Dasboard</Link>
                 </div>
                 <div className="popup-section">
-                  <Link>Account settings</Link>
                   <Link to="/edit-profile">Edit profile</Link>
-                  <Link to="/profile">Public profile</Link>
+                  <Link to="/accountsettings">Account settings</Link>
                 </div>
                 <NavLink to="/login" onClick={logOut}>
                   Log out

@@ -8,7 +8,7 @@ import ReviewsContent from "../components/CoursePage/ReviewContent";
 import CoursePagePanel from "../components/CoursePage/CoursePagePanel";
 import Header from "../components/Home/Header";
 import "./CoursePage.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "../components/Loader";
 function CoursePage() {
@@ -17,6 +17,7 @@ function CoursePage() {
   const [courseData, setCourseData] = useState([]);
   const [selectedPanel, setSelectedPanel] = useState("overview");
   const [isLoading, setIsLoading] = useState(true);
+  const nav = useNavigate();
   useEffect(() => {
     const getData = async () => {
       try {
@@ -28,7 +29,12 @@ function CoursePage() {
             },
           }
         );
-        setCourseData(response.data.data);
+        console.log(response.data);
+        if (response.data.status === "OK") {
+          setCourseData(response.data.data);
+        } else {
+          nav("/not-found");
+        }
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -48,7 +54,13 @@ function CoursePage() {
       case "overview":
         return <OverviewContent information={courseData} />;
       case "courseContent":
-        return <CourseContent cid={courseId.id} information={courseData} isSubscribed={courseData.isSubscribed} />;
+        return (
+          <CourseContent
+            cid={courseId.id}
+            information={courseData}
+            isSubscribed={courseData.isSubscribed}
+          />
+        );
       case "instructors":
         return <InstructorsContent information={courseData} />;
       case "reviews":

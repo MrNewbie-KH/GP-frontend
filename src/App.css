@@ -26,6 +26,18 @@ body {
   margin-top: 100px;
   margin-bottom: 100px;
 }
+.loader-small {
+  margin: 0 auto !important;
+  border: 6px solid #f3f3f3;
+  border: 6px solid rgba(36, 72, 106, 0.566);
+  border-top: 6px solid rgb(36, 72, 106);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  align-self: center;
+  animation: spin 1s linear infinite;
+  margin-left: 10px !important;
+}
 
 @keyframes spin {
   0% {

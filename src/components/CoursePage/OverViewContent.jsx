@@ -5,6 +5,11 @@ function OverviewContent({ information }) {
       <div className="overview-content-description">
         <h2>Description</h2>
         <ul>{information.description && information.description}</ul>
+        {information.tags.length != 0 ? (
+          <div className="tag-container">
+            Tags: {information.tags.map((tag) => tag.tag).join(", ")}
+          </div>
+        ) : null}
       </div>
       <div className="overview-content-learn">
         <h2>What you will learn</h2>

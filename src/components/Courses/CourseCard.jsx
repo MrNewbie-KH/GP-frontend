@@ -61,11 +61,12 @@ const CourseCard = ({ course, reload, owncourse, edit }) => {
         }
       )
       .then((response) => {
+        console.log(response.data);
         if (response.data.message === "Course added to cart") {
           toast.success("Course added to cart");
           reload();
         } else {
-          toast.error("already in cart");
+          toast.error(response.data.message);
         }
       })
       .catch((error) => {
@@ -91,7 +92,7 @@ const CourseCard = ({ course, reload, owncourse, edit }) => {
         if (response.data.message === "Course added to wishlist") {
           toast.success("Course added to wishlist");
         } else {
-          toast.error("already in wishlist");
+          toast.info(response.data.message);
         }
       })
       .catch((error) => {

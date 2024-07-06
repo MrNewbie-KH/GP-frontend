@@ -83,7 +83,9 @@ function SectionCard({ k, data, isSubscribed, courseId, videoId, notGo }) {
         </div>
         <div>
           <p>{data.numberOfLessons && data.numberOfLessons} lessons</p>
-          <p>{data.duration ? formatDuration(data.duration) : ""} Minutes</p>
+          <p>
+            {data.duration ? `${formatDuration(data.duration)}Minutes` : ""}
+          </p>
         </div>
       </div>
       {isOpen && (

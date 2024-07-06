@@ -26,9 +26,9 @@ import ProfilePage from "./pages/ProfilePage";
 import Payment from "./pages/Payment";
 import Category from "./pages/Category";
 import { useEffect } from "react";
-import UploadCourse from "./pages/UploadCourse";
 import Dashboard from "./pages/Dashboard";
-import UpdateCourse from "./pages/UpdateCourse";
+import CourseCreate from "./pages/CourseCreate";
+import AccountSettings from "./pages/AccountSettings";
 // const routes=createBrowserRouter(cre)
 function App() {
   useEffect(() => {
@@ -81,18 +81,25 @@ function App() {
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/course/:id" element={<CoursePage />}></Route>{" "}
           <Route path="/dashboard" element={<Dashboard />}></Route>
-          <Route path="/dashboard/upload" element={<UploadCourse />}></Route>
+          {/* ------------------------------------------------------------------------------------------ */}
           <Route
-            path="/dashboard/update/:id"
-            element={<UpdateCourse />}
+            path="/dashboard/create/:cid?/:sid?/:lid?"
+            element={<CourseCreate />}
           ></Route>
+          <Route
+            path="/dashboard/update/:cid?/:sid?/:lid?"
+            element={<CourseCreate />}
+          ></Route>
+          {/* ------------------------------------------------------------------------------------------ */}
           <Route path="/courses/:title?" element={<Courses />}></Route>
           <Route path="/category/:title/:page?" element={<Category />}></Route>
           <Route path="/video/:cid/:vid" element={<VideoPage />} />
           <Route path="/user/profile" element={<ProfilePage />} />
           <Route path="/user/:id" element={<UserPage />} />
           <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/accountsettings" element={<AccountSettings />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/not-found" element={<NotfoundPage />} />
           <Route path="*" element={<NotfoundPage />} />
         </Routes>
       </BrowserRouter>

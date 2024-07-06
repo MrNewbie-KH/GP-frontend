@@ -31,7 +31,18 @@ function CourseCard({ information }) {
         toast.error("Failed to add item to cart!");
       });
   };
+  function formatDuration(seconds) {
+    const pad = (num) => String(num).padStart(2, "0");
 
+    if (seconds < 3600) {
+      const minutes = Math.ceil(seconds / 60);
+      return `${pad(minutes)}`;
+    } else {
+      const hours = Math.floor(seconds / 3600);
+      const remainingMinutes = Math.floor((seconds % 3600) / 60);
+      return `${hours}hr${remainingMinutes}min`;
+    }
+  }
   return (
     <div className="course-card-viewer">
       <img src={information.imageUrl} alt="" />
@@ -55,6 +66,14 @@ function CourseCard({ information }) {
           <span>level</span>
           <span>{information.level}</span>
         </li>
+        {information.duration ? (
+          <li>
+            <span>Duration</span>
+            <span>{formatDuration(information.duration)}</span>
+          </li>
+        ) : (
+          <></>
+        )}
         <li>
           <span>Students</span>
           <span>{information.numberOfEnrollments}</span>

@@ -33,6 +33,7 @@ function Dashboard() {
 
     getcourse();
   }, []);
+
   return (
     <>
       <Header />
@@ -42,7 +43,7 @@ function Dashboard() {
         <>
           <h1>My Courses</h1>
           <div className="add-course">
-            <Link to="/dashboard/upload">
+            <Link to="/dashboard/update">
               <button className="add-course-btn">Add Course</button>
             </Link>
           </div>
