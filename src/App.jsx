@@ -98,6 +98,7 @@ function App() {
           <Route path="/user/:id" element={<UserPage />} />
           <Route path="/edit-profile" element={<EditProfile />} />
           <Route path="/accountsettings" element={<AccountSettings />} />
+          <Route path="/reset-password/:token?" element={<AccountSettings />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/not-found" element={<NotfoundPage />} />
           <Route path="*" element={<NotfoundPage />} />

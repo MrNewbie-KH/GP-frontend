@@ -2,18 +2,27 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Home/Header";
 import "./AccountSettings.css"; // Import the CSS file
 import axios from "axios";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 const AccountSettings = () => {
-  const [oldPassword, setOldPassword] = useState("");
+  //const [oldPassword, setOldPassword] = useState("");
   const [password, setpassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
-  let { token } = localStorage.getItem("token");
+  const [searchParams] = useSearchParams();
+  const [log, setLog] = useState(false);
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const nav = useNavigate();
   useEffect(() => {
-    token = localStorage.getItem("token");
+    if (!token) {
+      setToken(searchParams.get("token"));
+      setLog(true);
+    }
     document.title = "Account Settings - zakker";
-  });
+  }, [token, searchParams]);
+
   const handleChangePassword = async (event) => {
     event.preventDefault(); // Prevent default form submission behavior
 
@@ -37,27 +46,38 @@ const AccountSettings = () => {
           confirmPassword,
         }
       );
-
       if (response.data.status === "BAD_REQUEST") {
-        console.log(response.data.data.password);
+        if (response.data.data.message === "User not found") {
+          setErrorMessage("User not found");
+          setSuccessMessage(null);
+          return;
+        }
         setErrorMessage(
           response.data.data.password || "An error occurred. Please try again."
         );
         setSuccessMessage(null);
       } else if (response.data.status === "OK") {
-        console.log(response.data);
         setSuccessMessage("Password changed successfully!");
         setErrorMessage(null);
-        setOldPassword(""); // Clear input fields after successful change
+
+        if (log) {
+          toast.success("Login with your new password");
+          setErrorMessage(null);
+          setLog(false);
+          setTimeout(() => {
+            nav("/login");
+          }, 5000);
+        }
+
         setpassword("");
         setConfirmPassword("");
       }
     } catch (error) {
       setSuccessMessage(null);
+      console.log(error);
       setErrorMessage(error.message || "An error occurred. Please try again.");
     }
   };
-
   return (
     <>
       <Header />
@@ -96,6 +116,7 @@ const AccountSettings = () => {
           <button type="submit">Change Password</button>
         </form>
       </section>
+      <ToastContainer position="bottom-center" />
     </>
   );
 };
