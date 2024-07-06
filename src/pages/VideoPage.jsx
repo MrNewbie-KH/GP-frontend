@@ -7,7 +7,7 @@ import QAndAContent from "../components/VideoPage/QAndAContent";
 import NotesContent from "../components/VideoPage/NotesContent";
 import { useEffect, useState } from "react";
 import CoursePagePanel from "../components/CoursePage/CoursePagePanel";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -19,7 +19,39 @@ function VideoPage() {
   const token = localStorage.getItem("token");
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [title, setTitle] = useState("");
+  const nav = useNavigate();
   useEffect(() => {}, [selectedPanel]);
+  useEffect(() => {
+    if (cid) {
+      const getData = async () => {
+        try {
+          const response = await axios.get(
+            `https://e-learning-platform-uwoj.onrender.com/course/public/get-course/${cid}`,
+            {
+              headers: {
+                ...(token !== null && { Authorization: `Bearer ${token}` }),
+              },
+            }
+          );
+          if (response.data.status !== "OK") {
+            nav("/not-found");
+          }
+          setInformation(response.data.data);
+          setIsSubscribed(response.data.data.isSubscribed);
+          response.data.data.sections.map((section) =>
+            section.lessons.map((lesson) =>
+              lesson.id === +vid ? setTitle(lesson.title) : null
+            )
+          );
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          nav("/not-found");
+        }
+      };
+
+      getData();
+    }
+  }, [cid, vid, token]);
   useEffect(() => {
     const getVideo = async () => {
       try {
@@ -46,33 +78,6 @@ function VideoPage() {
       }
     };
     getVideo();
-  }, [cid, vid, token]);
-  useEffect(() => {
-    if (cid) {
-      const getData = async () => {
-        try {
-          const response = await axios.get(
-            `https://e-learning-platform-uwoj.onrender.com/course/public/get-course/${cid}`,
-            {
-              headers: {
-                ...(token !== null && { Authorization: `Bearer ${token}` }),
-              },
-            }
-          );
-          setInformation(response.data.data);
-          setIsSubscribed(response.data.data.isSubscribed);
-          response.data.data.sections.map((section) =>
-            section.lessons.map((lesson) =>
-              lesson.id === +vid ? setTitle(lesson.title) : null
-            )
-          );
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
-      };
-
-      getData();
-    }
   }, [cid, vid, token]);
   const renderContent = () => {
     switch (selectedPanel) {
