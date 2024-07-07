@@ -249,7 +249,9 @@ const CourseCard = ({ course, reload, owncourse, edit }) => {
         <span>{course.level ? course.level : "All Level"}</span>
         {activeTab !== "mycourses" && activeTab !== "archived" && (
           <>
-            <div className="price">{course.price} EGP</div>
+            <div className="price">
+              {course.price ? `${course.price} EGP` : "Free"}
+            </div>
             {!owncourse && (
               <button className="home-btn" onClick={AddToCart}>
                 Add to Cart

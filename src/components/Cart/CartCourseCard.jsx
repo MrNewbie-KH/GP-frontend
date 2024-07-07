@@ -43,7 +43,7 @@ const CartCourseCard = (course) => {
       <div className="small-cart-item-details">
         <h3 className="small-cart-item-title">{course.course.title}</h3>
 
-        <p className="small-cart-item-price">{course.course.price} E£</p>
+        <p className="small-cart-item-price">{course.course.price} EGP</p>
       </div>
     </div>
   );

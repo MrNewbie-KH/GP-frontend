@@ -48,27 +48,38 @@ const Cart = () => {
     <>
       <Header />
       <div className="cart-wrapper">
-        <div>
-          <h1 className="cart-title">Shopping Cart</h1>
-          {isLoading ? (
-            <Loader />
-          ) : items !== undefined && items.length > 0 ? (
-            <div className="cart-items-grid">
-              {items.map((course) => (
-                <CoursePreview course={course} reload={re} key={course.id} />
-              ))}
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            <div>
+              <h1 className="cart-title">Shopping Cart</h1>
+              {items !== undefined && items.length > 0 ? (
+                <>
+                  <div className="cart-items-grid">
+                    {items.map((course) => (
+                      <CoursePreview
+                        course={course}
+                        reload={re}
+                        key={course.id}
+                      />
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <h1>No Courses</h1>
+              )}
             </div>
-          ) : (
-            <h1>No Courses</h1>
-          )}
-        </div>
-        <div className="cart-total">
-          <h3 className="cart-total-title">Total:</h3>
-          <h2>{calculateTotalPrice()} E£</h2>
-          <NavLink to="/payment">
-            <button className="checkout-btn">Checkout</button>
-          </NavLink>
-        </div>
+            <div className="cart-total">
+              <h3 className="cart-total-title">Total:</h3>
+              <h2>{calculateTotalPrice()} EGP</h2>
+              <h2>{calculateTotalPrice() * 0.021} USD</h2>
+              <NavLink to="/payment">
+                <button className="checkout-btn">Checkout</button>
+              </NavLink>
+            </div>
+          </>
+        )}
         <ToastContainer position="bottom-right" />
       </div>
     </>

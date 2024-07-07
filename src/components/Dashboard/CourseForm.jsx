@@ -66,7 +66,9 @@ const CourseForm = ({ id, initialData, sections, onSubmit }) => {
         language: initialData.language || "",
         level: initialData.level || "",
         price: initialData.price || 0,
-        categories: initialData.categories || [0],
+        categories: initialData.categories.map((category) => category.id) || [
+          0,
+        ],
         tags: initialData.tags.map((tagObject) => tagObject.tag) || [""],
       });
       setComponents(initialData.sections);
@@ -78,12 +80,17 @@ const CourseForm = ({ id, initialData, sections, onSubmit }) => {
     setFormData({ ...formData, [name]: value });
     setChange(true);
   };
-
+  const handleChangeInt = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: +value });
+    setChange(true);
+  };
   const handleArrayChangeInt = (e, index, field) => {
     const { value } = e.target;
     const newArray = [...formData[field]];
     newArray[index] = parseInt(value, 10);
     setFormData({ ...formData, [field]: newArray });
+
     setChange(true);
   };
   const handleArrayChange = (e, index, field) => {
@@ -127,9 +134,8 @@ const CourseForm = ({ id, initialData, sections, onSubmit }) => {
     try {
       let response;
       if (change) {
-        console.log(formData.tags);
         if (isEdit) {
-          console.log(formData);
+          console.log("editData", formData);
           response = await axios.post(
             "https://e-learning-platform-uwoj.onrender.com/course/update-course",
             {
@@ -142,7 +148,7 @@ const CourseForm = ({ id, initialData, sections, onSubmit }) => {
               },
             }
           );
-          console.log(id);
+          console.log(response.data);
         } else {
           response = await axios.post(
             "https://e-learning-platform-uwoj.onrender.com/course/create-course",
@@ -153,11 +159,15 @@ const CourseForm = ({ id, initialData, sections, onSubmit }) => {
               },
             }
           );
-
-          setComponents([{}]);
+          if (response.data.status === "OK") {
+            setComponents([{}]);
+          }
+        }
+        if (response.data.message === "please set the owner paypal email") {
+          toast.error("please set the owner paypal email");
+          return;
         }
         onSubmit(response.data.data);
-        console.log(response.data);
         if (response.data.status === "OK") {
           toast.success("Done");
           navigate(`/dashboard/update/${response.data.data.id}`); // Navigate to the desired route
@@ -294,7 +304,7 @@ const CourseForm = ({ id, initialData, sections, onSubmit }) => {
               type="number"
               name="price"
               value={formData.price}
-              onChange={handleChange}
+              onChange={handleChangeInt}
               required
             />
           </div>

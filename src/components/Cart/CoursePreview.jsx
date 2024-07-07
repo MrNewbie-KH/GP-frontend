@@ -31,26 +31,39 @@ const CoursePreview = ({ course, reload }) => {
 
   return (
     <div className="cart-item-card" key={course.id}>
-      <img className="cart-item-img" src={course.imageUrl} alt={course.title} />
+      <NavLink to={`/course/${course.id}`}>
+        <img
+          className="cart-item-img"
+          src={course.imageUrl}
+          alt={course.title}
+        />
+      </NavLink>
       <FontAwesomeIcon
         className="cart-delete"
         icon={faTrash}
         onClick={DeletefromCart}
       />
       <div className="cart-item-details">
-        <h3 className="cart-item-title">{course.title}</h3>
+        <NavLink to={`/course/${course.id}`}>
+          <h3 className="cart-item-title">{course.title}</h3>
+        </NavLink>
         <p className="cart-item-instructor">
           By:{" "}
           {course.instructors &&
             course.instructors.map((ins, index) => (
               <NavLink to={`/user/${ins.id}`} key={index}>
                 {ins.firstName} {ins.lastName}
-                <span>, </span>
               </NavLink>
             ))}
         </p>
-        <p className="cart-item-duration">Duration: {course.duration} Hours</p>
-        <p className="cart-item-price">{course.price} E£</p>
+        {course.duration && (
+          <p className="cart-item-duration">
+            Duration: {course.duration} Hours
+          </p>
+        )}
+        <p className="cart-item-price">
+          {course.price ? `${course.price} EGP` : "Free"}
+        </p>
       </div>
     </div>
   );

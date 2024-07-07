@@ -48,11 +48,15 @@ function CourseCard({ information }) {
       <img src={information.imageUrl} alt="" />
       {!information.isSubscribed ? (
         <>
-          <p>Price {information.price} EGP</p>
+          {information.price ? (
+            <p>Price {information.price} EGP</p>
+          ) : (
+            <p>Free</p>
+          )}
           <button className="button" onClick={AddToCart}>
             Add to cart
           </button>
-          <p>30 days money back</p>
+          {/* <p>30 days money back</p> */}
         </>
       ) : (
         <></>
