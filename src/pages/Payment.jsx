@@ -54,8 +54,7 @@ function Payment() {
       console.log({
         applyCouponRequestList: applyCouponRequestList,
       });
-      window.location.href =
-        "https://e-learning-platform-uwoj.onrender.com/payment/checkout";
+      window.location.href = `https://e-learning-platform-uwoj.onrender.com/payment/checkout/${token}`;
       // axios
       //   .post(
       //     "https://e-learning-platform-uwoj.onrender.com/payment/checkout",
