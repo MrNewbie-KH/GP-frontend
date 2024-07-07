@@ -11,13 +11,6 @@ const OrderDetails = ({ courses }) => {
             <span>{course.title}</span>
             <span>{course.price.toFixed(2)} EGP</span>
           </li>
-        ))}{" "}
-        {courses.map((course) => (
-          <li key={course.id}>
-            <img src={course.imageUrl} alt={course.title} />
-            <span>{course.title}</span>
-            <span>{course.price.toFixed(2)} EGP</span>
-          </li>
         ))}
       </ul>
     </div>

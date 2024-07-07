@@ -70,14 +70,15 @@ const Cart = () => {
                 <h1>No Courses</h1>
               )}
             </div>
-            <div className="cart-total">
-              <h3 className="cart-total-title">Total:</h3>
-              <h2>{calculateTotalPrice()} EGP</h2>
-              <h2>{calculateTotalPrice() * 0.021} USD</h2>
-              <NavLink to="/payment">
-                <button className="checkout-btn">Checkout</button>
-              </NavLink>
-            </div>
+            {items !== undefined && items.length > 0 && (
+              <div className="cart-total">
+                <h3 className="cart-total-title">Total:</h3>
+                <h2>{calculateTotalPrice()} EGP</h2>
+                <NavLink to="/payment">
+                  <button className="checkout-btn">Checkout</button>
+                </NavLink>
+              </div>
+            )}
           </>
         )}
         <ToastContainer position="bottom-right" />

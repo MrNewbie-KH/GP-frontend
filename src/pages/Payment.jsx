@@ -3,12 +3,21 @@ import "./Payment.css";
 import Header from "../components/Home/Header";
 import axios from "axios";
 import OrderDetails from "./../components/Cart/OrderDetails";
+import { toast, ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function Payment() {
+  const token = localStorage.getItem("token");
   const [paymentMethod, setPaymentMethod] = useState("");
-  const [amount, setAmount] = useState(204.47); // amount in EGP
-  const [usdAmount, setUsdAmount] = useState((amount * 0.021).toFixed(2)); // Example amount in USD for PayPal
+  const [amount, setAmount] = useState(0); // amount in EGP
+  const [usdAmount, setUsdAmount] = useState(0); // Example amount in USD for PayPal
   const [courses, setCourses] = useState([]);
+  const [applyCouponRequestList, setApplyCouponRequestList] = useState([]);
+  const nav = useNavigate();
+
+  useEffect(() => {
+    document.title = "Payment - zakker";
+  });
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
@@ -18,23 +27,70 @@ function Payment() {
         },
       })
       .then((response) => {
+        let s = response.data.data.map((item) => item.price);
+        let total = s.reduce((a, b) => a + b, 0);
+        setAmount(total);
         setCourses(response.data.data);
+        setApplyCouponRequestList(
+          response.data.data.map((course) => ({
+            couponCode: " ",
+            courseId: course.id,
+          }))
+        );
       })
       .catch((error) => {
         console.error("Error fetching courses:", error);
       });
-  }, []);
+  }, [token]);
+  useEffect(() => {
+    setUsdAmount((amount * 0.021).toFixed(2));
+  }, [amount]);
   const handlePaymentMethod = (method) => {
     setPaymentMethod(method);
   };
 
   const handleProcessPayment = () => {
     if (paymentMethod === "paypal") {
-      alert(`Payment processed in USD via PayPal: ${usdAmount} $`);
-      // Implement PayPal payment processing
+      console.log({
+        applyCouponRequestList: applyCouponRequestList,
+      });
+      window.location.href =
+        "https://e-learning-platform-uwoj.onrender.com/payment/checkout";
+      // axios
+      //   .post(
+      //     "https://e-learning-platform-uwoj.onrender.com/payment/checkout",
+      //     {
+      //       applyCouponRequestList: applyCouponRequestList,
+      //     },
+      //     {
+      //       headers: {
+      //         Authorization: `Bearer ${token}`,
+      //       },
+      //     }
+      //   )
+      //   .then((response) => {
+      //     console.log(response.data);
+      //   })
+      //   .catch((error) => {
+      //     console.error("Error fetching courses:", error);
+      //   });
     } else if (paymentMethod === "vodafone") {
-      alert(`Payment processed via Vodafone Cash ${amount} EGP`);
-      // Implement Vodafone Cash payment processing
+      axios
+        .get("https://e-learning-platform-uwoj.onrender.com/checkout", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          toast.success(response.data.message);
+          setTimeout(() => {
+            nav("/mycourses");
+          }, 2000);
+        })
+        .catch((error) => {
+          console.error("Error fetching courses:", error);
+          toast.error("Something went wrong");
+        });
     }
   };
 
@@ -105,17 +161,16 @@ function Payment() {
         </div>
         <div className="summary">
           <h2>Summary</h2>
+
           <p>
-            Original Price: <span>£9,799.95</span>
-          </p>
-          <p>
-            Total: <span>£9,799.95</span>
+            Total: <span>{amount} EGP</span>
           </p>
           <button className="complete-checkout" onClick={handleProcessPayment}>
             Proceed
           </button>
         </div>
       </div>
+      <ToastContainer position="bottom-right" />
     </>
   );
 }
