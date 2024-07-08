@@ -50,7 +50,7 @@ function QAndAContent({ id }) {
     };
 
     getData();
-  }, [id, reload, page]);
+  }, [id, reload, page, comments]);
 
   return (
     <>
