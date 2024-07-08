@@ -67,9 +67,9 @@ const CourseForm = ({ id, initialData, sections, onSubmit }) => {
         level: initialData.level || "",
         price: initialData.price || 0,
         categories: initialData.categories.map((category) => category.id) || [
-          0,
-        ],
-        tags: initialData.tags.map((tagObject) => tagObject.tag) || [""],
+            categories.map((category) => category.id)[0],
+          ] || [0],
+        tags: initialData.tags.map((tagObject) => tagObject.tag),
       });
       setComponents(initialData.sections);
     }
@@ -129,6 +129,11 @@ const CourseForm = ({ id, initialData, sections, onSubmit }) => {
   const removeComponent = () => {
     setComponents(components.slice(0, -1));
   };
+  const categoryInital = () => {
+    const newArray = [0];
+    console.log(newArray);
+    setFormData({ ...formData, [categories]: newArray });
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -150,6 +155,11 @@ const CourseForm = ({ id, initialData, sections, onSubmit }) => {
           );
           console.log(response.data);
         } else {
+          //solving first submit without category--------------
+          // if (!formData.categories[0]) {
+          //   console.log([categories.map((category) => category.id)[0]]);
+          // }
+          // console.log(formData);
           response = await axios.post(
             "https://e-learning-platform-uwoj.onrender.com/course/create-course",
             formData,
@@ -251,7 +261,7 @@ const CourseForm = ({ id, initialData, sections, onSubmit }) => {
           </div>
           <div className="form-group">
             <label>Description:</label>
-            <textarea
+            <input
               name="description"
               value={formData.description}
               onChange={handleChange}
