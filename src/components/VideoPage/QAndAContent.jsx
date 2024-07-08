@@ -11,7 +11,7 @@ function QAndAContent({ id }) {
   const [isLoading, setIsLoading] = useState(true);
   const [reload, setReload] = useState(false);
   const [page, setPage] = useState(0);
-  const [prevpage, setprevpage] = useState(0);  
+  const [prevpage, setprevpage] = useState(0);
   const [nomore, setNomore] = useState(false);
   const token = localStorage.getItem("token");
   const re = () => {
@@ -50,7 +50,7 @@ function QAndAContent({ id }) {
     };
 
     getData();
-  }, [id, reload, page]);
+  }, [id, reload, page, comments]);
 
   return (
     <>
