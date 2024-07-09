@@ -242,13 +242,13 @@ const CourseCard = ({ course, reload, owncourse, edit }) => {
             </NavLink>
           ))}
         </div>
-        <span>{"" && $`{course.duration}Hours`}</span>
-        <span>
-          {course.averageRating} ★({course.numberOfEnrollments})
-        </span>
-        <span>{course.level ? course.level : "All Level"}</span>
         {activeTab !== "mycourses" && activeTab !== "archived" && (
           <>
+            <span>{"" && $`{course.duration}Hours`}</span>
+            <span>
+              {course.averageRating}★
+            </span>
+            <span>{course.level ? course.level : "All Level"}</span>
             <div className="price">
               {course.price ? `${course.price} EGP` : "Free"}
             </div>

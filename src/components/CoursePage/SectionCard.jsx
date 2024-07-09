@@ -28,10 +28,10 @@ function SectionCard({ k, data, isSubscribed, courseId, videoId, notGo }) {
 
   function formatDuration(seconds) {
     const pad = (num) => String(num).padStart(2, "0");
-
+    console.log(data.title, seconds);
     if (seconds < 3600) {
       const minutes = Math.ceil(seconds / 60);
-      return `${pad(minutes)}`;
+      return `${pad(minutes)} min`;
     } else {
       const hours = Math.floor(seconds / 3600);
       const remainingMinutes = Math.floor((seconds % 3600) / 60);
@@ -83,9 +83,7 @@ function SectionCard({ k, data, isSubscribed, courseId, videoId, notGo }) {
         </div>
         <div>
           <p>{data.numberOfLessons && data.numberOfLessons} lessons</p>
-          <p>
-            {data.duration ? `${formatDuration(data.duration)}Minutes` : ""}
-          </p>
+          <p>{data.duration ? `${formatDuration(data.duration)}` : ""}</p>
         </div>
       </div>
       {isOpen && (

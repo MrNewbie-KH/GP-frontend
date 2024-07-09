@@ -42,7 +42,7 @@ function CourseCard({ information }) {
 
     if (seconds < 3600) {
       const minutes = Math.ceil(seconds / 60);
-      return `${pad(minutes)}`;
+      return `${pad(minutes)} min`;
     } else {
       const hours = Math.floor(seconds / 3600);
       const remainingMinutes = Math.floor((seconds % 3600) / 60);
